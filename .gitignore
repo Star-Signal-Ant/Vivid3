@@ -16,9 +16,13 @@
 *.dylib
 *.dll
 
+*.ipch
+
 # Fortran module files
 *.mod
 *.smod
+
+*.pdb
 
 # Compiled Static libraries
 *.lai

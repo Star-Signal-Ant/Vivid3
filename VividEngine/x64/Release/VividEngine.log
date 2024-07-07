@@ -1,0 +1,38 @@
+﻿  SolarisRenderer.cpp
+C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(180,65): warning C4267: 'argument': conversion from 'size_t' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(180,65): warning C4267:         with
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(180,65): warning C4267:         [
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(180,65): warning C4267:             T=int32_t
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(180,65): warning C4267:         ]
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,95): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,95): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,95): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,95): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,95): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,82): warning C4244: 'argument': conversion from 'Diligent::Uint32' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,82): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,82): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,82): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,82): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,54): warning C4244: 'argument': conversion from 'Diligent::Uint32' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,54): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,54): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,54): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,54): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(313,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(314,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(342,17): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(422,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(423,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(478,17): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(648,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(659,40): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  Replacing x64\Release\pch.obj
+cuda.lib(nvcuda.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
+cudart.lib(cudart64_12.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
+OpenCL.lib(OpenCL.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
+Importer.obj : warning LNK4006: "public: unsigned int __cdecl aiMaterial::GetTextureCount(enum aiTextureType)const " (?GetTextureCount@aiMaterial@@QEBAIW4aiTextureType@@@Z) already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
+Importer.obj : warning LNK4006: "public: enum aiReturn __cdecl aiMaterial::GetTexture(enum aiTextureType,unsigned int,struct aiString *,enum aiTextureMapping *,unsigned int *,float *,enum aiTextureOp *,enum aiTextureMapMode *)const " (?GetTexture@aiMaterial@@QEBA?AW4aiReturn@@W4aiTextureType@@IPEAUaiString@@PEAW4aiTextureMapping@@PEAIPEAMPEAW4aiTextureOp@@PEAW4aiTextureMapMode@@@Z) already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
+Importer.obj : warning LNK4006: "public: struct aiScene const * __cdecl Assimp::Importer::ReadFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,unsigned int)" (?ReadFile@Importer@Assimp@@QEAAPEBUaiScene@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z) already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
+  VividEngine.vcxproj -> C:\dev\Vivid3D\Vivid3D\x64\Release\VividEngine.lib
