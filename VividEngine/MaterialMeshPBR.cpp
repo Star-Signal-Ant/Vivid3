@@ -38,14 +38,15 @@ struct Constants {
 
 MaterialMeshPBR::MaterialMeshPBR() {
 
+    return;
     Create();
-    m_Diffuse = new Texture2D("engine/white.png");
-    m_Normal = new Texture2D("engine/normal.png");
-    m_Specular = new Texture2D("engine/white.png");
-    m_Metal = new Texture2D("engine/white.png");
-    m_Roughness = new Texture2D("engine/grey.png");
-    m_Ambient = new Texture2D("engine/white.png");
-    m_Emissive = new Texture2D("engine/emtest1.png");
+    m_Diffuse = new Texture2D("engine/white.png",true);
+    m_Normal = new Texture2D("engine/normal.png",true);
+    m_Specular = new Texture2D("engine/white.png",true);
+    m_Metal = new Texture2D("engine/white.png",true);
+    m_Roughness = new Texture2D("engine/grey.png",true);
+    m_Ambient = new Texture2D("engine/white.png",true);
+    m_Emissive = new Texture2D("engine/emtest1.png",true);
 
 }
 
@@ -157,10 +158,6 @@ void MaterialMeshPBR::Create() {
 
     ShaderResourceVariableDesc v_amb;
 
-    v_amb.ShaderStages = SHADER_TYPE_PIXEL;
-    v_amb.Name = "g_TextureAmbient";
-    v_amb.Type = SHADER_RESOURCE_VARIABLE_TYPE_DYNAMIC;
-    vars.push_back(v_amb);
 
 
     v_tex.ShaderStages = SHADER_TYPE_PIXEL;
@@ -170,10 +167,7 @@ void MaterialMeshPBR::Create() {
 
     ShaderResourceVariableDesc v_env;
 
-    v_env.ShaderStages = SHADER_TYPE_PIXEL;
-    v_env.Name = "g_Environment";
-    v_env.Type = SHADER_RESOURCE_VARIABLE_TYPE_DYNAMIC;
-    vars.push_back(v_env);
+
 
     ImmutableSamplerDesc v_sampler;
 
@@ -214,11 +208,7 @@ void MaterialMeshPBR::Create() {
 
     samplers.push_back(v_sampler);
 
-    v_sampler.Desc = v_rsampler;
-    v_sampler.SamplerOrTextureName = "g_TextureAmbient";
-    v_sampler.ShaderStages = SHADER_TYPE_PIXEL;
 
-    samplers.push_back(v_sampler);
 
     v_sampler.Desc = v_rsampler;
     v_sampler.SamplerOrTextureName = "v_Shadow";
@@ -226,20 +216,16 @@ void MaterialMeshPBR::Create() {
 
     samplers.push_back(v_sampler);
 
-    v_sampler.Desc = v_rsampler;
-    v_sampler.SamplerOrTextureName = "g_Environment";
-    v_sampler.ShaderStages = SHADER_TYPE_PIXEL;
 
-    samplers.push_back(v_sampler);
 
     PipelineResourceLayoutDesc rl_desc;
 
     rl_desc.DefaultVariableType = SHADER_RESOURCE_VARIABLE_TYPE_STATIC;
     rl_desc.Variables = vars.data();
     rl_desc.ImmutableSamplers = samplers.data();
-    rl_desc.NumVariables = 7;
+    rl_desc.NumVariables = 5;
 
-    rl_desc.NumImmutableSamplers = 7;
+    rl_desc.NumImmutableSamplers = 5;
 
 
     PipelineStateDesc pso_desc;
@@ -293,6 +279,13 @@ void MaterialMeshPBR::Create() {
 
 void MaterialMeshPBR::Bind(bool sp) {
 
+      if (sp) {
+        Engine::m_pImmediateContext->SetPipelineState(m_SecondPassPipeline);
+    }
+    else {
+        Engine::m_pImmediateContext->SetPipelineState(m_Pipeline);
+    }
+
     if (sp) {
         m_SecondPassSRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_Texture")->Set(m_Diffuse->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
         m_SecondPassSRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_TextureNorm")->Set(m_Normal->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
@@ -313,7 +306,7 @@ void MaterialMeshPBR::Bind(bool sp) {
         m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_TextureNorm")->Set(m_Normal->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
         m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_TextureRough")->Set(m_Roughness->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
         m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_TextureMetal")->Set(m_Metal->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
-        m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_TextureAmbient")->Set(m_Ambient->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
+  //      m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_TextureAmbient")->Set(m_Ambient->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
         m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "v_Shadow")->Set(Engine::m_Light->GetShadowMap()->GetTexView(), SET_SHADER_RESOURCE_FLAG_NONE);
         if (m_EnvironmentTex != nullptr) {
             m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_Environment")->Set(m_EnvironmentTex->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
@@ -422,10 +415,5 @@ void MaterialMeshPBR::Bind(bool sp) {
 
     //map_data.Unmap();
 
-    if (sp) {
-        Engine::m_pImmediateContext->SetPipelineState(m_SecondPassPipeline);
-    }
-    else {
-        Engine::m_pImmediateContext->SetPipelineState(m_Pipeline);
-    }
+  
 }

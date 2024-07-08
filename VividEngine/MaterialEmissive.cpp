@@ -46,6 +46,7 @@ MaterialEmissive::MaterialEmissive() {
 
 void MaterialEmissive::Create() {
 
+    return;
     //printf("Creating MeshLight.\n");
     SetVertexShader("mesh_emissive.vsh");
     SetPixelShader("mesh_emissive.psh");

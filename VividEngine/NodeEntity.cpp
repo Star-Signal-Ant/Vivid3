@@ -67,7 +67,7 @@ void NodeEntity::Render(bool sp) {
 	if (m_Enabled) {
 	
 			for (auto mesh : m_Meshes) {
-				mesh->GetMaterial()->Bind(sp);
+			//	mesh->GetMaterial()->Bind(sp);
 				mesh->Render(sp);
 				
 

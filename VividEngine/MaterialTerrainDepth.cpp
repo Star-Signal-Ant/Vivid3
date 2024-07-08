@@ -43,6 +43,8 @@ struct Constants {
 
 MaterialTerrainDepth::MaterialTerrainDepth() {
 
+
+    return;
     Create();
 
    // m_Diffuse = new Texture2D("edit/blank_layer.png");

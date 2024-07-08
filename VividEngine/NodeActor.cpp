@@ -48,6 +48,7 @@ Mesh3D* NodeActor::ProcessMesh(aiMesh* mesh, aiScene* scene, bool buf_cre)
 		v.color = float4(1, 1, 1, 1);
 		res->AddVertex(v,true);
 
+
 	}
 
 	ExtractBoneWeights(res, mesh, scene);
@@ -184,8 +185,9 @@ void NodeActor::Render(bool sp) {
 		if (m_Enabled) {
 
 			for (auto mesh : m_Meshes) {
-				mesh->GetMaterial()->Bind(sp);
+				//mesh->GetMaterial()->Bind(sp);
 				mesh->Render(sp);
+
 
 
 			}

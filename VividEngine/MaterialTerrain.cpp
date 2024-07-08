@@ -42,6 +42,8 @@ struct Constants {
 
 MaterialTerrain::MaterialTerrain() {
 
+    return;
+
     Create();
     m_Diffuse = new Texture2D("edit/blank_layer.png");
     m_Normal = new Texture2D("engine/normal.png");

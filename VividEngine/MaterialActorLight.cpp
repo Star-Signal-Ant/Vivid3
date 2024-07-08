@@ -40,6 +40,9 @@ struct ActorLightUniform
 
 MaterialActorLight::MaterialActorLight() {
 
+    return;
+    m_Bones.clear();
+
     Create();
 
     m_Diffuse = new Texture2D("engine/white.png");
@@ -255,6 +258,12 @@ void MaterialActorLight::Create() {
 void MaterialActorLight::Bind(bool sp) {
 
     if (sp) {
+        Engine::m_pImmediateContext->SetPipelineState(m_SecondPassPipeline);
+    }
+    else {
+        Engine::m_pImmediateContext->SetPipelineState(m_Pipeline);
+    }
+    if (sp) {
         m_SecondPassSRB->GetVariableByName(SHADER_TYPE_PIXEL, "v_Texture")->Set(m_Diffuse->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
         m_SecondPassSRB->GetVariableByName(SHADER_TYPE_PIXEL, "v_TextureNorm")->Set(m_Normal->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
         m_SecondPassSRB->GetVariableByName(SHADER_TYPE_PIXEL, "v_Shadow")->Set(Engine::m_Light->GetShadowMap()->GetTexView(), SET_SHADER_RESOURCE_FLAG_NONE);
@@ -262,8 +271,9 @@ void MaterialActorLight::Bind(bool sp) {
     else {
         m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "v_Texture")->Set(m_Diffuse->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
         m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "v_TextureNorm")->Set(m_Normal->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
-        m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "v_Shadow")->Set(Engine::m_Light->GetShadowMap()->GetTexView(), SET_SHADER_RESOURCE_FLAG_NONE);
+
         m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "v_TextureSpec")->Set(m_Specular->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
+        m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "v_Shadow")->Set(Engine::m_Light->GetShadowMap()->GetTexView(), SET_SHADER_RESOURCE_FLAG_NONE);
     }
     //  m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_TextureSpec")->Set(m_Specular->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
       //Engine::m_pImmediateContext->MapBuffer(BasicUniform, MAP_TYPE::MAP_WRITE, MAP_FLAGS::MAP_FLAG_DISCARD);
@@ -357,10 +367,4 @@ void MaterialActorLight::Bind(bool sp) {
 
     //map_data.Unmap();
 
-    if (sp) {
-        Engine::m_pImmediateContext->SetPipelineState(m_SecondPassPipeline);
-    }
-    else {
-        Engine::m_pImmediateContext->SetPipelineState(m_Pipeline);
-    }
 }

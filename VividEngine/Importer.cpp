@@ -144,7 +144,8 @@ Node* Importer::ImportNode(std::string path) {
 
         }
 
-        Engine::m_ActiveMaterials.push_back(v_mat);
+
+        //Engine::m_ActiveMaterials.push_back(v_mat);
         materials.push_back(v_mat);
 
         for (unsigned int j = 0; j < mat->GetTextureCount(aiTextureType_DIFFUSE); ++j) {
@@ -153,14 +154,14 @@ Node* Importer::ImportNode(std::string path) {
             mat->GetTexture(aiTextureType_DIFFUSE, j, &str);
             if (VFile::Exists(std::string(path_alone + getFilename(std::string(str.C_Str()))).c_str()))
             {
-                v_mat->SetDiffuse(new Texture2D(path_alone + getFilename(std::string(str.C_Str()))));
+                v_mat->SetDiffuse(new Texture2D(path_alone + getFilename(std::string(str.C_Str())),true));
             }
             else {
                 auto raw_name = getFilename(str.C_Str());
                 raw_name = getFileNameWithoutExtension(raw_name);
                 auto res = Engine::FindResource(raw_name);
                 if (res) {
-                    v_mat->SetDiffuse(new Texture2D(res.value().c_str()));
+                    v_mat->SetDiffuse(new Texture2D(res.value().c_str(),true));
                 }
 
                 int b = 5;
@@ -176,14 +177,14 @@ Node* Importer::ImportNode(std::string path) {
          //   v_mat->SetSpecular(new Texture2D(path_alone + std::string(str.C_Str())));
             if (VFile::Exists(std::string(path_alone + getFilename(std::string(str.C_Str()))).c_str()))
             {
-                v_mat->SetMetal(new Texture2D(path_alone + getFilename(std::string(str.C_Str()))));
+                v_mat->SetMetal(new Texture2D(path_alone + getFilename(std::string(str.C_Str())),true));
             }
             else {
                 auto raw_name = getFilename(str.C_Str());
                 raw_name = getFileNameWithoutExtension(raw_name);
                 auto res = Engine::FindResource(raw_name);
                 if (res) {
-                    v_mat->SetMetal(new Texture2D(res.value().c_str()));
+                    v_mat->SetMetal(new Texture2D(res.value().c_str(),true));
                 }
 
                 int b = 5;
@@ -200,14 +201,14 @@ Node* Importer::ImportNode(std::string path) {
            // v_mat->SetNormals(new Texture2D(path_alone + std::string(str.C_Str())));
             if (VFile::Exists(std::string(path_alone + getFilename(std::string(str.C_Str()))).c_str()))
             {
-                v_mat->SetNormals(new Texture2D(path_alone + getFilename(std::string(str.C_Str()))));
+                v_mat->SetNormals(new Texture2D(path_alone + getFilename(std::string(str.C_Str())),true));
             }
             else {
                 auto raw_name = getFilename(str.C_Str());
                 raw_name = getFileNameWithoutExtension(raw_name);
                 auto res = Engine::FindResource(raw_name);
                 if (res) {
-                    v_mat->SetNormals(new Texture2D(res.value().c_str()));
+                    v_mat->SetNormals(new Texture2D(res.value().c_str(),true));
                 }
 
                 int b = 5;
@@ -222,14 +223,14 @@ Node* Importer::ImportNode(std::string path) {
             //v_mat->SetMetal(new Texture2D(path_alone + std::string(str.C_Str())));
             if (VFile::Exists(std::string(path_alone + getFilename(std::string(str.C_Str()))).c_str()))
             {
-                v_mat->SetMetal(new Texture2D(path_alone + getFilename(std::string(str.C_Str()))));
+                v_mat->SetMetal(new Texture2D(path_alone + getFilename(std::string(str.C_Str())),true));
             }
             else {
                 auto raw_name = getFilename(str.C_Str());
                 raw_name = getFileNameWithoutExtension(raw_name);
                 auto res = Engine::FindResource(raw_name);
                 if (res) {
-                    v_mat->SetMetal(new Texture2D(res.value().c_str()));
+                    v_mat->SetMetal(new Texture2D(res.value().c_str(),true));
                 }
 
                 int b = 5;
@@ -247,14 +248,14 @@ Node* Importer::ImportNode(std::string path) {
             //v_mat->SetNormals(new Texture2D(path_alone + std::string(str.C_Str())));
             if (VFile::Exists(std::string(path_alone + getFilename(std::string(str.C_Str()))).c_str()))
             {
-                v_mat->SetRough(new Texture2D(path_alone + getFilename(std::string(str.C_Str()))));
+                v_mat->SetRough(new Texture2D(path_alone + getFilename(std::string(str.C_Str())),true));
             }
             else {
                 auto raw_name = getFilename(str.C_Str());
                 raw_name = getFileNameWithoutExtension(raw_name);
                 auto res = Engine::FindResource(raw_name);
                 if (res) {
-                    v_mat->SetRough(new Texture2D(res.value().c_str()));
+                    v_mat->SetRough(new Texture2D(res.value().c_str(),true));
                 }
 
                 int b = 5;
@@ -369,28 +370,34 @@ Node* Importer::ImportActor(std::string path) {
         auto lmat = Engine::FindActiveMaterial(check);
 
         if (lmat != nullptr) {
-            materials.push_back(lmat);
-            continue;
+       //     materials.push_back(lmat);
+       //     continue;
         }
 
         if (VFile::Exists(check.c_str())) {
 
-            v_mat->LoadMaterial(check);
-            materials.push_back(v_mat);
-            Engine::m_ActiveMaterials.push_back(v_mat);
-            continue;
+         //   auto r = v_mat->LoadMaterial(check);
+            
+            //v_mat->SetDiffuse(r->GetDiffuse());
+           // v_mat->SetNormals(r->GetNormal());
+          //  v_mat->SetSpecular(r->GetSpecular());
+
+          //  materials.push_back(v_mat);
+           // Engine::m_ActiveMaterials.push_back(v_mat);
+          //  continue;
 
         }
 
-        Engine::m_ActiveMaterials.push_back(v_mat);
+        //Engine::m_ActiveMaterials.push_back(v_mat);
         materials.push_back(v_mat);
+
 
         for (unsigned int j = 0; j < mat->GetTextureCount(aiTextureType_DIFFUSE); ++j) {
             aiString str;
            
             mat->GetTexture(aiTextureType_DIFFUSE, j, &str);
             str = ExtractFilename(str.C_Str()).c_str();
-            v_mat->SetDiffuse(new Texture2D(path_alone + getFilename(std::string(str.C_Str()))));
+            v_mat->SetDiffuse(new Texture2D(path_alone + getFilename(std::string(str.C_Str())),true));
             //GLuint textureID = LoadTextureFromFile(directory + '/' + str.C_Str());
             std::cout << "Loaded diffuse texture ID:  for texture " << str.C_Str() << std::endl;
         }
@@ -400,7 +407,7 @@ Node* Importer::ImportActor(std::string path) {
             aiString str;
             mat->GetTexture(aiTextureType_SPECULAR, j, &str);
             str = ExtractFilename(str.C_Str()).c_str();
-            v_mat->SetSpecular(new Texture2D(path_alone + std::string(str.C_Str())));
+            v_mat->SetSpecular(new Texture2D(path_alone + std::string(str.C_Str()),true));
             //GLuint textureID = LoadTextureFromFile(directory + '/' + str.C_Str());
             std::cout << "Loaded specular texture ID: for texture " << str.C_Str() << std::endl;
         }
@@ -411,7 +418,7 @@ Node* Importer::ImportActor(std::string path) {
 
             mat->GetTexture(aiTextureType_NORMALS, j, &str);
             str = ExtractFilename(str.C_Str()).c_str();
-            v_mat->SetNormals(new Texture2D(path_alone + std::string(str.C_Str())));
+            v_mat->SetNormals(new Texture2D(path_alone + std::string(str.C_Str()),true));
             //GLuint textureID = LoadTextureFromFile(directory + '/' + str.C_Str());
             std::cout << "Loaded normal texture ID: for texture " << str.C_Str() << std::endl;
         }

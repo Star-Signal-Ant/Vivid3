@@ -8,12 +8,9 @@ Texture2D g_TextureRough;
 SamplerState g_TextureRough_sampler;
 Texture2D g_TextureMetal;
 SamplerState g_TextureMetal_sampler;
-Texture2D g_TextureAmbient;
-SamplerState g_TextureAmbient_sampler;
 TextureCube v_Shadow;
 SamplerState v_Shadow_sampler;
-TextureCube g_Environment;
-SamplerState g_Environment_sampler;
+
 #define PI 3.14159265359
 
 struct PSInput
@@ -262,11 +259,14 @@ float3 CalculateLighting(PSInput input, float3 normal, float3 viewDir, float3 li
     float3 reflectDir = reflect(-viewDir, normal);
     //float3 envMapColor = g_Environment.SampleLevel(g_Environment_sampler, reflectDir, 0).rgb;
   float roughnessFactor = roughness * 0.05; // Adjust this scaling factor as needed
-    float3 envMapColor = g_Environment.SampleLevel(g_Environment_sampler, reflectDir, roughnessFactor).rgb;
+    float3 envMapColor = float3(0,0,0);
+    
+
+
+    if(input.v_ExtraProp.y > 0){
+      // envMapColor =  g_Environment.SampleLevel(g_Environment_sampler, reflectDir, roughnessFactor).rgb;
  envMapColor *= F * metalness;
 
-    if(input.v_ExtraProp.y <= 0){
-        envMapColor = float3(0, 0, 0);
     }
 
     return lightIntensity * NdotL * (kD * diffuse + specular) + envMapColor;
@@ -308,19 +308,20 @@ void main(in  PSInput  PSIn,
 
     shadowVal = light_GetShadow(PSIn.fragPos,PSIn.v_LightPosition,PSIn.v_ExtraProp.x);
 
+    shadowVal=1.0;
 
     float3 albedo = g_Texture.Sample(g_Texture_sampler, PSIn.Uv).rgb;
     float3 normal = CalculateNormalMap(PSIn);
     float roughness = g_TextureRough.Sample(g_TextureRough_sampler, PSIn.Uv).r;
     float metalness = g_TextureMetal.Sample(g_TextureMetal_sampler, PSIn.Uv).r;
-    float ambientOcclusion = g_TextureAmbient.Sample(g_TextureAmbient_sampler, PSIn.Uv).r;
+ //   float ambientOcclusion = g_TextureAmbient.Sample(g_TextureAmbient_sampler, PSIn.Uv).r;
 
 
   float3 viewDir = normalize(PSIn.v_CameraPosition - PSIn.fragPos);
     float3 lightDir = normalize(PSIn.v_LightPosition -PSIn.fragPos);
 
     float3 lightColor = CalculateLighting(PSIn, normal, viewDir, lightDir, PSIn.v_LightDiffuse, 1.0,roughness+PSIn.v_ExtraProp.z,metalness+PSIn.v_ExtraProp.w);
-    lightColor *= ambientOcclusion*albedo;
+    lightColor *= albedo;
     
     float4 fcol = float4(lightColor, 1.0) * shadowVal*light;
     fcol.a=1.0;

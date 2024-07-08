@@ -17,6 +17,7 @@ public:
 private:
 
     std::vector<float4x4> m_Bones;
+    RefCntAutoPtr<ISampler> m_Sampler;
 
 
 };

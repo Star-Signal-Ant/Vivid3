@@ -35,10 +35,10 @@
 VOutput::VOutput(QWidget *parent)
 	: QWidget(parent)
 {
-	ui.setupUi(this);
+	//ui.setupUi(this);
     QPalette pal = palette();
     pal.setColor(QPalette::Window, Qt::lightGray); // Correct enum value
-    setAutoFillBackground(true);
+ //   setAutoFillBackground(true);
     setPalette(pal);
     CreateDX12();
     Engine::m_pDevice = m_pDevice;
@@ -82,8 +82,9 @@ VOutput::VOutput(QWidget *parent)
 
     m_EditCamera = cam;
     connect(m_MoveTimer, &QTimer::timeout, this, &VOutput::onMove);
-    m_MoveTimer->setInterval(25); // Set the interval in milliseconds
+    m_MoveTimer->setInterval(55); // Set the interval in milliseconds
     m_MoveTimer->start();
+
 
     Editor::m_Graph = m_Graph1;
     Engine::m_ActiveGraph = m_Graph1;
@@ -284,19 +285,19 @@ void VOutput::resizeEvent(QResizeEvent* event)
     Engine::SetFrameWidth(newSize.width());
     Engine::SetFrameHeight(newSize.height());
 
-    m_PP = new PostProcessing;
-    m_ppBloom = new PPBloom;
-    m_PP->AddPostProcess(m_ppBloom);
-    m_ppBloom->SetGraph(m_Graph1);
+   // m_PP = new PostProcessing;
+  //  m_ppBloom = new PPBloom;
+  //  m_PP->AddPostProcess(m_ppBloom);
+  //  m_ppBloom->SetGraph(m_Graph1);
     m_Solaris = new SolarisRenderer;
     m_Solaris->SetSceneGraph(m_Graph1);
     Engine::m_Solaris = m_Solaris;
     Engine::m_ActiveRenderer = m_Solaris;
 
-    m_ppEmissive = new PPEmissive;
+   // m_ppEmissive = new PPEmissive;
   //  m_PP->AddPostProcess(m_ppEmissive);
-    m_ppEmissive->SetGraph(m_Graph1);
-    m_RT2 = new RenderTarget2D(Engine::GetFrameWidth(), Engine::GetFrameHeight());
+   // m_ppEmissive->SetGraph(m_Graph1);
+   // m_RT2 = new RenderTarget2D(Engine::GetFrameWidth(), Engine::GetFrameHeight());
 
 }
 
@@ -946,6 +947,7 @@ void VOutput::mouseMoveEvent(QMouseEvent* event)
     }
     // Call base class implementation if necessary
     QWidget::mouseMoveEvent(event);
+
 }
 
 
@@ -1015,18 +1017,25 @@ void VOutput::onMove()
         scale = 2.5f;
     }
 
+    bool up = false;
     if (m_MoveW) {
         m_EditCamera->Move(float3(0, 0, 0.1f*scale));
+        up = true;
     }
     if (m_MoveA) {
         m_EditCamera->Move(float3(-0.1f*scale, 0,0));
+        up = true;
     }
     if (m_MoveS) {
         m_EditCamera->Move(float3(0, 0, -0.1f*scale));
+        up = true;
     }
     if (m_MoveD) {
         m_EditCamera->Move(float3(0.1f*scale, 0, 0));
+        up = true;
     }
+    update();
+   // update();
     // Action to perform while the key is held down
     //qDebug() << "Key A is held down";
 }
@@ -1037,7 +1046,9 @@ VOutput::~VOutput()
 
 void VOutput::paintEvent(QPaintEvent* event)
 {
-    //Q_UNUSED(event);
+    Q_UNUSED(event);
+
+    printf("PaintStart\n");
 
     // Perform rendering using DX12
     
@@ -1057,7 +1068,7 @@ void VOutput::paintEvent(QPaintEvent* event)
 
   //  m_Node1->SetRotation(0, ay, 0);
     m_Graph1 = Editor::m_Graph;
-    m_ppBloom->SetGraph(m_Graph1);
+//    m_ppBloom->SetGraph(m_Graph1);
 //    m_Nitro->SetSceneGraph(m_Graph1);
 
 
@@ -1146,7 +1157,7 @@ void VOutput::paintEvent(QPaintEvent* event)
 
         m_Gizmo->SetScale(float3(dis, dis, dis));
 
-        m_Gizmo->Render(false);
+      //  m_Gizmo->Render(false);
     }
 
     for (auto l : m_Graph1->GetLights()) {
@@ -1154,7 +1165,7 @@ void VOutput::paintEvent(QPaintEvent* event)
         auto sp = m_Graph1->ToScreenSpace(l->GetPosition());
 
 
-        m_Draw->Rect(m_LightIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
+//        m_Draw->Rect(m_LightIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
 
 
     }
@@ -1163,18 +1174,22 @@ void VOutput::paintEvent(QPaintEvent* event)
 
 
        m_TerrainBrush->SetMaterial(m_BrushMaterial);
-        m_TerrainBrush->Render(false);
+  //      m_TerrainBrush->Render(false);
 
     }
 
     //m_Draw->Rect(m_LightIcon, float2(20, 20), float2(256, 256), float4(1, 1, 1, 1));
 
-    pContext->Flush();
+    //pContext->Flush();
  
-    pContext->FinishFrame();
- //   pContext->Flush();
-    pSwapchain->Present(1);
-    update();
+  //  pContext->FinishFrame();
+  //  pContext->Flush();
+
+    pSwapchain->Present();
+    printf("Paint End\n");
+
+ 
+
   //  QWidget::paintEvent(event);
 }
 

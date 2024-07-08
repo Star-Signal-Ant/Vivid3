@@ -17,6 +17,8 @@
 *.dll
 
 *.ipch
+*.ilk
+*.obj
 
 # Fortran module files
 *.mod

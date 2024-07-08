@@ -18,6 +18,7 @@
 using namespace Diligent;
 MaterialBase::MaterialBase() {
 
+    return;
    // Create();
    // m_Diffuse = new Texture2D("test/test1.png");
 
@@ -27,6 +28,7 @@ MaterialBase::MaterialBase() {
 
 void MaterialBase::Create() {
 
+    return;
     SetVertexShader("basic.vsh");
     SetPixelShader("basic.psh");
 

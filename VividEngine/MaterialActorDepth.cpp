@@ -41,6 +41,7 @@ struct ActorLightUniform
 
 MaterialActorDepth::MaterialActorDepth() {
 
+    return;
     Create();
 
     //m_Diffuse = new Texture2D("engine/white.png");
@@ -239,6 +240,7 @@ void MaterialActorDepth::Bind(bool sp) {
       //Engine::m_pImmediateContext->MapBuffer(BasicUniform, MAP_TYPE::MAP_WRITE, MAP_FLAGS::MAP_FLAG_DISCARD);
 
 
+    Engine::m_pImmediateContext->SetPipelineState(m_Pipeline);
 
    
         MapHelper<ActorLightUniform> map_data(Engine::m_pImmediateContext, BasicUniform, MAP_WRITE, MAP_FLAG_DISCARD);
@@ -287,6 +289,5 @@ void MaterialActorDepth::Bind(bool sp) {
     //map_data.Unmap();
 
     
-        Engine::m_pImmediateContext->SetPipelineState(m_Pipeline);
 
 }

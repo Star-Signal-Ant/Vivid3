@@ -20,6 +20,7 @@ class VFile;
 class RTMesh;
 class MaterialBase;
 class NodeTerrain;
+class NodeActor;
 
 struct SceneInfo {
 
@@ -112,6 +113,10 @@ public:
 		m_Updated = false;
 	}
 	void RenderForcedMaterial(MaterialBase* material);
+
+	std::vector<NodeEntity*> GetEntities();
+	std::vector<NodeActor*> GetActors();
+
 private:
 
 	NodeCamera* m_Camera;

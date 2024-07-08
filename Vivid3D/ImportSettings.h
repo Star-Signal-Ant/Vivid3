@@ -17,7 +17,9 @@ public:
 	Node* GetNode() {
 		return m_Node;
 	}
-
+	bool GetActor() {
+		return m_ImportAsActor;
+	}
 private:
 
 	float m_Scale = 1.0f;

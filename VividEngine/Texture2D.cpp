@@ -3,6 +3,7 @@
 #include <thread>
 #include "RenderTarget2D.h"
 #include "VFile.h"
+#include "Engine.h"
 
 std::vector<uint8_t> GetTextureData(Diligent::ITexture* pTexture)
 {
@@ -75,7 +76,7 @@ void _load_texture(Texture2D* texture)
     auto tex = new Texture2D(texture->GetPath(), false);
     texture->Set(tex->GetTex(),tex->GetView());
     texture->Loaded();
-    delete tex;
+//    delete tex;
 }
 
 Texture2D* Texture2D::WhiteTex = nullptr;
@@ -84,25 +85,53 @@ Texture2D::Texture2D(std::string path,bool threaded) {
 
     int b = 5;
     if (VFile::Exists(path.c_str()) == false) {
-        m_pTexture = WhiteTex->GetTex();
-        m_pTextureView = WhiteTex->GetView();
+    //    m_pTexture = WhiteTex->GetTex();
+ //       m_pTextureView = WhiteTex->GetView();
         return;
     }
 
-    if (!threaded || threaded) {
+
+    if (true) {
         TextureLoadInfo loadInfo;
-        loadInfo.MipLevels = 7;
-
-        loadInfo.GenerateMips = true;// = ;// TEXTURE_VIEW_FLAG_ALLOW_MIP_MAP_GENERATION;
-        loadInfo.MipFilter = TEXTURE_LOAD_MIP_FILTER_BOX_AVERAGE;
-
-
       
+       // loadInfo.MipLevels = 5;
+
+      //  loadInfo.GenerateMips = true;// = ;// TEXTURE_VIEW_FLAG_ALLOW_MIP_MAP_GENERATION;
+        //loadInfo.MipFilter = TEXTURE_LOAD_MIP_FILTER_BOX_AVERAGE;
+
+
+        //loadInfo.CPUAccessFlags = CPU_ACCESS_WRITE;
+
+        loadInfo.BindFlags = BIND_FLAGS::BIND_SHADER_RESOURCE;// | BIND_FLAGS::BIND_UNORDERED_ACCESS;
+       // loadInfo.GenerateMips = true;
+        //loadInfo.Usage = USAGE::USAGE_DYNAMIC;
+
+        loadInfo.Format = TEX_FORMAT_RGBA16_UNORM;
+        loadInfo.MipLevels = 12;
+        loadInfo.MipFilter = TEXTURE_LOAD_MIP_FILTER_DEFAULT;
+        loadInfo.GenerateMips = true;
 
         // 
+        Engine::m_pImmediateContext->Flush();
         CreateTextureFromFile(path.c_str(), loadInfo, Engine::m_pDevice, &m_pTexture);
+      
+        
+        
+        Engine::m_pImmediateContext->Flush();
 
         m_pTextureView = m_pTexture->GetDefaultView(TEXTURE_VIEW_SHADER_RESOURCE);
+     
+        Engine::m_pImmediateContext->Flush();
+
+       // StateTransitionDesc barriers[] = {
+       //    {m_pTexture, RESOURCE_STATE_UNKNOWN, RESOURCE_STATE_SHADER_RESOURCE, STATE_TRANSITION_FLAG_UPDATE_STATE},
+       // };
+
+
+
+      //  Engine::m_pImmediateContext->TransitionResourceStates(_countof(barriers), barriers);
+     //   Engine::m_pImmediateContext->Flush();
+
       //  Engine::m_pImmediateContext->GenerateMips(m_pTextureView);
 
 
@@ -163,7 +192,7 @@ Texture2D::Texture2D(RenderTarget2D* target) {
 }
 
 Texture2D::~Texture2D() {
-
+    return;
     m_pTexture.Release();
     m_pTextureView.Release();
     m_pTexture.Detach();

@@ -1010,3 +1010,67 @@ NodeTerrain* SceneGraph::GetTerrain() {
     return FindTerrain(m_RootNode);
 
 }
+
+std::vector<NodeEntity*> GGetEntities(Node* node, std::vector<NodeEntity*> entities)
+{
+
+    if (dynamic_cast<NodeActor*>(node)) {
+
+    }
+    else {
+        if (dynamic_cast<NodeEntity*>(node)) {
+
+            entities.push_back((NodeEntity*)node);
+
+        }
+    }
+
+    for (auto sub : node->GetNodes()) {
+
+        entities = GGetEntities(sub, entities);
+
+    }
+
+    return entities;
+
+}
+
+std::vector<NodeEntity*> SceneGraph::GetEntities() {
+
+    std::vector<NodeEntity*> entities;
+
+    entities = GGetEntities(m_RootNode, entities);
+
+    return entities;
+
+}
+
+std::vector<NodeActor*> GGetActors(Node* node, std::vector<NodeActor*> actors) {
+
+    if (dynamic_cast<NodeActor*>(node)) {
+
+        actors.push_back((NodeActor*)node);
+
+    }
+
+    for (auto sub : node->GetNodes()) {
+
+        actors = GGetActors(sub, actors);
+
+    }
+
+    return actors;
+
+}
+
+
+std::vector<NodeActor*> SceneGraph::GetActors() {
+
+
+    std::vector<NodeActor*> actors;
+
+    actors = GGetActors(m_RootNode, actors);
+
+    return actors;
+
+}

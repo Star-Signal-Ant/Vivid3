@@ -71,11 +71,12 @@ void Mesh3D::Render(bool sp) {
 	Uint64 offsets = 0;
 
 	
+	
 	IBuffer* pBuffs[] = { m_Buffer->GetVertexBuffer() };
 
 	Engine::m_pImmediateContext->SetVertexBuffers(0, 1, pBuffs, &offsets, RESOURCE_STATE_TRANSITION_MODE_TRANSITION, SET_VERTEX_BUFFERS_FLAG_RESET);
 	Engine::m_pImmediateContext->SetIndexBuffer(m_Buffer->GetIndexBuffer(), 0, RESOURCE_STATE_TRANSITION_MODE_TRANSITION);
-
+	m_Material->Bind(sp);
 	if (sp) {
 		Engine::m_pImmediateContext->CommitShaderResources(m_Material->GetSecondPassSRB(), RESOURCE_STATE_TRANSITION_MODE_TRANSITION);
 	}
@@ -92,6 +93,7 @@ void Mesh3D::Render(bool sp) {
 	}
 	attrib.Flags = DRAW_FLAG_VERIFY_ALL;
 	Engine::m_pImmediateContext->DrawIndexed(attrib);
+
 
 }
 
@@ -112,6 +114,7 @@ void Mesh3D::RenderDepth() {
 	attrib.NumIndices = m_Tris.size() * 3;
 	attrib.Flags = DRAW_FLAG_VERIFY_ALL;
 	Engine::m_pImmediateContext->DrawIndexed(attrib);
+
 
 }
 

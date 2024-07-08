@@ -32,7 +32,7 @@ struct Constants {
 };
 
 MaterialDepth::MaterialDepth() {
-
+    return;
     Create();
 
     //m_Diffuse = new Texture2D("engine/white.png");
@@ -259,6 +259,7 @@ void MaterialDepth::Create() {
 void MaterialDepth::Bind(bool sp) {
 
 
+    Engine::m_pImmediateContext->SetPipelineState(m_Pipeline);
     //m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_Texture")->Set(m_Diffuse->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
     //m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_TextureNorm")->Set(m_Normal->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
     //  m_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "g_TextureSpec")->Set(m_Specular->GetView(), SET_SHADER_RESOURCE_FLAG_NONE);
@@ -299,6 +300,5 @@ void MaterialDepth::Bind(bool sp) {
 
     //map_data.Unmap();
 
-    Engine::m_pImmediateContext->SetPipelineState(m_Pipeline);
 
 }

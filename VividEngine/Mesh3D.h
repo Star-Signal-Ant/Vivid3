@@ -71,6 +71,9 @@ public:
 //	void SetCLBuf(cl::Buffer& buf) {
 //		triBuf = buf;
 	//}
+	MeshBuffer* GetBuffer() {
+		return m_Buffer;
+	}
 private:
 
 	std::vector<Vertex> m_Vertices;

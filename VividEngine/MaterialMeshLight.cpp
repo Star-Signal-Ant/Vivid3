@@ -39,6 +39,7 @@ struct Constants {
 
 MaterialMeshLight::MaterialMeshLight() {
 
+    return;
 	Create();
     m_Diffuse = new Texture2D("engine/white.png");
     m_Normal = new Texture2D("engine/normal.png");
