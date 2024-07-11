@@ -58,12 +58,12 @@ void main(in  PSInput  PSIn,
 
     float3 light_v = CalculatePointLighting(PSIn.TVP,PSIn.TFP,tNormal,PSIn.TLP,PSIn.v_LightDiff,PSIn.v_MatDiff,PSIn.v_MatSpec,1.0f,1.0,PSIn.Uv);
 
-   
+    shadowVal=1.0;
  
 
     shadowVal = light_GetShadow(PSIn.fragPos,PSIn.v_LightPos,PSIn.v_LightProp.x);
 
-
+    
 
 
  

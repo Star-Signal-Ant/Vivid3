@@ -98,6 +98,7 @@ VMainMenu::VMainMenu(QWidget *parent)
 
 		auto terrain = new NodeTerrain(128, 128, 3, 4);
 		Editor::m_Graph->AddNode(terrain);
+		Editor::m_Graph->Updated();
 
 		});
 

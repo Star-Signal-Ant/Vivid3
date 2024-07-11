@@ -2,16 +2,22 @@
 C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file '/NitroRenderer.cpp')
   
-C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(304,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(336,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
   (compiling source file '/NitroRenderer.cpp')
   
-C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(417,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(449,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
   (compiling source file '/NitroRenderer.cpp')
   
-C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(862,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(894,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
   (compiling source file '/NitroRenderer.cpp')
   
-C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(1368,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(1406,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(1668,71): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(1938,57): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
   (compiling source file '/NitroRenderer.cpp')
   
   Replacing x64\Debug\pch.obj
