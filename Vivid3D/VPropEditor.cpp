@@ -686,7 +686,7 @@ void VPropEditor::SetNode(Node* node) {
 		m_NodeEnabled->setChecked(false);
 	}
 
-	QObject::connect(m_NodeEnabled, &QCheckBox::stateChanged, [&](int state) {
+	QObject::connect(m_NodeEnabled, &QCheckBox::checkStateChanged, [&](int state) {
 		//		qDebug() << "Checkbox state changed to:" << state;
 		if (m_NodeEnabled->isChecked()) {
 			m_Node->SetEnable(true);

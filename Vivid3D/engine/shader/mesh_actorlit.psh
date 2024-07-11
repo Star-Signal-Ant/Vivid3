@@ -56,7 +56,7 @@ void main(in  PSInput  PSIn,
 
    shadowVal = light_GetShadow(PSIn.fragPos,PSIn.v_LightPos,PSIn.v_LightProp.x);
 
-    shadowVal=1.0;
+  
 
 
  float4 ffcol =((v_Texture.Sample(v_Texture_sampler, PSIn.Uv) * float4(PSIn.v_LightDiff.x * lighting.light, PSIn.v_LightDiff.y * lighting.light, PSIn.v_LightDiff.z * lighting.light, 1.0)));

@@ -8,7 +8,7 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\AntRWells\\.nuget\\packages\\": {}
+    "C:\\Users\\Antony Wells\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -16,11 +16,11 @@
       "projectUniqueName": "C:\\dev\\Vivid3D\\TextureTools\\TextureTools.csproj",
       "projectName": "TextureTools",
       "projectPath": "C:\\dev\\Vivid3D\\TextureTools\\TextureTools.csproj",
-      "packagesPath": "C:\\Users\\AntRWells\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Antony Wells\\.nuget\\packages\\",
       "outputPath": "C:\\dev\\Vivid3D\\TextureTools\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\AntRWells\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Antony Wells\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -69,7 +69,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400-preview.0.24324.5/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

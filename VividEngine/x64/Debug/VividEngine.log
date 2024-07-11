@@ -1,7 +1,19 @@
 ﻿  NitroRenderer.cpp
 C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(251,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
-C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(364,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(304,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(417,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(862,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(1368,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
+  
   Replacing x64\Debug\pch.obj
 cuda.lib(nvcuda.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
 cudart.lib(cudart64_12.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
