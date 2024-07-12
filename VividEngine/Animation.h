@@ -43,6 +43,15 @@ public:
 	float GetLength() {
 		return m_Duration;
 	}
+	float GetTicksPerSecond() {
+		return m_TicksPerSecond;
+	}
+	std::string GetName() {
+		return m_Name;
+	}
+	void SetName(std::string name) {
+		m_Name = name;
+	}
 private:
 	
 	float m_Duration = 0.0f;

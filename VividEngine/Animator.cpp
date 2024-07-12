@@ -3,17 +3,31 @@
 #include "Bone.h"
 #include "Animation.h"
 #include "BoneInfo.h"
-
+#include <unordered_set>
 Animator::Animator(Animation* anim) {
 
 	m_CurrentTime = 0.0;
 	m_CurrentAnim = anim;
-	
+	m_Animations.push_back(anim);
+
 	for (int i = 0; i < 100; i++) {
 		m_FinalBones.push_back(float4x4::Identity());
 	}
 
 
+
+}
+
+void Animator::AddAnimation(Animation* animation) {
+
+	m_Animations.push_back(animation);
+
+}
+
+void Animator::SetAnimation(Animation* animation) {
+
+	m_CurrentAnim = animation;
+	m_CurrentTime = 0;
 
 }
 
@@ -61,4 +75,35 @@ void Animator::CalculateBoneTransform(AssimpNodeData* node, float4x4 transform) 
 
 float Animator::GetLength() {
 	return m_CurrentAnim->GetLength();
+}
+
+float Animator::GetTicksPerSecond() {
+
+	return m_CurrentAnim->GetTicksPerSecond();
+
+}
+
+std::vector<Animation*> RemoveDuplicates(const std::vector<Animation*>& animations) {
+	std::vector<Animation*> uniqueAnimations;
+	std::unordered_set<std::string> seenNames;
+
+	for (Animation* anim : animations) {
+		if (anim != nullptr) { // Check for null pointers
+			std::string name = anim->GetName();
+			if (seenNames.find(name) == seenNames.end()) {
+				// Name not found in the set, add to unique list and mark as seen
+				uniqueAnimations.push_back(anim);
+				seenNames.insert(name);
+			}
+		}
+	}
+
+	return uniqueAnimations;
+}
+
+
+void Animator::ClearCopies() {
+
+	
+	m_Animations = RemoveDuplicates(m_Animations);
 }

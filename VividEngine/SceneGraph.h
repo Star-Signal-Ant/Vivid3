@@ -80,7 +80,7 @@ public:
 	std::vector<NodeLight*> GetLights() {
 		return m_Lights;
 	}
-	void Update();
+	void Update(float delta);
 	void BeginPlay();
 	void Stop();
 	SceneInfo GetInfo(float3 centre, float3 size, bool include_local = false);

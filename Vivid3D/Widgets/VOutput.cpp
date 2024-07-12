@@ -78,12 +78,18 @@ VOutput::VOutput(QWidget *parent)
     auto cam = m_Graph1->GetCamera();
     cam->SetPosition(float3(0, 8,0));
     setMouseTracking(true);
-    m_MoveTimer = new QTimer(this);
+    m_UpdateTimer = new QTimer(this);
 
     m_EditCamera = cam;
-    connect(m_MoveTimer, &QTimer::timeout, this, &VOutput::onMove);
-    m_MoveTimer->setInterval(55); // Set the interval in milliseconds
-    m_MoveTimer->start();
+    connect(m_UpdateTimer, &QTimer::timeout, this, &VOutput::onUpdate);
+    m_UpdateTimer->setInterval(1000/60); // Set the interval in milliseconds
+    m_UpdateTimer->start();
+
+    m_RenderTimer = new QTimer(this);
+    connect(m_RenderTimer, &QTimer::timeout, this, &VOutput::onRender);
+    m_RenderTimer->setInterval(1000 / 60); // Set the interval in milliseconds
+    m_RenderTimer->start();
+
 
 
     Editor::m_Graph = m_Graph1;
@@ -1009,12 +1015,32 @@ void VOutput::keyReleaseEvent(QKeyEvent* event)
     QWidget::keyReleaseEvent(event);
 }
 
-void VOutput::onMove()
+void VOutput::onUpdate()
 {
-    float scale = 1.0f;
+
+    int tick = clock();
+
+    if (m_LastTick == 0) {
+        m_LastTick = tick;
+    }
+
+    int ntick = clock();
+
+    int tick_r = ntick - m_LastTick;
+
+    if (tick_r > 0) {
+
+        m_TimeDelta = (float)((float)tick_r) / 1000.f;
+
+        m_Graph1->Update(m_TimeDelta);
+
+        m_LastTick = ntick;
+    }
+
+    float scale = 1.0f * m_TimeDelta * 70.0f;
 
     if (m_MoveFast) {
-        scale = 2.5f;
+        scale = 2.5f * m_TimeDelta * 70.0f;
     }
 
     bool up = false;
@@ -1034,10 +1060,17 @@ void VOutput::onMove()
         m_EditCamera->Move(float3(0.1f*scale, 0, 0));
         up = true;
     }
-    update();
+ 
    // update();
     // Action to perform while the key is held down
     //qDebug() << "Key A is held down";
+}
+
+
+void VOutput::onRender() {
+
+    update();
+
 }
 
 VOutput::~VOutput()
@@ -1073,7 +1106,6 @@ void VOutput::paintEvent(QPaintEvent* event)
 
 
     cam->SetRotation(m_ViewPitch, m_ViewYaw, 0);
-    m_Graph1->Update();
 
 
   //  m_Graph1->RenderShadows();

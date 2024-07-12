@@ -82,7 +82,7 @@ public:
 	}
 	std::string GetFullName();
 	void SetRoot(Node* node);
-	virtual void Update();
+	virtual void Update(float delta);
 	void AddScript(std::string path);
 	std::vector<VClass*> GetScripts();
 	void BeginPlay();

@@ -595,9 +595,9 @@ void SceneGraph::AddLines(MeshLines* lines) {
 
 }
 
-void SceneGraph::Update() {
+void SceneGraph::Update(float delta) {
 
-    m_RootNode->Update();
+    m_RootNode->Update(delta);
 
 }
 

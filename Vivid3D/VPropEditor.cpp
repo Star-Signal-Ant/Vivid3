@@ -18,7 +18,12 @@
 #include "VName.h"
 #include "TextureCube.h"
 #include "NodeTerrain.h"
+#include "NodeActor.h"
+#include "Animator.h"
+#include "Animation.h"
 #include "TerrainLayer.h"
+#include <QFileDialog>
+#include "Importer.h"
 
 //#include <qcheckbox.h>
 
@@ -1021,6 +1026,156 @@ void VPropEditor::SetNode(Node* node) {
 
 	m_LO->addLayout(scale_box);
 
+
+	if (dynamic_cast<NodeActor*>(m_Node))
+	{
+
+		NodeActor* act = (NodeActor*)m_Node;
+//		int a = 5;
+		auto anims = act->GetAnimator()->GetAnimations();
+		int a = 5;
+
+		m_Anims = anims;
+		auto an_list = new VAnimationList;
+
+		m_AnimList = an_list;
+
+		QObject::connect(m_AnimList, &QListWidget::itemSelectionChanged, [&]() {
+			
+			m_BlockAnimNameChange = true;
+			auto item = m_AnimList->selectedItems();
+			if (item.size() > 0)
+			{
+				auto actual = item[0];
+				m_AnimName->setText(actual->text());
+				for (auto a : m_Anims) {
+
+					if (a->GetName() == actual->text()) {
+
+						m_CurrentAnim = a;
+						break;
+
+					}
+
+				}
+
+				//m_AnimName->setText()
+			}
+			m_BlockAnimNameChange = false;
+
+			});
+
+
+
+		an_list->SetAnimations(anims);
+
+		auto anim_l = new QLabel("Animations");
+
+		auto list_h = new QHBoxLayout(this);
+
+
+		auto lab = new QLabel("Animations");
+
+		//list_h->addWidget(lab);
+		m_LO->addWidget(anim_l);
+		list_h->addWidget(an_list);
+
+		QPushButton* add_anim = new QPushButton("Add Animation");
+		add_anim->setMaximumWidth(120);
+
+		//
+		QObject::connect(add_anim, &QPushButton::clicked, [&]() {
+			// Update the label with a message when the button is clicked
+			//label.setText("Button Clicked!");
+			QString path = Engine::m_ContentPath.c_str();
+
+			QString filePath = QFileDialog::getOpenFileName(nullptr, "Open FBX File",path, "FBX Files (*.fbx)");
+			if (!filePath.isEmpty()) {
+				// Update the label with the selected file path
+				//label.setText("Selected file: " + filePath);
+				auto imp = new Importer;
+				auto anims = (NodeActor*)imp->ImportAnims((NodeActor*)m_Node,filePath.toStdString());
+
+
+				//auto as = anims->GetAnimator()->GetAnimations();
+
+			auto r_node = (NodeActor*)m_Node;
+
+
+			//	for (auto an : as) {
+			//		r_node->GetAnimator()->AddAnimation(an);
+		//		}
+				m_AnimList->SetAnimations(r_node->GetAnimator()->GetAnimations());
+				m_Anims = r_node->GetAnimator()->GetAnimations();
+			}
+
+			});
+
+
+		//
+
+		list_h->addWidget(add_anim);
+
+		anim_l->setMaximumSize(70, 30);
+		anim_l->setMinimumSize(70, 30);
+
+		an_list->setMinimumSize(200, 200);
+		an_list->setMaximumSize(200, 200);
+
+		list_h->setAlignment(Qt::AlignLeft);
+		lab->setMaximumWidth(65);
+
+		auto edit_v = new QVBoxLayout(this);
+		//list_h->addLayout(edit_v);
+
+
+		auto name_edit_h = new QHBoxLayout(this);
+
+		auto n_lab = new QLabel("Name");
+		auto n_edit = new QLineEdit();
+
+		m_AnimName = n_edit;
+		n_edit->setMaximumWidth(250);
+		n_lab->setMaximumWidth(60);
+		name_edit_h->addWidget(n_lab);
+		name_edit_h->addWidget(n_edit);
+		name_edit_h->setAlignment(Qt::AlignTop);
+		QObject::connect(n_edit, &QLineEdit::textChanged, [&](const QString& newText) {
+			// Update the label with the new text from the lne edit
+			//editedTextLabel.setText("Edited: " + newText);
+			if (m_BlockAnimNameChange) return;
+			if (m_CurrentAnim != nullptr) {
+				m_CurrentAnim->SetName(newText.toStdString());
+				m_AnimList->SetAnimations(m_Anims);
+			}
+
+			});
+
+
+
+		m_LO->addLayout(list_h);
+		m_LO->addLayout(name_edit_h);
+
+		QPushButton* preview_anim = new QPushButton("Preview");
+
+		m_LO->addWidget(preview_anim);
+
+		QObject::connect(preview_anim, &QPushButton::clicked, [&]() {
+			// Update the label with a message when the button is clicked
+			//label.setText("Button Clicked!");
+			//QString path = Engine::m_ContentPath.c_str();
+			if (m_CurrentAnim != nullptr) {
+
+				auto actor = (NodeActor*)m_Node;
+				actor->GetAnimator()->SetAnimation(m_CurrentAnim);
+				actor->SetAnimTime(0);
+
+			}
+			});
+
+
+			
+	}else
 	if (dynamic_cast<NodeLight*>(m_Node) != nullptr) {
 
 

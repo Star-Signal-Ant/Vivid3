@@ -145,14 +145,36 @@ Vertex NodeActor::SetVertexBoneData(Vertex vertex, int boneID, float weight) {
 	return vertex;
 }
 
-void NodeActor::Update() {
+void NodeActor::Update(float delta) {
 
-	int b = 5;
-	dt = dt + 0.1f;
-	if (dt > m_Animator->GetLength()) {
-		dt = 0;
+	//int b = 5;
+
+
+	float ticks = m_Animator->GetTicksPerSecond();
+	float tickMultiplier = ticks / 1.0f;
+	float add = delta * ticks;
+
+	float len = m_Animator->GetLength();
+
+	int b = 0;
+
+
+	m_AnimTime += add;
+
+	//dt = dt + 0.1f;
+	//m_AnimTime+=()
+//	if (dt > m_Animator->GetLength()) {
+//		dt = 0;
+//	}
+
+
+	if (m_AnimTime > len) {
+
+		m_AnimTime -= len;
+
 	}
-	m_Animator->UpdateAnimation(dt);
+
+	m_Animator->UpdateAnimation(m_AnimTime);
 	auto bones = m_Animator->GetBones();
 	for (auto msh : m_Meshes) {
 		auto ml = (MaterialActorLight*)msh->GetMaterial();

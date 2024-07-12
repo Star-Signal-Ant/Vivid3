@@ -10,6 +10,7 @@
 #include "qcheckbox.h"
 #include <qlineedit.h>
 #include <qcombobox.h>
+#include "VAnimationList.h"
 class MaterialBase;
 class Node;
 class NodeTerrain;
@@ -23,6 +24,7 @@ public:
 	~VPropEditor();
 	void SetMaterial(MaterialBase* material);
 	void SetNode(Node* node);
+	
 	void UpdateNode();
 	void SetTerrain(NodeTerrain* node);
 
@@ -76,5 +78,13 @@ private:
 	QSpinBox* m_EditLayer;
 	NodeTerrain* m_Terrain = nullptr;
 	QComboBox* m_EditTool;
+
+
+	//Actor
+	VAnimationList* m_AnimList;
+	QLineEdit* m_AnimName;
+	std::vector<Animation*> m_Anims;
+	Animation* m_CurrentAnim = nullptr;
+	bool m_BlockAnimNameChange = false;
 
 };

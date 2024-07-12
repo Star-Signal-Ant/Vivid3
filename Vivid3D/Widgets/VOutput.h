@@ -117,7 +117,8 @@ protected:
 	void keyReleaseEvent(QKeyEvent* event) override;
 
 private slots:
-	void onMove();
+	void onUpdate();
+	void onRender();
 
 private:
 	Ui::VOutputClass ui;
@@ -139,7 +140,8 @@ private:
 	QPoint m_MouseLast;
 	bool m_MoveW, m_MoveA, m_MoveS, m_MoveD;
 	bool m_MoveFast = false;
-	QTimer* m_MoveTimer;
+	QTimer* m_UpdateTimer;
+	QTimer* m_RenderTimer;
 	QPoint m_MousePosition;
 	NodeEntity* m_Gizmo = nullptr;
 	NodeEntity* m_GizTranslate;
@@ -160,4 +162,7 @@ private:
 	PPEmissive* m_ppEmissive;
 	NitroRenderer* m_Nitro;
 	SolarisRenderer* m_Solaris;
+	//timing
+	int m_LastTick = 0;
+	float m_TimeDelta = 0.0;
 };

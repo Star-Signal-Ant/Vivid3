@@ -333,7 +333,7 @@ float4x4 Node::GetWorldMatrix() {
 
 }
 
-void Node::Update() {
+void Node::Update(float delta) {
 
 	//Turn(0, 0.1f, 0, false);
 
@@ -349,7 +349,7 @@ void Node::Update() {
 
 	for (auto n : m_Nodes) {
 
-		n->Update();
+		n->Update(delta);
 
 	}
 

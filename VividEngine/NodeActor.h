@@ -43,16 +43,23 @@ public:
 	}
 
 	void Render(bool sp);
-	void Update();
+	void Update(float delta);
 	std::vector<float4x4> GetBones();
+	Animator* GetAnimator() {
+		return m_Animator;
+	}
 	float dt = 0.0f;
-
+	void SetAnimTime(float time)
+	{
+		m_AnimTime = 0;
+	}
 private:
 
 	Animator* m_Animator = nullptr;
 	std::map<std::string, BoneInfo*> m_BoneInfoMap;
 	int m_BoneCounter = 0;
 	Bounds* m_Bounds = nullptr;
+	float m_AnimTime = 0.0;
 
 };
 

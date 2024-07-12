@@ -120,6 +120,7 @@
     <ClCompile Include="EditHelp.cpp" />
     <ClCompile Include="Editor.cpp" />
     <ClCompile Include="ImportSettings.cpp" />
+    <ClCompile Include="VAnimationList.cpp" />
     <ClCompile Include="VCinemaEditor.cpp" />
     <ClCompile Include="VCinemaTimeLine.cpp" />
     <ClCompile Include="VColorPreview.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="VTreeView.cpp" />
     <ClCompile Include="Widgets\VOutput.cpp" />
     <QtRcc Include="Vivid3D.qrc" />
+    <QtUic Include="VAnimationList.ui" />
     <QtUic Include="VCinemaEditor.ui" />
     <QtUic Include="VCinemaTimeLine.ui" />
     <QtUic Include="VColorPreview.ui" />
@@ -182,6 +184,7 @@
     <ClInclude Include="EditHelp.h" />
     <ClInclude Include="Editor.h" />
     <ClInclude Include="ImportSettings.h" />
+    <QtMoc Include="VAnimationList.h" />
     <QtMoc Include="VImportModel.h" />
     <QtMoc Include="VCreateAnimation.h" />
     <QtMoc Include="VTrackFrame.h" />

@@ -329,6 +329,41 @@ Node* Importer::ImportNode(std::string path) {
 
 }
 
+
+Node* Importer::ImportAnims(NodeActor* load,std::string path) {
+
+    Assimp::Importer importer;
+
+    // Define import flags (e.g., to triangulate polygons)
+    unsigned int flags = aiProcess_CalcTangentSpace | aiProcess_Triangulate | aiProcess_GenNormals;
+
+    // Load the scene from the file
+    const aiScene* scene = importer.ReadFile(path, flags);
+
+    if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
+    {
+        std::cerr << "Error: " << importer.GetErrorString() << std::endl;
+        return nullptr;
+    }
+
+    NodeActor* res = load;
+  //  auto anim = new Animation((aiScene*)scene, scene->mAnimations[0], res);
+  //  auto animator = new Animator(anim);
+
+    for (int i = 0; i < scene->mNumAnimations; i++) {
+
+        auto new_anim = new Animation((aiScene*)scene, scene->mAnimations[i], res);
+        res->GetAnimator()->AddAnimation(new_anim);
+
+    }
+
+    res->GetAnimator()->ClearCopies();
+
+    //res->SetAnimator(animator);
+    return res;
+
+}
+
 Node* Importer::ImportActor(std::string path) {
 
 
@@ -446,7 +481,15 @@ Node* Importer::ImportActor(std::string path) {
 
     auto anim = new Animation((aiScene*)scene, scene->mAnimations[0], result);
     auto animator = new Animator(anim);
+    
+    for (int i = 1; i < scene->mNumAnimations; i++) {
+
+        auto new_anim = new Animation((aiScene*)scene, scene->mAnimations[i], result);
+
+    }
+    
     result->SetAnimator(animator);
+
 
 
 

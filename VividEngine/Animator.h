@@ -17,10 +17,17 @@ public:
 	Animator(Animation* anim);
 	void SetTime(float time);
 	void UpdateAnimation(float dt);
+	void AddAnimation(Animation* animation);
+	void SetAnimation(Animation* animation);
 	void CalculateBoneTransform(AssimpNodeData* node, float4x4 transform);
 	float GetLength();
+	void ClearCopies();
 	std::vector<float4x4> GetBones() {
 		return m_FinalBones;
+	}
+	float GetTicksPerSecond();
+	std::vector<Animation*> GetAnimations() {
+		return m_Animations;
 	}
 private:
 
