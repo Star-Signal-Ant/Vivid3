@@ -1,5 +1,44 @@
-﻿  Animator.cpp
-C:\dev\Vivid3D\VividEngine\Animation.h(47,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+﻿  NodeActor.cpp
+C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/NodeActor.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(38,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file '/NodeActor.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(58,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file '/NodeActor.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(84,20): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file '/NodeActor.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(123,23): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(123,23): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(123,23): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(123,23): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(123,23): warning C4244:         ]
+  (compiling source file '/NodeActor.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(129,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(129,22): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(129,22): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(129,22): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(129,22): warning C4244:         ]
+  (compiling source file '/NodeActor.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(135,23): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(135,23): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(135,23): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(135,23): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(135,23): warning C4244:         ]
+  (compiling source file '/NodeActor.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(141,23): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(141,23): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(141,23): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(141,23): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(141,23): warning C4244:         ]
+  (compiling source file '/NodeActor.cpp')
+  
   Replacing x64\Debug\pch.obj
 cuda.lib(nvcuda.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
 cudart.lib(cudart64_12.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored

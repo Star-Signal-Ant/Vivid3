@@ -20,6 +20,11 @@ public:
 		m_Static = false;
 		m_RTEnable = true;
 		m_Name = "Actor";
+		for (int i = 0; i < 100; i++) {
+
+			m_Bones.push_back(float4x4::Identity());
+
+		}
 	};
 
 	Mesh3D* ProcessMesh(aiMesh* mesh, aiScene* scene, bool cre_buf = true);
@@ -60,6 +65,7 @@ private:
 	int m_BoneCounter = 0;
 	Bounds* m_Bounds = nullptr;
 	float m_AnimTime = 0.0;
+	std::vector<float4x4> m_Bones;
 
 };
 

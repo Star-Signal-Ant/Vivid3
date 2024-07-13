@@ -176,6 +176,20 @@ void NodeActor::Update(float delta) {
 
 	m_Animator->UpdateAnimation(m_AnimTime);
 	auto bones = m_Animator->GetBones();
+
+
+	for (int i = 0; i < 100; i++) {
+
+		auto cur = m_Bones[i];
+		auto nxt = bones[i];
+
+		auto dif = nxt - cur;
+
+		m_Bones[i] += dif * 0.25f;
+
+	}
+
+
 	for (auto msh : m_Meshes) {
 		auto ml = (MaterialActorLight*)msh->GetMaterial();
 		ml->SetBones(bones);
@@ -225,5 +239,6 @@ void NodeActor::Render(bool sp) {
 }
 
 std::vector<float4x4> NodeActor::GetBones() {
-	return m_Animator->GetBones();
+	return m_Bones;
+	//	return m_Animator->GetBones();
 }

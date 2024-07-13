@@ -25,6 +25,21 @@
 *.smod
 
 *.pdb
+*.idb
+*.cap
+*.log
+*.recipe
+*.res
+*.natvis
+*.enc
+*.bin
+*.v2
+*.vsidx
+*.db-shm
+*.db
+*.db-val
+*.opendb
+
 
 # Compiled Static libraries
 *.lai
