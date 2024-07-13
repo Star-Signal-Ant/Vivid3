@@ -1074,3 +1074,29 @@ std::vector<NodeActor*> SceneGraph::GetActors() {
     return actors;
 
 }
+
+std::vector<NodeCamera*> GGetCameras(Node* node, std::vector<NodeCamera*> cams) {
+
+    if (dynamic_cast<NodeCamera*>(node)) {
+        cams.push_back((NodeCamera*)node);
+    }
+
+    for (auto sub : node->GetNodes()) {
+
+        cams = GGetCameras(sub, cams);
+
+    }
+
+    return cams;
+
+}
+
+std::vector<NodeCamera*> SceneGraph::GetCameras() {
+
+
+    std::vector<NodeCamera*> cams;
+
+    cams = GGetCameras(m_RootNode, cams);
+
+    return cams;
+}

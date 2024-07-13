@@ -151,6 +151,7 @@ private:
 	Draw2D* m_Draw;
 	Texture2D* m_Tex1;
 	Texture2D* m_LightIcon;
+	Texture2D* m_CamIcon;
 	SceneOctree* m_Oct1;
 	CubeRenderer* m_CubeRen;
 	NodeEntity* m_TerrainBrush = nullptr;

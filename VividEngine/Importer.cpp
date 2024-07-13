@@ -356,6 +356,7 @@ Node* Importer::ImportAnims(NodeActor* load,std::string path) {
         res->GetAnimator()->AddAnimation(new_anim);
 
     }
+    res->AddAnimFile(path);
 
     res->GetAnimator()->ClearCopies();
 
@@ -382,6 +383,8 @@ Node* Importer::ImportActor(std::string path) {
     }
 
     NodeActor* result = new NodeActor;
+
+    result->SetResourcePath(path);
 
     std::string path_alone = getDirectoryPath(path);
 
@@ -491,7 +494,14 @@ Node* Importer::ImportActor(std::string path) {
     result->SetAnimator(animator);
 
 
+    auto input = path + ".anims";
 
+    if (VFile::Exists(input.c_str())) {
+
+
+        result->LoadAnimList();
+
+    }
 
 
     return result;

@@ -116,7 +116,7 @@ public:
 
 	std::vector<NodeEntity*> GetEntities();
 	std::vector<NodeActor*> GetActors();
-
+	std::vector<NodeCamera*> GetCameras();
 private:
 
 	NodeCamera* m_Camera;

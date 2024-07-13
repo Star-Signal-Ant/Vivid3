@@ -1101,7 +1101,7 @@ void VPropEditor::SetNode(Node* node) {
 
 			auto r_node = (NodeActor*)m_Node;
 
-
+			r_node->SaveAnimList();
 			//	for (auto an : as) {
 			//		r_node->GetAnimator()->AddAnimation(an);
 		//		}

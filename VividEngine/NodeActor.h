@@ -58,6 +58,12 @@ public:
 	{
 		m_AnimTime = 0;
 	}
+	void SaveAnimList();
+	void LoadAnimList();
+
+	void AddAnimFile(std::string file) {
+		m_AnimFiles.push_back(file);
+	}
 private:
 
 	Animator* m_Animator = nullptr;
@@ -66,6 +72,7 @@ private:
 	Bounds* m_Bounds = nullptr;
 	float m_AnimTime = 0.0;
 	std::vector<float4x4> m_Bones;
+	std::vector<std::string> m_AnimFiles;
 
 };
 

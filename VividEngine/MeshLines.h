@@ -34,6 +34,9 @@ public:
 
 	void CreateBuffer();
 	void Render();
+    MeshLinesBuffer* GetBuffer() {
+        return m_Buffer;
+    }
 
     void CreateBox(float3 center, float3 size)
     {

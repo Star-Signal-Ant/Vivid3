@@ -7,7 +7,10 @@
 #include "Animator.h"
 #include "Engine.h"
 #include "Bounds.h"
+#include "VFile.h"
+#include "Importer.h"
 using namespace Diligent;
+
 
 
 
@@ -241,4 +244,46 @@ void NodeActor::Render(bool sp) {
 std::vector<float4x4> NodeActor::GetBones() {
 	return m_Bones;
 	//	return m_Animator->GetBones();
+}
+
+void NodeActor::SaveAnimList() {
+
+//	int b = 5;
+
+	std::string output = m_ResourcePath + ".anims";
+
+	VFile* file = new VFile(output.c_str(), FileMode::Write);
+
+	file->WriteInt(m_AnimFiles.size());
+
+	for (auto p : m_AnimFiles) {
+
+		file->WriteString(p.c_str());
+
+	}
+
+	file->Close();
+
+}
+
+void NodeActor::LoadAnimList() {
+
+	std::string input = m_ResourcePath + ".anims";
+
+	VFile* file = new VFile(input.c_str(), FileMode::Read);
+
+	int anim_c = file->ReadInt();
+
+	Importer *imp = new Importer;
+
+	for (int i = 0; i < anim_c; i++) {
+
+		std::string a_file = file->ReadString();
+
+		imp->ImportAnims(this, a_file);
+
+	}
+
+	file->Close();
+
 }

@@ -1,43 +1,33 @@
-﻿  NodeActor.cpp
+﻿  NitroRenderer.cpp
 C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file '/NodeActor.cpp')
+  (compiling source file '/NitroRenderer.cpp')
   
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(38,20): warning C4018: '<': signed/unsigned mismatch
-  (compiling source file '/NodeActor.cpp')
+C:\dev\Vivid3D\VividEngine\MathsHelp.h(18,27): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
   
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(58,20): warning C4018: '<': signed/unsigned mismatch
-  (compiling source file '/NodeActor.cpp')
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(354,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
   
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(84,20): warning C4018: '<': signed/unsigned mismatch
-  (compiling source file '/NodeActor.cpp')
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(467,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
   
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(123,23): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(123,23): warning C4244:         with
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(123,23): warning C4244:         [
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(123,23): warning C4244:             T=float
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(123,23): warning C4244:         ]
-  (compiling source file '/NodeActor.cpp')
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(912,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
   
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(129,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(129,22): warning C4244:         with
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(129,22): warning C4244:         [
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(129,22): warning C4244:             T=float
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(129,22): warning C4244:         ]
-  (compiling source file '/NodeActor.cpp')
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(1424,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
   
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(135,23): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(135,23): warning C4244:         with
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(135,23): warning C4244:         [
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(135,23): warning C4244:             T=float
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(135,23): warning C4244:         ]
-  (compiling source file '/NodeActor.cpp')
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(1686,71): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
   
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(141,23): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(141,23): warning C4244:         with
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(141,23): warning C4244:         [
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(141,23): warning C4244:             T=float
-C:\dev\Vivid3D\VividEngine\NodeActor.cpp(141,23): warning C4244:         ]
-  (compiling source file '/NodeActor.cpp')
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(1956,57): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(2217,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
+  
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(2450,54): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  (compiling source file '/NitroRenderer.cpp')
   
   Replacing x64\Debug\pch.obj
 cuda.lib(nvcuda.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored

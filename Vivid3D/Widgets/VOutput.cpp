@@ -150,8 +150,8 @@ VOutput::VOutput(QWidget *parent)
 
         LineVertex v1, v2;
 
-        v1.position = float3(x, -2, -grid_size);
-        v2.position = float3(x, -2, grid_size);
+        v1.position = float3(x, -0.1, -grid_size);
+        v2.position = float3(x, -0.1, grid_size);
         v1.color = float4(0.4f,0.4f,0.4f, 1);
         v2.color = float4(0.4f,0.4f,0.4f, 1);
 
@@ -168,8 +168,8 @@ VOutput::VOutput(QWidget *parent)
 
         //
 
-        v1.position = float3(-grid_size, -2, x);
-        v2.position = float3(grid_size, -2, x);
+        v1.position = float3(-grid_size, -0.1, x);
+        v2.position = float3(grid_size, -0.1, x);
         
         l1.V0 = li;
         l1.V1 = li + 1;
@@ -185,8 +185,8 @@ VOutput::VOutput(QWidget *parent)
 
         LineVertex v1, v2;
 
-        v1.position = float3(x, -2, -grid_size);
-        v2.position = float3(x, -2, grid_size);
+        v1.position = float3(x, -0.1, -grid_size);
+        v2.position = float3(x, -0.1, grid_size);
         v1.color = float4(1, 1, 1, 1);
         v2.color = float4(1, 1, 1, 1);
 
@@ -203,8 +203,8 @@ VOutput::VOutput(QWidget *parent)
 
         //
 
-        v1.position = float3(-grid_size, -2, x);
-        v2.position = float3(grid_size, -2, x);
+        v1.position = float3(-grid_size, -0.1, x);
+        v2.position = float3(grid_size, -0.1, x);
 
         l1.V0 = li;
         l1.V1 = li + 1;
@@ -216,12 +216,44 @@ VOutput::VOutput(QWidget *parent)
         m_SceneGrid->AddLine(l1);
     }
 
+
+    LineVertex x1, x2;
+
+    x1.position = float3(-100, -0.05, 0);
+    x2.position = float3(100, -0.05, 0);
+    x1.color = float4(1, 0, 0, 1);
+    x2.color = float4(1, 0, 0, 1);
+
+    m_SceneGrid->AddVertex(x1);
+    m_SceneGrid->AddVertex(x2);
+    Line l1;
+    l1.V0 = li++;
+    l1.V1 = li++;
+    m_SceneGrid->AddLine(l1);
+
+    x1.position = float3(0, -0.05, -100);
+    x2.position = float3(0, -0.05, 100);
+    x1.color = float4(0, 1,0, 1);
+    x2.color = float4(0, 1, 0, 1);
+
+    m_SceneGrid->AddVertex(x1);
+    m_SceneGrid->AddVertex(x2);
+    
+    l1.V0 = li++;
+    l1.V1 = li++;
+    m_SceneGrid->AddLine(l1);
+
+
+
+
     m_SceneGrid->CreateBuffer();
-    m_Graph1->AddLines(m_SceneGrid);
+    //m_Graph1->AddLines(m_SceneGrid);
+
 
     m_Draw = new Draw2D;
     m_Tex1 = new Texture2D("test/test1.png");
     m_LightIcon = new Texture2D("edit/icons/lighticon.png");
+    m_CamIcon = new Texture2D("edit/icons/camicon.png");
     m_CubeRen = new CubeRenderer(m_Graph1,nullptr);
 
     //m_Oct1 = new SceneOctree(m_Graph1);
@@ -242,6 +274,9 @@ VOutput::VOutput(QWidget *parent)
     m_Nitro = new NitroRenderer;
     m_Nitro->SetSceneGraph(m_Graph1);
   
+    m_Nitro->AddLines(m_SceneGrid);
+    
+    //m_Nitro->SetGizmo(m_Gizmo);
 
 }
 
@@ -1157,6 +1192,14 @@ void VOutput::paintEvent(QPaintEvent* event)
    // printf("RenderTime:%d\n", ts);
 
 
+    if (Editor::m_CurrentNode!=nullptr &&  m_Gizmo != nullptr) {
+
+        m_Nitro->SetGizmo(m_Gizmo);
+
+    }
+    else {
+        m_Nitro->SetGizmo(nullptr);
+    }
 
     Engine::ClearZ();
 
@@ -1197,7 +1240,17 @@ void VOutput::paintEvent(QPaintEvent* event)
         auto sp = m_Graph1->ToScreenSpace(l->GetPosition());
 
 
-//        m_Draw->Rect(m_LightIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
+        m_Draw->Rect(m_LightIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
+
+
+    }
+
+    for (auto c : m_Graph1->GetCameras()) {
+
+        auto sp = m_Graph1->ToScreenSpace(c->GetPosition());
+
+
+        m_Draw->Rect(m_CamIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
 
 
     }

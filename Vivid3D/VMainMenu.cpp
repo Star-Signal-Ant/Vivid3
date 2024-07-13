@@ -99,6 +99,20 @@ VMainMenu::VMainMenu(QWidget *parent)
 		auto terrain = new NodeTerrain(128, 128, 3, 4);
 		Editor::m_Graph->AddNode(terrain);
 		Editor::m_Graph->Updated();
+		Editor::m_SceneGraph->UpdateGraph();
+		});
+
+
+	auto create_node = create->addMenu("Nodes");
+
+	auto cr_camera = create_node->addAction("Create Camera");
+
+	connect(cr_camera, &QAction::triggered, [this]() {
+
+		auto cam = new NodeCamera;
+		Editor::m_Graph->AddNode(cam);
+		Editor::m_Graph->Updated();
+		Editor::m_SceneGraph->UpdateGraph();
 
 		});
 
