@@ -18,6 +18,12 @@ void VModule::AddClass(VClass* cls) {
 
 }
 
+void VModule::AddEnum(VEnum* e) {
+
+	m_Enums.push_back(e);
+	
+}
+
 VName VModule::GetName() {
 
 	return m_Name;

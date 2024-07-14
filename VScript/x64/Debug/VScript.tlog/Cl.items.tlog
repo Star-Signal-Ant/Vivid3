@@ -10,6 +10,7 @@ C:\dev\Vivid3D\VScript\VContext.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VContext.ob
 C:\dev\Vivid3D\VScript\VDeclareArray.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VDeclareArray.obj
 C:\dev\Vivid3D\VScript\VDeclareObject.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VDeclareObject.obj
 C:\dev\Vivid3D\VScript\VDefineParams.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VDefineParams.obj
+C:\dev\Vivid3D\VScript\VEnum.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VEnum.obj
 C:\dev\Vivid3D\VScript\VExpression.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VExpression.obj
 C:\dev\Vivid3D\VScript\VFor.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VFor.obj
 C:\dev\Vivid3D\VScript\VForEach.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VForEach.obj

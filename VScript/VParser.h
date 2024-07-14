@@ -63,6 +63,7 @@ public:
 	VLambda* ParseLambda();
 	VInvoke* ParseInvoke();
 	VForEach* ParseForEach();
+	VEnum* ParseEnum();
 
 private:
 

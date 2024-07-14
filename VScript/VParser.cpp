@@ -20,6 +20,7 @@
 #include "VLambda.h"
 #include "VInvoke.h"
 #include "VForEach.h"
+#include "VEnum.h"
 
 
 VParser::VParser() {
@@ -49,6 +50,12 @@ VModule* VParser::ParseModule(VTokenStream stream) {
 		}
 
 		switch (token.GetType()) {
+		case T_Enum:
+		{
+			auto p_enum = ParseEnum();
+			module->AddEnum(p_enum);
+		}
+			break;
 		case T_Class:
 		{
 			auto p_class = ParseClass();
@@ -1401,6 +1408,48 @@ VDefineParams* VParser::ParseParameters() {
 	int b = 5;
 
 	return nullptr;
+
+}
+
+VEnum* VParser::ParseEnum() {
+
+	auto tok = m_Stream.GetNext();
+
+
+	int b = 5;
+
+	VEnum* e = new VEnum;
+
+	e->SetName(tok.GetLex());
+
+	int value = 0;
+	while (!m_Stream.End()) {
+
+		auto v = m_Stream.GetNext();
+
+		if (v.GetLex() == ",")
+		{
+			continue;
+		}
+		if (v.GetLex() == ";")
+		{
+			continue;
+		}
+		if (v.GetLex() == "end")
+		{
+			return e;
+		}
+
+		e->AddValue(v.GetLex(), value);
+
+
+
+		int a = 5;
+		value++;
+
+	}
+
+	return e;
 
 }
 

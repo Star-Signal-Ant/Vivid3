@@ -152,6 +152,7 @@
     <ClInclude Include="VDeclareArray.h" />
     <ClInclude Include="VDeclareObject.h" />
     <ClInclude Include="VDefineParams.h" />
+    <ClInclude Include="VEnum.h" />
     <ClInclude Include="VExpression.h" />
     <ClInclude Include="VFor.h" />
     <ClInclude Include="VForEach.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="VDeclareArray.cpp" />
     <ClCompile Include="VDeclareObject.cpp" />
     <ClCompile Include="VDefineParams.cpp" />
+    <ClCompile Include="VEnum.cpp" />
     <ClCompile Include="VExpression.cpp" />
     <ClCompile Include="VFor.cpp" />
     <ClCompile Include="VForEach.cpp" />

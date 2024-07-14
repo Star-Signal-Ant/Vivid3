@@ -20,7 +20,7 @@ VVar* TestDebug(const std::vector<VVar*>& args)
     std::vector<VVar*> vec(args);
 
     printf("DebugS:");
-    printf("%f",vec[0]->ToFloat());
+    printf("%d",vec[0]->ToInt());
     printf("\n");
 
     //printf("Debug1:%d\n",vec[0]->ToInt());
@@ -67,7 +67,7 @@ int main()
 
 //e    v1->SetC((void*)t1);
 
-  //  f1->Call(nullptr);
+//    f1->Call(nullptr);
 
     auto mod1 = con1->GetModule("Vivid", "Test");
 

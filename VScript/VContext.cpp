@@ -2,6 +2,7 @@
 #include "VContext.h"
 #include "VScope.h"
 #include "VFunction.h"
+#include "VEnum.h"
 
 VContext::VContext() {
 
@@ -30,6 +31,10 @@ void VContext::AddModule(VModule* module) {
 		}
 
 
+	}
+
+	for (auto en : module->GetEnums()) {
+		m_Enums.push_back(en);
 	}
 
 	//PushScope(m_StaticScope);
@@ -84,6 +89,26 @@ VVar* VContext::FindVar(std::vector<std::string> names) {
 	}
 	else {
 
+		int b = 5;
+
+		auto en = FindEnum(names[0]);
+	
+		if (en != nullptr) {
+
+			auto val = en->GetValue(names[1]);
+
+			auto var = new VVar;
+			var->SetName(names[0]);
+			var->SetType(T_Int);
+			var->SetInt(val);
+
+			return var;
+
+
+
+		}
+		
+
 		auto check = FindVar(names[0]);
 
 		if (check->GetClassType() == "List"){
@@ -131,4 +156,16 @@ VVar* VContext::FindVar(std::string name) {
 		return var;
 	}
 	return nullptr;
+}
+
+VEnum* VContext::FindEnum(std::string name) {
+
+	for (auto en : m_Enums)
+	{
+		if (en->GetName() == name) {
+			return en;
+		}
+	}
+	return nullptr;
+
 }

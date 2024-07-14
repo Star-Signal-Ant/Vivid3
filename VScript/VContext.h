@@ -184,7 +184,7 @@ public:
 
     VVar* FindVar(std::string name);
     VVar* FindVar(std::vector<std::string> names);
-
+    VEnum* FindEnum(std::string name);
 private:
 
     VName m_Check;
@@ -193,5 +193,6 @@ private:
     std::map < std::string, std::function<VVar* (const std::vector<VVar*>& args)>> m_CFuncMap;
     std::stack<VScope*> m_ScopeStack;
     VScope* m_StaticScope;
+    std::vector<VEnum*> m_Enums;
 };
 

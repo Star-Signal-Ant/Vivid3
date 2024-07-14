@@ -135,6 +135,9 @@
     <ClInclude Include="VForEach.h">
       <Filter>Actions</Filter>
     </ClInclude>
+    <ClInclude Include="VEnum.h">
+      <Filter>Runtime</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VScript.cpp">
@@ -241,6 +244,9 @@
     </ClCompile>
     <ClCompile Include="VForEach.cpp">
       <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="VEnum.cpp">
+      <Filter>Runtime</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
