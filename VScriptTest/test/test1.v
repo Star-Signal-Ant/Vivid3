@@ -9,9 +9,23 @@ end
 
 class TestClass 
 
+    int api = TestEnum.OpenGL;
+
     func TestClass() 
 
-        debug((TestEnum.Other+TestEnum.Now)*2);
+        switch(api)
+			
+	case 0;
+
+		debug("DirectX!");
+	end
+
+	case 1;
+
+		debug("OpenGL!");
+	end 
+
+	end 
 
     end 
 

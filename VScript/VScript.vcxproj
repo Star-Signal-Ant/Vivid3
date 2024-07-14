@@ -168,6 +168,7 @@
     <ClInclude Include="VScope.h" />
     <ClInclude Include="VSource.h" />
     <ClInclude Include="VStatementCall.h" />
+    <ClInclude Include="VSwitch.h" />
     <ClInclude Include="VToken.h" />
     <ClInclude Include="VTokenizer.h" />
     <ClInclude Include="VTokenStream.h" />
@@ -211,6 +212,7 @@
     <ClCompile Include="VScript.cpp" />
     <ClCompile Include="VSource.cpp" />
     <ClCompile Include="VStatementCall.cpp" />
+    <ClCompile Include="VSwitch.cpp" />
     <ClCompile Include="VToken.cpp" />
     <ClCompile Include="VTokenizer.cpp" />
     <ClCompile Include="VTokenStream.cpp" />

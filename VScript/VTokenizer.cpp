@@ -65,6 +65,7 @@ VTokenStream VTokenizer::Tokenize(VSource* source) {
 	toke_map["list"] = TokenType::T_List;
 	toke_map["foreach"] = TokenType::T_ForEach;
 	toke_map["enum"] = TokenType::T_Enum;
+	toke_map["switch"] = TokenType::T_Switch;
 
 	m_Source = source;
 

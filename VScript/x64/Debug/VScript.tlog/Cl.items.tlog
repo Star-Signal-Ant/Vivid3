@@ -27,6 +27,7 @@ C:\dev\Vivid3D\VScript\VScope.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VScope.obj
 C:\dev\Vivid3D\VScript\VScript.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VScript.obj
 C:\dev\Vivid3D\VScript\VSource.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VSource.obj
 C:\dev\Vivid3D\VScript\VStatementCall.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VStatementCall.obj
+C:\dev\Vivid3D\VScript\VSwitch.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VSwitch.obj
 C:\dev\Vivid3D\VScript\VToken.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VToken.obj
 C:\dev\Vivid3D\VScript\VTokenizer.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VTokenizer.obj
 C:\dev\Vivid3D\VScript\VTokenStream.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VTokenStream.obj

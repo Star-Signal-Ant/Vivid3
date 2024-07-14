@@ -21,6 +21,7 @@
 #include "VInvoke.h"
 #include "VForEach.h"
 #include "VEnum.h"
+#include "VSwitch.h"
 
 
 VParser::VParser() {
@@ -455,6 +456,9 @@ PredictType VParser::PredictNext(VTokenStream stream)
 		auto tok = stream.GetNext();
 
 		switch (tok.GetType()) {
+		case T_Switch:
+			return P_Switch;
+			break;
 		case T_ForEach:
 			return P_ForEach;
 			break;
@@ -619,6 +623,15 @@ VCodeBody* VParser::ParseCodeBody() {
 		PredictType pt = PredictNext(m_Stream);
 
 		switch (pt) {
+		case P_Switch:
+		{
+
+			auto ret = ParseSwitch();
+			body->AddCode(ret);
+
+		}
+
+			break;
 		case P_ForEach:
 		{
 
@@ -1450,6 +1463,60 @@ VEnum* VParser::ParseEnum() {
 	}
 
 	return e;
+
+}
+
+
+VSwitch* VParser::ParseSwitch() {
+	
+
+	auto tok = m_Stream.GetNext();
+
+	tok = m_Stream.GetNext();
+
+	auto check = ParseExpression();
+
+	m_Stream.GetNext();
+
+	VSwitch* sw = new VSwitch;
+
+	sw->SetCheck(check);
+
+	while (!m_Stream.End()) {
+
+		tok = m_Stream.GetNext();
+
+		if (tok.GetLex() == "case")
+		{
+
+			auto expr = ParseExpression();
+
+			tok = m_Stream.GetNext();
+
+			auto code = ParseCodeBody();
+
+			sw->AddValue(code, expr);
+
+			if (m_Stream.Peek(0).GetLex() == "end")
+			{
+				m_Stream.GetNext();
+			}
+
+		}
+
+		if (tok.GetLex() == "end")
+		{
+			return sw;
+		}
+
+		int a = 5;
+
+	}
+
+	int b = 5;
+
+	return sw;
+
 
 }
 

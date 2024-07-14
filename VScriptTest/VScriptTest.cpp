@@ -22,6 +22,10 @@ VVar* TestDebug(const std::vector<VVar*>& args)
     printf("DebugS:");
     printf("%d",vec[0]->ToInt());
     printf("\n");
+    printf("String:");
+    printf(vec[0]->ToString().c_str());
+    printf("\n");
+
 
     //printf("Debug1:%d\n",vec[0]->ToInt());
 
