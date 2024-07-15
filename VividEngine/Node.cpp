@@ -90,6 +90,9 @@ VVar* CF_Debug(const std::vector<VVar*>& args)
 	printf("Debug:");
 	printf(vec[0]->ToString().c_str());
 	printf("\n");
+	printf("F:");
+	printf("%f",vec[0]->ToFloat());
+	printf("\n");
 
 	//printf("Debug1:%d\n",vec[0]->ToInt());
 
@@ -341,7 +344,18 @@ void Node::Update(float delta) {
 		for (auto gs : m_Scripts) {
 
 			auto up_func = gs->FindFunction("Update");
-			up_func->Call(nullptr);
+			
+			VVar* nv = new VVar;
+
+			nv->SetType(T_Float);
+			nv->SetFloat(delta);
+
+			std::vector<VVar*> vars;
+
+			vars.push_back(nv);
+			nv->SetName("delta");
+			up_func->Call(vars);
+
 
 		}
 	}

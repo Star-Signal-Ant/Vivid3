@@ -34,7 +34,12 @@ VVar* VIf::Exec() {
 	if (m_IfExp->Express()->ToInt() == 1)
 	{
 		m_Code->SetContext(GetContext());
-		m_Code->Exec();
+		auto res = m_Code->Exec();
+		if (res != nullptr) {
+			return res;
+		}
+
+
 	}
 	else {
 
@@ -42,15 +47,21 @@ VVar* VIf::Exec() {
 
 
 			m_ElseIf->SetContext(GetContext());
-			m_ElseIf->Exec();
+			auto res = m_ElseIf->Exec();
+			if (res != nullptr) {
+				return res;
+			}
+
 
 		}
 		else {
 
 			if (m_ElseCode != nullptr) {
 				m_ElseCode->SetContext(GetContext());
-				m_ElseCode->Exec();
-
+				auto res = m_ElseCode->Exec();
+				if (res != nullptr) {
+					return res;
+				}
 			}
 		}
 

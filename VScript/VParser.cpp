@@ -977,13 +977,22 @@ VReturn* VParser::ParseReturn() {
 		Err("Expecting 'return'");
 	}
 
+
+
+
 	VReturn* res = new VReturn;
 
-	res->SetExpression(ParseExpression());
 
-	tok = m_Stream.GetNext();
-	int v = 5;
-	return res;
+	if (m_Stream.Peek(0).GetLex() != ";") {
+		res->SetExpression(ParseExpression());
+
+		tok = m_Stream.GetNext();
+		int v = 5;
+		return res;
+	}
+	else {
+		return res;
+	}
 }
 
 VClassCall* VParser::ParseClassCall() {

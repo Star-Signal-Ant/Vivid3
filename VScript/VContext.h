@@ -73,6 +73,10 @@ public:
         if (m_ScopeStack.size() > 0) {
             root = m_ScopeStack.top();
         }
+        m_ScopeStack.push(scope);
+        if (root != nullptr) {
+            scope->SetRoot(root);
+        }
         int pc = params->GetParams().size();
         int ii = 0;
         for (auto v : scope->GetVars()) {
@@ -141,10 +145,7 @@ public:
             */
             ii++;
         }
-        m_ScopeStack.push(scope);
-        if (root != nullptr) {
-            scope->SetRoot(root);
-        }
+      
     }
     void PushScope(VScope* scope) {
 

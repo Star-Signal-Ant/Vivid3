@@ -23,6 +23,7 @@ public:
 	VDefineParams* GetParams();
 	void SetContext(VContext* context);
 	VFunction* Clone();
+	VVar* Call(const std::vector<VVar*>& args);
 	VVar* Call(VCallParameters* params);
 
 	void SetBody(VCodeBody* code);

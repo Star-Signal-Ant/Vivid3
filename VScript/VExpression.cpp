@@ -439,6 +439,7 @@ bool VExpression::Is_Float() {
 		}
 		break;
 		case T_Number:
+		case T_Int:
 
 			if (!is_float) {
 				is_int = true;
@@ -446,6 +447,7 @@ bool VExpression::Is_Float() {
 			}
 
 			break;
+		case T_Float:
 		case T_FloatNumber:
 			is_int = false;
 			is_float = true;
@@ -543,7 +545,9 @@ VVar* VExpression::Express() {
 
 				int b = 5;
 			}
-			return fv;
+			if (Elements[0].EleType == T_Ident) {
+				return fv;
+			}
 		}
 
 		if (Elements[0].IsNew) {
@@ -866,11 +870,13 @@ std::vector<std::string> VExpression::ToVector() {
 
 			break;
 		case T_Number:
-
+		case T_Int:
+		
 			stack.push_back(std::to_string(e.IntValue));
 
 			break;
 		case T_FloatNumber:
+		case T_Float:
 			stack.push_back(std::to_string(e.FloatValue));
 			break;
 		case T_Operator:

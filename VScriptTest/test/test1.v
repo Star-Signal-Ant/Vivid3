@@ -15,9 +15,9 @@ class TestClass
 	func Check()
 
 		
-	if(api = TestEnum.DirectX)
+	if(api = TestEnum.OpenGL)
 
-		debug("API=OpenGL");
+		return;
 
 	end 
 

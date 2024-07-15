@@ -5,6 +5,7 @@
 #include "VContext.h"
 #include "VDefineParams.h"
 #include "VCallParameters.h"
+#include "VExpression.h"
 
 VFunction::VFunction() {
 
@@ -50,6 +51,60 @@ VFunction* VFunction::Clone() {
 	clone->SetContext(m_Context);
 	clone->SetGuard(m_Guard);
 	return clone;
+
+}
+
+
+VVar* VFunction::Call(const std::vector<VVar*>& args)
+{
+	m_Context->PushScope(m_ClassOwner->GetScope());
+
+	if (args.size()>0) {
+
+		auto params = new VCallParameters;
+
+		for (auto arg : args) {
+
+			VExpression* e = new VExpression;
+			ExpElement ele;
+			ele.EleType = arg->GetType();
+			
+			VName name;
+			name.Add(arg->GetName());
+			ele.VarName = name;
+			ele.FloatValue = arg->ToFloat();
+
+			e->Elements.push_back(ele);
+			
+			params->AddParam(e);
+
+		}
+
+
+		m_Context->PushScope(GetScope(), params);
+	}
+	else {
+		m_Context->PushScope(GetScope());
+	}
+
+	m_Code->SetContext(m_Context);
+	VVar* res = nullptr;
+	if (m_Guard != nullptr) {
+		m_Guard->m_Context = m_Context;
+		if (m_Guard->Express()->ToInt() == 1) {
+			res = m_Code->Exec();
+		}
+	}
+	else {
+		res = m_Code->Exec();
+	}
+
+
+	m_Context->PopScope();
+
+	m_Context->PopScope();
+
+	return res;
 
 }
 
