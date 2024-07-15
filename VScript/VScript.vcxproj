@@ -143,6 +143,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="VAction.h" />
     <ClInclude Include="VAssignArray.h" />
+    <ClInclude Include="VBreak.h" />
     <ClInclude Include="VCallParameters.h" />
     <ClInclude Include="VClass.h" />
     <ClInclude Include="VClassAssign.h" />
@@ -186,6 +187,7 @@
     </ClCompile>
     <ClCompile Include="VAction.cpp" />
     <ClCompile Include="VAssignArray.cpp" />
+    <ClCompile Include="VBreak.cpp" />
     <ClCompile Include="VCallParameters.cpp" />
     <ClCompile Include="VClass.cpp" />
     <ClCompile Include="VClassAssign.cpp" />

@@ -1,6 +1,7 @@
 C:\dev\Vivid3D\VScript\pch.cpp;C:\dev\Vivid3D\VScript\x64\Debug\pch.obj
 C:\dev\Vivid3D\VScript\VAction.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VAction.obj
 C:\dev\Vivid3D\VScript\VAssignArray.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VAssignArray.obj
+C:\dev\Vivid3D\VScript\VBreak.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VBreak.obj
 C:\dev\Vivid3D\VScript\VCallParameters.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VCallParameters.obj
 C:\dev\Vivid3D\VScript\VClass.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VClass.obj
 C:\dev\Vivid3D\VScript\VClassAssign.cpp;C:\dev\Vivid3D\VScript\x64\Debug\VClassAssign.obj

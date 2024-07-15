@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "VCodeBody.h"
 #include "VExpression.h"
+#include "VBreak.h"
 
 void VCodeBody::AddCode(VAction* action) {
 
@@ -12,7 +13,10 @@ VVar* VCodeBody::Exec() {
 
 	for (auto code : m_Code) {
 
-		
+		if (dynamic_cast<VBreak*>(code)) {
+
+			return nullptr;
+		}
 
 		VVar* res = nullptr;
 		//code->SetContext(GetContext());

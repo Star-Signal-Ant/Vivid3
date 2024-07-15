@@ -18,6 +18,16 @@ Vivid3D::Vivid3D(QWidget *parent)
 
     mSceneView = new VOutput;
 
+    QSystemTrayIcon* trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setIcon(QIcon("test/emtest1.png"));
+    trayIcon->show();
+
+    m_SysTray = trayIcon;
+    Editor::m_Tray = trayIcon;
+
+
+    Editor::Notify("Vivid3D", "Welcome to Vivid3D\nYou may now begin editing your project", 3000);
+
    
 
     m_SceneGraph = new QDockWidget("Scene Graph", this);

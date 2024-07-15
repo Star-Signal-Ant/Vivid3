@@ -13,17 +13,17 @@ class TestClass
 
     func TestClass() 
 
-        switch(api)
+    switch(api)
 			
-	case 0;
+	case TestEnum.DirectX:
 
 		debug("DirectX!");
-	end
+		break;
 
-	case 1;
+	case TestEnum.OpenGL:
 
 		debug("OpenGL!");
-	end 
+		break;
 
 	end 
 

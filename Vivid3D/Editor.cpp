@@ -51,3 +51,13 @@ void Editor::CreateAnimation(std::string anim,float length) {
 	m_EditAnimation->SetLength(length);
 
 }
+
+QSystemTrayIcon* Editor::m_Tray = nullptr;
+
+
+void Editor::Notify(std::string title, std::string info, int display)
+{
+
+	m_Tray->showMessage(title.c_str(), info.c_str(), QSystemTrayIcon::Information, display);
+
+}

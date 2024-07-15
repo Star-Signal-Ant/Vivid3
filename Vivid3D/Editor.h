@@ -1,6 +1,10 @@
 #pragma once
 #include <string>
-
+#include <QApplication>
+#include <QSystemTrayIcon>
+#include <QMenu>
+#include <QAction>
+#include <QIcon>
 
 enum GizmoMode {
 	GM_Translate,GM_Rotate,GM_Scale
@@ -53,4 +57,6 @@ public:
 	static int TerrainEditLayer;
 	static void CreateAnimation(std::string anim,float length);
 	static double m_AnimEditTime;
+	static QSystemTrayIcon* m_Tray;
+	static void Notify(std::string title, std::string info, int display);
 };

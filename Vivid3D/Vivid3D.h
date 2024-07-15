@@ -3,7 +3,11 @@
 #include <QtWidgets/QMainWindow>
 #include "Widgets/VOutput.h"
 #include "ui_Vivid3D.h"
-
+#include <QApplication>
+#include <QSystemTrayIcon>
+#include <QMenu>
+#include <QAction>
+#include <QIcon>
 class Vivid3D : public QMainWindow
 {
     Q_OBJECT
@@ -23,5 +27,5 @@ private:
     QDockWidget* m_PropEditor;
     QDockWidget* m_CinemaEditor;
     VOutput* mSceneView;
-
+    QSystemTrayIcon* m_SysTray;
 };

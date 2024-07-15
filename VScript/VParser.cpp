@@ -21,6 +21,7 @@
 #include "VInvoke.h"
 #include "VForEach.h"
 #include "VEnum.h"
+#include "VBreak.h"
 #include "VSwitch.h"
 
 
@@ -456,6 +457,9 @@ PredictType VParser::PredictNext(VTokenStream stream)
 		auto tok = stream.GetNext();
 
 		switch (tok.GetType()) {
+		case T_Break:
+			return P_Break;
+			
 		case T_Switch:
 			return P_Switch;
 			break;
@@ -623,6 +627,13 @@ VCodeBody* VParser::ParseCodeBody() {
 		PredictType pt = PredictNext(m_Stream);
 
 		switch (pt) {
+		case P_Break:
+		{
+			auto br = new VBreak;
+			body->AddCode(br);
+			return body;
+		}
+		break;
 		case P_Switch:
 		{
 
@@ -1191,6 +1202,11 @@ VExpression* VParser::ParseExpression() {
 			return expr;
 		}
 		if (toke.GetLex() == ";")
+		{
+			m_Stream.Back();
+			return expr;
+		}
+		if (toke.GetLex() == ":")
 		{
 			m_Stream.Back();
 			return expr;

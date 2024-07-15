@@ -141,6 +141,9 @@
     <ClInclude Include="VSwitch.h">
       <Filter>Runtime</Filter>
     </ClInclude>
+    <ClInclude Include="VBreak.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VScript.cpp">
@@ -253,6 +256,9 @@
     </ClCompile>
     <ClCompile Include="VSwitch.cpp">
       <Filter>Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="VBreak.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
