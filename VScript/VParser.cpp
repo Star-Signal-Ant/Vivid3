@@ -631,6 +631,7 @@ VCodeBody* VParser::ParseCodeBody() {
 		{
 			auto br = new VBreak;
 			body->AddCode(br);
+			m_Stream.GetNext();
 			return body;
 		}
 		break;
@@ -702,6 +703,7 @@ VCodeBody* VParser::ParseCodeBody() {
 
 			auto ret = ParseReturn();
 			body->AddCode(ret);
+			return body;
 
 		}
 			break;
@@ -875,8 +877,18 @@ VIf* VParser::ParseIf() {
 	auto res = new VIf;
 
 	if (toke.GetLex() == "if") {
-		toke = m_Stream.GetNext();
+	//	toke = m_Stream.GetNext();
 	}
+	else {
+		m_Stream.ToPrev("if");
+		if (m_Stream.Peek(0).GetLex() != "if")
+		{
+			m_Stream.ToNext("if");
+		}
+		//	m_Stream.Back();
+	}
+
+	m_Stream.GetNext();
 
 	res->SetIfExp(ParseExpression());
 
@@ -886,6 +898,11 @@ VIf* VParser::ParseIf() {
 	res->SetBody(ParseCodeBody());
 
 	toke = m_Stream.Peek(0);
+
+	if (toke.GetLex() == "end")
+	{
+		m_Stream.GetNext();
+	}
 
 	if (toke.GetLex() == "elseif")
 	{
@@ -1118,7 +1135,10 @@ VStatementCall* VParser::ParseStatement() {
 			return call;
 		}
 		else {
-			Err("Unknown follow up to statement call.\n");
+			auto c2 = m_Stream.GetNext();
+
+			return call;
+			//	Err("Unknown follow up to statement call.\n");
 		}
 
 	}
@@ -1488,6 +1508,14 @@ VSwitch* VParser::ParseSwitch() {
 
 	auto tok = m_Stream.GetNext();
 
+	if (tok.GetLex() != "switch") {
+		m_Stream.ToNext("switch");
+		tok = m_Stream.GetNext();
+	}
+
+
+
+	//tok = m_Stream.GetNext();
 	tok = m_Stream.GetNext();
 
 	auto check = ParseExpression();
@@ -1513,10 +1541,7 @@ VSwitch* VParser::ParseSwitch() {
 
 			sw->AddValue(code, expr);
 
-			if (m_Stream.Peek(0).GetLex() == "end")
-			{
-				m_Stream.GetNext();
-			}
+		
 
 		}
 

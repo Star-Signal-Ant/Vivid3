@@ -35,8 +35,9 @@ VVar* VSwitch::Exec() {
 
 			auto code = m_Codes[i];
 			code->SetContext(GetContext());
-			code->Exec();
-			return nullptr;
+			auto res = code->Exec();
+
+			return res;
 
 		}
 		i++;

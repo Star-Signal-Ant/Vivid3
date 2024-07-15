@@ -30,6 +30,7 @@ VVar* VCodeBody::Exec() {
 		}
 		else {
 			res = code->Exec();
+
 		}
 		if (res != nullptr) {
 			return res;

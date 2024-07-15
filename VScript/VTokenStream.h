@@ -17,6 +17,7 @@ public:
 	bool LineHas(std::string lex, std::string except = "");
 	bool Match(std::initializer_list<TokenType> args);
 	void ToNext(std::string ex) {
+		int index = m_Index;
 		while (true) {
 
 			if (Peek(0).GetLex() == ex)
@@ -25,9 +26,34 @@ public:
 			}
 			else {
 				GetNext();
+				if (m_Index >= m_Tokens.size())
+				{
+					m_Index = index;
+					return;
+				}
 			}
 
 		}
+	}
+	void ToPrev(std::string ex) {
+
+		int p_index = m_Index;
+		while (true) {
+
+			if (Peek(0).GetLex() == ex)
+			{
+				return;
+			}
+			else {
+				Back();
+				if (m_Index < 0) {
+					m_Index = p_index;
+					return;
+				}
+			}
+
+		}
+
 	}
 
 private:

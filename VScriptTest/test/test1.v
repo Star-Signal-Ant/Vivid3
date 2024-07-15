@@ -11,9 +11,17 @@ class TestClass
 
     int api = TestEnum.OpenGL;
 
-    func TestClass() 
 
-    switch(api)
+	func Check()
+
+		
+	if(api = TestEnum.DirectX)
+
+		debug("API=OpenGL");
+
+	end 
+
+		   switch(api)
 			
 	case TestEnum.DirectX:
 
@@ -23,9 +31,17 @@ class TestClass
 	case TestEnum.OpenGL:
 
 		debug("OpenGL!");
-		break;
+		return 300;
 
 	end 
+
+	return 35;		
+
+	end 
+
+    func TestClass() 
+
+		debug(Check());
 
     end 
 

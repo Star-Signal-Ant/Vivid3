@@ -29,6 +29,8 @@ void VIf::SetElseIf(VIf* else_if)
 
 VVar* VIf::Exec() {
 
+	m_IfExp->m_Context = GetContext();
+
 	if (m_IfExp->Express()->ToInt() == 1)
 	{
 		m_Code->SetContext(GetContext());
@@ -37,6 +39,7 @@ VVar* VIf::Exec() {
 	else {
 
 		if (m_ElseIf != nullptr) {
+
 
 			m_ElseIf->SetContext(GetContext());
 			m_ElseIf->Exec();

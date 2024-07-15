@@ -3,10 +3,46 @@
   "WorkspaceRootPath": "C:\\dev\\Vivid3D\\Vivid3D\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VIf.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VIf.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VFor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VParser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VParser.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VTokenStream.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VSwitch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VCodeBody.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VContext.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.40.33807\\INCLUDE\\XMEMORY||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VStatementCall.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VScope.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VToken.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VBreak.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -16,9 +52,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VToken.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VParser.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D5DED9C6-911D-409A-91AB-DEE3F1DD9A63}|Vivid3D.vcxproj|C:\\dev\\Vivid3D\\Vivid3D\\Vivid3D.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -37,31 +70,19 @@
       "RelativeMoniker": "D:0:0:{D5DED9C6-911D-409A-91AB-DEE3F1DD9A63}|Vivid3D.vcxproj|solutionrelative:Vivid3D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VSwitch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D4F374A-53D4-4184-95F5-DA69A92C071E}|..\\VScriptTest\\VScriptTest.vcxproj|C:\\dev\\Vivid3D\\VScriptTest\\VScriptTest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VSwitch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VFor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VFor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VContext.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VContext.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VModule.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VEnum.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -71,9 +92,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VModule.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C0FA7EB-8330-428F-903A-2D8E27E69411}|..\\VScript\\VScript.vcxproj|C:\\dev\\Vivid3D\\VScript\\VToken.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D5DED9C6-911D-409A-91AB-DEE3F1DD9A63}|Vivid3D.vcxproj|C:\\dev\\Vivid3D\\Vivid3D\\Widgets\\VOutput.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -230,17 +248,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "VParser.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VParser.cpp",
               "RelativeDocumentMoniker": "..\\VScript\\VParser.cpp",
-              "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VParser.cpp*",
-              "RelativeToolTip": "..\\VScript\\VParser.cpp*",
-              "ViewState": "AQIAAJwEAAAAAAAAAAAqwLsEAAAPAAAA",
+              "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VParser.cpp",
+              "RelativeToolTip": "..\\VScript\\VParser.cpp",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAiwHEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-07-14T15:03:56.58Z",
               "IsPinned": true,
@@ -248,13 +266,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "VParser.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VParser.h",
               "RelativeDocumentMoniker": "..\\VScript\\VParser.h",
               "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VParser.h",
               "RelativeToolTip": "..\\VScript\\VParser.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABdAAAA",
+              "ViewState": "AQIAADMAAAAAAAAAAAAqwEcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-07-14T15:05:40.643Z",
               "IsPinned": true,
@@ -262,20 +280,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 8,
               "Title": "VContext.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VContext.cpp",
               "RelativeDocumentMoniker": "..\\VScript\\VContext.cpp",
               "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VContext.cpp",
               "RelativeToolTip": "..\\VScript\\VContext.cpp",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAiwFsAAAAAAAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAiwEUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-07-14T15:18:26.481Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 24,
               "Title": "VContext.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VContext.h",
               "RelativeDocumentMoniker": "..\\VScript\\VContext.h",
@@ -292,20 +311,59 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VIf.cpp",
+              "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VIf.cpp",
+              "RelativeDocumentMoniker": "..\\VScript\\VIf.cpp",
+              "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VIf.cpp",
+              "RelativeToolTip": "..\\VScript\\VIf.cpp",
+              "ViewState": "AQIAABYAAAAAAAAAAADwvyEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-15T09:42:24.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "VIf.h",
+              "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VIf.h",
+              "RelativeDocumentMoniker": "..\\VScript\\VIf.h",
+              "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VIf.h",
+              "RelativeToolTip": "..\\VScript\\VIf.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-07-15T09:42:23.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "VStatementCall.cpp",
+              "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VStatementCall.cpp",
+              "RelativeDocumentMoniker": "..\\VScript\\VStatementCall.cpp",
+              "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VStatementCall.cpp",
+              "RelativeToolTip": "..\\VScript\\VStatementCall.cpp",
+              "ViewState": "AQIAACMAAAAAAAAAAAAiwDoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-15T08:33:13.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "VCodeBody.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VCodeBody.cpp",
               "RelativeDocumentMoniker": "..\\VScript\\VCodeBody.cpp",
               "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VCodeBody.cpp",
               "RelativeToolTip": "..\\VScript\\VCodeBody.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAASAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-07-15T08:03:31.321Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 14,
               "Title": "VBreak.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VBreak.h",
               "RelativeDocumentMoniker": "..\\VScript\\VBreak.h",
@@ -318,7 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 17,
               "Title": "Vivid3D.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\Vivid3D.cpp",
               "RelativeDocumentMoniker": "Vivid3D.cpp",
@@ -332,6 +390,84 @@
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "vector",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector",
+              "RelativeDocumentMoniker": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector",
+              "RelativeToolTip": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector",
+              "ViewState": "AQIAAE0HAAAAAAAAAAAiwGAHAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-07-12T13:51:50.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VSwitch.cpp",
+              "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VSwitch.cpp",
+              "RelativeDocumentMoniker": "..\\VScript\\VSwitch.cpp",
+              "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VSwitch.cpp",
+              "RelativeToolTip": "..\\VScript\\VSwitch.cpp",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAiwCcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-14T15:34:40.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "xmemory",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xmemory",
+              "RelativeDocumentMoniker": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xmemory",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xmemory",
+              "RelativeToolTip": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xmemory",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAiwGUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-07-15T08:36:54.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "VScope.cpp",
+              "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VScope.cpp",
+              "RelativeDocumentMoniker": "..\\VScript\\VScope.cpp",
+              "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VScope.cpp",
+              "RelativeToolTip": "..\\VScript\\VScope.cpp",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAiwBwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-15T08:36:59.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VFor.h",
+              "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VFor.h",
+              "RelativeDocumentMoniker": "..\\VScript\\VFor.h",
+              "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VFor.h",
+              "RelativeToolTip": "..\\VScript\\VFor.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-07-14T15:47:55.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VTokenStream.h",
+              "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VTokenStream.h",
+              "RelativeDocumentMoniker": "..\\VScript\\VTokenStream.h",
+              "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VTokenStream.h",
+              "RelativeToolTip": "..\\VScript\\VTokenStream.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-07-15T09:29:19.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "Vivid3D.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\Vivid3D.h",
               "RelativeDocumentMoniker": "Vivid3D.h",
@@ -343,19 +479,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 13,
               "Title": "VToken.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VToken.cpp",
               "RelativeDocumentMoniker": "..\\VScript\\VToken.cpp",
               "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VToken.cpp",
               "RelativeToolTip": "..\\VScript\\VToken.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-07-14T15:05:07.97Z"
+              "WhenOpened": "2024-07-14T15:05:07.97Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 16,
               "Title": "VToken.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VToken.h",
               "RelativeDocumentMoniker": "..\\VScript\\VToken.h",
@@ -368,19 +505,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "vector",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector",
-              "RelativeDocumentMoniker": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector",
-              "RelativeToolTip": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vector",
-              "ViewState": "AQIAACcHAAAAAAAAAAAiwDoHAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-07-12T13:51:50.995Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 25,
               "Title": "VModule.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VModule.h",
               "RelativeDocumentMoniker": "..\\VScript\\VModule.h",
@@ -392,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "VScriptTest.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScriptTest\\VScriptTest.cpp",
               "RelativeDocumentMoniker": "..\\VScriptTest\\VScriptTest.cpp",
@@ -404,19 +529,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "VSwitch.cpp",
-              "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VSwitch.cpp",
-              "RelativeDocumentMoniker": "..\\VScript\\VSwitch.cpp",
-              "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VSwitch.cpp",
-              "RelativeToolTip": "..\\VScript\\VSwitch.cpp",
-              "ViewState": "AQIAAAkAAAAAAAAAAADwvxsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-07-14T15:34:40.989Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 15,
               "Title": "VTokenizer.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VTokenizer.cpp",
               "RelativeDocumentMoniker": "..\\VScript\\VTokenizer.cpp",
@@ -429,7 +542,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 19,
               "Title": "Editor.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\Editor.h",
               "RelativeDocumentMoniker": "Editor.h",
@@ -441,7 +554,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 18,
               "Title": "Editor.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\Editor.cpp",
               "RelativeDocumentMoniker": "Editor.cpp",
@@ -453,7 +566,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 22,
               "Title": "VSwitch.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VSwitch.h",
               "RelativeDocumentMoniker": "..\\VScript\\VSwitch.h",
@@ -465,7 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "VFor.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VFor.cpp",
               "RelativeDocumentMoniker": "..\\VScript\\VFor.cpp",
@@ -477,19 +590,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "VFor.h",
-              "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VFor.h",
-              "RelativeDocumentMoniker": "..\\VScript\\VFor.h",
-              "ToolTip": "C:\\dev\\Vivid3D\\VScript\\VFor.h",
-              "RelativeToolTip": "..\\VScript\\VFor.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-07-14T15:47:55.931Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 27,
               "Title": "VEnum.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VEnum.h",
               "RelativeDocumentMoniker": "..\\VScript\\VEnum.h",
@@ -501,7 +602,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 26,
               "Title": "VEnum.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VEnum.cpp",
               "RelativeDocumentMoniker": "..\\VScript\\VEnum.cpp",
@@ -513,7 +614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 30,
               "Title": "NitroRenderer.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\NitroRenderer.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\NitroRenderer.cpp",
@@ -525,7 +626,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 71,
               "Title": "NitroRenderer.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\NitroRenderer.h",
               "RelativeDocumentMoniker": "..\\VividEngine\\NitroRenderer.h",
@@ -537,7 +638,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 72,
               "Title": "xstring",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xstring",
               "RelativeDocumentMoniker": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\xstring",
@@ -549,7 +650,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 33,
               "Title": "MaterialMeshLines.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\MaterialMeshLines.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\MaterialMeshLines.cpp",
@@ -561,7 +662,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 28,
               "Title": "VModule.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VScript\\VModule.cpp",
               "RelativeDocumentMoniker": "..\\VScript\\VModule.cpp",
@@ -573,7 +674,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 35,
               "Title": "MaterialMeshLines.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\MaterialMeshLines.h",
               "RelativeDocumentMoniker": "..\\VividEngine\\MaterialMeshLines.h",
@@ -585,7 +686,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 43,
               "Title": "NodeActor.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\NodeActor.h",
               "RelativeDocumentMoniker": "..\\VividEngine\\NodeActor.h",
@@ -597,7 +698,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 41,
               "Title": "Importer.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\Importer.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\Importer.cpp",
@@ -609,7 +710,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 29,
               "Title": "VOutput.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\Widgets\\VOutput.cpp",
               "RelativeDocumentMoniker": "Widgets\\VOutput.cpp",
@@ -621,7 +722,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 32,
               "Title": "MeshLines.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\MeshLines.h",
               "RelativeDocumentMoniker": "..\\VividEngine\\MeshLines.h",
@@ -633,7 +734,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 31,
               "Title": "VOutput.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\Widgets\\VOutput.h",
               "RelativeDocumentMoniker": "Widgets\\VOutput.h",
@@ -645,7 +746,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 37,
               "Title": "RendererBase.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\RendererBase.h",
               "RelativeDocumentMoniker": "..\\VividEngine\\RendererBase.h",
@@ -657,7 +758,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 34,
               "Title": "NodeActor.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\NodeActor.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\NodeActor.cpp",
@@ -669,7 +770,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 38,
               "Title": "VMainMenu.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VMainMenu.cpp",
               "RelativeDocumentMoniker": "VMainMenu.cpp",
@@ -681,7 +782,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 40,
               "Title": "SceneGraph.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\SceneGraph.h",
               "RelativeDocumentMoniker": "..\\VividEngine\\SceneGraph.h",
@@ -693,7 +794,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 36,
               "Title": "MaterialBase.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\MaterialBase.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\MaterialBase.cpp",
@@ -705,7 +806,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 45,
               "Title": "Animator.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\Animator.h",
               "RelativeDocumentMoniker": "..\\VividEngine\\Animator.h",
@@ -717,7 +818,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 48,
               "Title": "VAnimationList.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VAnimationList.h",
               "RelativeDocumentMoniker": "VAnimationList.h",
@@ -729,7 +830,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 39,
               "Title": "SceneGraph.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\SceneGraph.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\SceneGraph.cpp",
@@ -741,7 +842,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 47,
               "Title": "VPropEditor.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VPropEditor.h",
               "RelativeDocumentMoniker": "VPropEditor.h",
@@ -753,7 +854,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 54,
               "Title": "VCinemaTimeLine.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VCinemaTimeLine.h",
               "RelativeDocumentMoniker": "VCinemaTimeLine.h",
@@ -765,7 +866,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 42,
               "Title": "VPropEditor.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VPropEditor.cpp",
               "RelativeDocumentMoniker": "VPropEditor.cpp",
@@ -777,7 +878,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 70,
               "Title": "qobjectdefs_impl.h",
               "DocumentMoniker": "C:\\Qt\\6.8.0\\msvc2022_64\\include\\QtCore\\qobjectdefs_impl.h",
               "RelativeDocumentMoniker": "..\\..\\..\\Qt\\6.8.0\\msvc2022_64\\include\\QtCore\\qobjectdefs_impl.h",
@@ -789,7 +890,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 66,
               "Title": "MapHelper.hpp",
               "DocumentMoniker": "C:\\dev\\git\\DE\\DiligentEngine\\DiligentCore\\Graphics\\GraphicsTools\\interface\\MapHelper.hpp",
               "RelativeDocumentMoniker": "..\\..\\git\\DE\\DiligentEngine\\DiligentCore\\Graphics\\GraphicsTools\\interface\\MapHelper.hpp",
@@ -801,7 +902,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 44,
               "Title": "Animator.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\Animator.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\Animator.cpp",
@@ -813,7 +914,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 46,
               "Title": "Importer.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\Importer.h",
               "RelativeDocumentMoniker": "..\\VividEngine\\Importer.h",
@@ -825,7 +926,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 52,
               "Title": "VNodeFrame.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VNodeFrame.h",
               "RelativeDocumentMoniker": "VNodeFrame.h",
@@ -837,7 +938,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 51,
               "Title": "CineTrack.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\CineTrack.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\CineTrack.cpp",
@@ -849,7 +950,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 49,
               "Title": "VAnimationList.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VAnimationList.cpp",
               "RelativeDocumentMoniker": "VAnimationList.cpp",
@@ -861,7 +962,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 50,
               "Title": "VNodeFrame.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VNodeFrame.cpp",
               "RelativeDocumentMoniker": "VNodeFrame.cpp",
@@ -873,7 +974,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 57,
               "Title": "VCinemaTimeLine.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VCinemaTimeLine.cpp",
               "RelativeDocumentMoniker": "VCinemaTimeLine.cpp",
@@ -885,7 +986,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 56,
               "Title": "VCinemaEditor.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VCinemaEditor.h",
               "RelativeDocumentMoniker": "VCinemaEditor.h",
@@ -897,7 +998,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 53,
               "Title": "VContentView.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VContentView.cpp",
               "RelativeDocumentMoniker": "VContentView.cpp",
@@ -909,7 +1010,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 55,
               "Title": "VCinemaEditor.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\VCinemaEditor.cpp",
               "RelativeDocumentMoniker": "VCinemaEditor.cpp",
@@ -921,7 +1022,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 58,
               "Title": "Animation.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\Animation.h",
               "RelativeDocumentMoniker": "..\\VividEngine\\Animation.h",
@@ -933,7 +1034,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 59,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\Vivid3D\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
@@ -945,7 +1046,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 60,
               "Title": "Node.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\Node.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\Node.cpp",
@@ -957,7 +1058,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 65,
               "Title": "CubeRenderer.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\CubeRenderer.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\CubeRenderer.cpp",
@@ -969,7 +1070,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 64,
               "Title": "MaterialTerrain.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\MaterialTerrain.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\MaterialTerrain.cpp",
@@ -981,7 +1082,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 62,
               "Title": "MaterialTerrain.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\MaterialTerrain.h",
               "RelativeDocumentMoniker": "..\\VividEngine\\MaterialTerrain.h",
@@ -993,7 +1094,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 61,
               "Title": "Node.h",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\Node.h",
               "RelativeDocumentMoniker": "..\\VividEngine\\Node.h",
@@ -1005,7 +1106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 68,
               "Title": "NodeEntity.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\NodeEntity.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\NodeEntity.cpp",
@@ -1017,7 +1118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 63,
               "Title": "NodeTerrain.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\NodeTerrain.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\NodeTerrain.cpp",
@@ -1029,7 +1130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 67,
               "Title": "MaterialActorDepth.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\MaterialActorDepth.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\MaterialActorDepth.cpp",
@@ -1041,7 +1142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 69,
               "Title": "MaterialMeshPBR.cpp",
               "DocumentMoniker": "C:\\dev\\Vivid3D\\VividEngine\\MaterialMeshPBR.cpp",
               "RelativeDocumentMoniker": "..\\VividEngine\\MaterialMeshPBR.cpp",
