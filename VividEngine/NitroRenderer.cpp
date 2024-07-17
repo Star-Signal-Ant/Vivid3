@@ -208,6 +208,8 @@ void NitroRenderer::Render(bool no_render) {
 
     }
 
+    Engine::ClearZ();
+
     for (auto giz : m_Gizmos) {
         RenderGizmo(giz);
 
@@ -1986,9 +1988,10 @@ void NitroRenderer::CreateGizmoPipeline() {
     // Primitive topology defines what kind of primitives will be rendered by this pipeline state
     PSOCreateInfo.GraphicsPipeline.PrimitiveTopology = PRIMITIVE_TOPOLOGY_TRIANGLE_LIST;
     // Cull back faces
-    PSOCreateInfo.GraphicsPipeline.RasterizerDesc.CullMode = CULL_MODE_BACK;
+    PSOCreateInfo.GraphicsPipeline.RasterizerDesc.CullMode = CULL_MODE_NONE;
     // Enable depth testing
-    PSOCreateInfo.GraphicsPipeline.DepthStencilDesc.DepthEnable = False;
+    PSOCreateInfo.GraphicsPipeline.DepthStencilDesc.DepthEnable = true;
+    PSOCreateInfo.GraphicsPipeline.DepthStencilDesc.DepthWriteEnable = true;
     // clang-format on
 
     ShaderCreateInfo ShaderCI;
@@ -2185,7 +2188,7 @@ void NitroRenderer::RenderGizmo(NodeEntity* entity)
         //      return;
               //Bind Textures
 
-        m_Gizmo_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "v_Texture")->Set(albedo->GetView(), SET_SHADER_RESOURCE_FLAG_ALLOW_OVERWRITE);
+        m_Gizmo_SRB->GetVariableByName(SHADER_TYPE_PIXEL, "v_Texture")->Set(albedo->GetView(),SET_SHADER_RESOURCE_FLAG_ALLOW_OVERWRITE);
 
 
         //

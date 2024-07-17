@@ -31,4 +31,28 @@ class Node
 
     end 
 
+    func SetAnimation(string name,int restart)
+
+        PlayAnimNode(C,name,restart);
+
+    end 
+
+     func SetAnim1(string name)
+
+        PlayAnim1Node(C,name);
+
+    end 
+
+    func SetAnim2(string name)
+
+        PlayAnim2Node(C,name);
+
+    end 
+
+    func GetBone(string name)
+
+        return GetBoneNode(C,name);
+
+    end 
+
 end 

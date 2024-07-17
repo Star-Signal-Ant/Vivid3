@@ -38,7 +38,7 @@ struct Constants {
 
 MaterialMeshPBR::MaterialMeshPBR() {
 
-    return;
+
     Create();
     m_Diffuse = new Texture2D("engine/white.png",true);
     m_Normal = new Texture2D("engine/normal.png",true);

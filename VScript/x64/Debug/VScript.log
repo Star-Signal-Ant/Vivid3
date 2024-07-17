@@ -1,1 +1,3 @@
-﻿  VScript.vcxproj -> C:\dev\Vivid3D\Vivid3D\x64\Debug\VScript.lib
+﻿  VContext.cpp
+C:\dev\Vivid3D\VScript\VContext.h(80,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  VScript.vcxproj -> C:\dev\Vivid3D\Vivid3D\x64\Debug\VScript.lib

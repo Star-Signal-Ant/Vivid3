@@ -1066,6 +1066,9 @@ void VPropEditor::SetNode(Node* node) {
 			});
 
 
+		auto r_node = (NodeActor*)m_Node;
+
+		r_node->LoadAnimNames();
 
 		an_list->SetAnimations(anims);
 
@@ -1147,6 +1150,10 @@ void VPropEditor::SetNode(Node* node) {
 			if (m_CurrentAnim != nullptr) {
 				m_CurrentAnim->SetName(newText.toStdString());
 				m_AnimList->SetAnimations(m_Anims);
+				auto r_node = (NodeActor*)m_Node;
+
+				r_node->SaveAnimNames();
+
 			}
 
 			});

@@ -52,6 +52,9 @@ public:
 	void SetName(std::string name) {
 		m_Name = name;
 	}
+	std::vector<Bone*> GetRealBones() {
+		return m_Bones;
+	}
 private:
 	
 	float m_Duration = 0.0f;

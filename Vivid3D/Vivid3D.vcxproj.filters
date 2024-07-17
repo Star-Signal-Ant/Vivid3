@@ -271,5 +271,8 @@
     <ClInclude Include="ImportSettings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GeneralInput.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

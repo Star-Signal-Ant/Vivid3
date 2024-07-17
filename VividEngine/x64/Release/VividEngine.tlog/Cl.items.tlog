@@ -10,6 +10,7 @@ C:\dev\Vivid3D\VividEngine\CubeRenderer.cpp;C:\dev\Vivid3D\VividEngine\x64\Relea
 C:\dev\Vivid3D\VividEngine\Draw2D.cpp;C:\dev\Vivid3D\VividEngine\x64\Release\Draw2D.obj
 C:\dev\Vivid3D\VividEngine\Engine.cpp;C:\dev\Vivid3D\VividEngine\x64\Release\Engine.obj
 C:\dev\Vivid3D\VividEngine\FileHelp.cpp;C:\dev\Vivid3D\VividEngine\x64\Release\FileHelp.obj
+C:\dev\Vivid3D\VividEngine\GameInput.cpp;C:\dev\Vivid3D\VividEngine\x64\Release\GameInput.obj
 C:\dev\Vivid3D\VividEngine\Importer.cpp;C:\dev\Vivid3D\VividEngine\x64\Release\Importer.obj
 C:\dev\Vivid3D\VividEngine\Intersections.cpp;C:\dev\Vivid3D\VividEngine\x64\Release\Intersections.obj
 C:\dev\Vivid3D\VividEngine\Material2D.cpp;C:\dev\Vivid3D\VividEngine\x64\Release\Material2D.obj

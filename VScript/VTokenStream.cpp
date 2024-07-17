@@ -20,6 +20,11 @@ VToken VTokenStream::GetNext() {
 
 VToken VTokenStream::Peek(int delta) {
 
+	if (m_Index + delta >= m_Tokens.size())
+	{
+		VToken r(T_End, "end");
+		return r;
+	}
 	return m_Tokens[m_Index + delta];
 
 }

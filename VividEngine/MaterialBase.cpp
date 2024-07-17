@@ -18,6 +18,9 @@
 using namespace Diligent;
 MaterialBase::MaterialBase() {
 
+
+    m_Normal = new Texture2D("engine/normal.png");
+    m_Diffuse = new Texture2D("engine/white.png");
     return;
    // Create();
    // m_Diffuse = new Texture2D("test/test1.png");

@@ -50,6 +50,12 @@ public:
 			m_Gizmos.push_back(entity);
 		}
 	}
+	void ClearGizmo() {
+		m_Gizmos.clear();
+	}
+	void AddGizmo(NodeEntity* entity) {
+		m_Gizmos.push_back(entity);
+	}
 	void AddLines(MeshLines* lines) {
 		m_Lines.push_back(lines);
 	}

@@ -9,6 +9,8 @@
 #include "Bounds.h"
 #include "VFile.h"
 #include "Importer.h"
+#include "Animation.h"
+#include "Bone.h"
 using namespace Diligent;
 
 
@@ -152,32 +154,15 @@ void NodeActor::Update(float delta) {
 
 	//int b = 5;
 
+	if (m_IsPlaying) {
 
-	float ticks = m_Animator->GetTicksPerSecond();
-	float tickMultiplier = ticks / 1.0f;
-	float add = delta * ticks;
-
-	float len = m_Animator->GetLength();
-
-	int b = 0;
-
-
-	m_AnimTime += add;
-
-	//dt = dt + 0.1f;
-	//m_AnimTime+=()
-//	if (dt > m_Animator->GetLength()) {
-//		dt = 0;
-//	}
-
-
-	if (m_AnimTime > len) {
-
-		m_AnimTime -= len;
+		UpdateScripts(delta);
 
 	}
 
-	m_Animator->UpdateAnimation(m_AnimTime);
+	UpdateAnim(delta);
+
+
 	auto bones = m_Animator->GetBones();
 
 
@@ -188,7 +173,7 @@ void NodeActor::Update(float delta) {
 
 		auto dif = nxt - cur;
 
-		m_Bones[i] += dif * 0.25f;
+		m_Bones[i] += dif * 0.35f;
 
 	}
 
@@ -259,6 +244,7 @@ void NodeActor::SaveAnimList() {
 	for (auto p : m_AnimFiles) {
 
 		file->WriteString(p.c_str());
+		
 
 	}
 
@@ -285,5 +271,82 @@ void NodeActor::LoadAnimList() {
 	}
 
 	file->Close();
+
+}
+
+void NodeActor::SaveAnimNames() {
+
+	auto anims = m_Animator->GetAnimations();
+
+	std::string path = m_ResourcePath + ".anames";
+
+	VFile* file = new VFile(path.c_str(),FileMode::Write);
+
+	file->WriteInt(anims.size());
+
+	for (auto a : anims) {
+
+		file->WriteString(a->GetName().c_str());
+
+	}
+
+	file->Close();
+
+}
+
+void NodeActor::LoadAnimNames() {
+
+	auto anims = m_Animator->GetAnimations();
+
+	std::string path = m_ResourcePath + ".anames";
+
+	if (VFile::Exists(path.c_str()) == false) {
+
+		return;
+
+	}
+
+	VFile* file = new VFile(path.c_str(), FileMode::Read);
+
+	int ac = file->ReadInt();
+
+	for (int i = 0; i < ac; i++) {
+
+		auto anim = anims[i];
+
+		anim->SetName(file->ReadString());
+
+	}
+
+	file->Close();
+
+}
+
+void NodeActor::UpdateAnim(float delta) {
+
+
+
+	m_Animator->UpdateAnimation(delta);
+
+}
+
+Bone* NodeActor::FindBone(std::string name) {
+
+	auto bones = m_Animator->GetRealBones();
+	for (auto b : bones) {
+
+
+		if (b->GetName() == name) {
+			return b;
+		}
+		//printf("Bone:");
+		//printf(b->GetName().c_str());
+		//printf("\n");
+
+
+	}
+
+	int b = 5;
+	return nullptr;
 
 }

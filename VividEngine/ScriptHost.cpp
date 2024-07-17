@@ -13,6 +13,8 @@ ScriptHost::ScriptHost() {
     m_Vec4 = LoadModule("v/mods/maths/Vec4.v");
     m_Matrix = LoadModule("v/mods/maths/matrix.v");
     m_Node = LoadModule("v/mods/scene/node.v");
+    m_Input = LoadModule("v/mods/input/input.v");
+    m_Maths = LoadModule("v/mods/maths/maths.v");
     m_GS = LoadModule("v/Gamescript.v");
 
 	//import modules

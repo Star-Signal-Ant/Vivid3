@@ -112,6 +112,7 @@ public:
 	void UpdateComplete() {
 		m_Updated = false;
 	}
+	void UpdateScripts(float delta);
 protected:
 
 	std::string m_Name;

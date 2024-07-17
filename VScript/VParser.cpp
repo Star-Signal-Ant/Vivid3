@@ -363,9 +363,17 @@ VFunction* VParser::ParseFunction() {
 		auto body = ParseCodeBody();
 		func->SetBody(body);
 		auto nx = m_Stream.Peek(0);
-		if (nx.GetType() == T_End)
+		if (nx.GetLex() == ";")
 		{
-			m_Stream.GetNext();
+			nx = m_Stream.GetNext();
+			nx = m_Stream.GetNext();
+
+		}
+		else {
+			if (nx.GetType() == T_End)
+			{
+				m_Stream.GetNext();
+			}
 		}
 
 		return func;
@@ -681,6 +689,10 @@ VCodeBody* VParser::ParseCodeBody() {
 		{
 			auto ret = ParseIf();
 			body->AddCode(ret);
+			if (m_Stream.Peek(0).GetLex() == "end")
+			{
+				m_Stream.GetNext();
+			}
 			int b = 5;
 
 		}
@@ -876,7 +888,7 @@ VIf* VParser::ParseIf() {
 
 	auto res = new VIf;
 
-	if (toke.GetLex() == "if") {
+	if (toke.GetLex() == "if" || toke.GetLex()=="elseif") {
 	//	toke = m_Stream.GetNext();
 	}
 	else {
@@ -906,7 +918,8 @@ VIf* VParser::ParseIf() {
 
 	if (toke.GetLex() == "elseif")
 	{
-		m_Stream.GetNext();
+		//m_Stream.GetNext();
+
 		res->SetElseIf(ParseIf());
 	}
 
@@ -916,7 +929,10 @@ VIf* VParser::ParseIf() {
 		res->SetElseBody(ParseCodeBody());
 
 	}
+	else {
 
+	
+	}
 
 	int b = 5;
 
@@ -1497,6 +1513,14 @@ VEnum* VParser::ParseEnum() {
 		{
 			return e;
 		}
+
+		if(m_Stream.Peek(0).GetLex()=="=")
+		{
+			m_Stream.GetNext();
+			auto val = m_Stream.GetNext();
+			value = std::stoi(val.GetLex());
+		}
+
 
 		e->AddValue(v.GetLex(), value);
 

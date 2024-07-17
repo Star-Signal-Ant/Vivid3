@@ -24,6 +24,8 @@ private:
 	VModule* m_Matrix;
 	VModule* m_Node;
 	VModule* m_GS;
+	VModule* m_Input;
+	VModule* m_Maths;
 
 };
 

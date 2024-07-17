@@ -297,6 +297,9 @@
     <ClInclude Include="MaterialEmissive.h">
       <Filter>Material</Filter>
     </ClInclude>
+    <ClInclude Include="GameInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VividEngine.cpp">
@@ -496,6 +499,9 @@
     </ClCompile>
     <ClCompile Include="MaterialEmissive.cpp">
       <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="GameInput.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

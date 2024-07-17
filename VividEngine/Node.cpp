@@ -2,6 +2,8 @@
 #include "Node.h"
 #include "Engine.h"
 #include "MathsHelp.h"
+#include "GameInput.h"
+
 #ifndef M_PI_2
 
 #define M_PI_2 1.57079632679489661923 // π/2
@@ -15,8 +17,12 @@
 #include "FileHelp.h"
 #include "VFunction.h"
 #include "VFile.h"
+#include "NodeActor.h"
+#include "Animator.h"
+#include "Bone.h"
 bool first_node = true;
 using namespace Diligent;
+
 
 float4x4 CreateRotationMatrix(float pitch, float yaw, float roll)
 {
@@ -151,6 +157,124 @@ VVar* CF_TurnNode(const std::vector<VVar*>& args)
 	return nullptr;
 }
 
+VVar* CF_PlayAnimNode(const std::vector<VVar*>& args)
+{
+
+	auto act = (NodeActor*)args[0]->ToC();
+	auto anim = args[1]->ToString();
+	bool restart = args[2]->ToInt() == 1;
+	int b = 5;
+
+	act->GetAnimator()->PlayAnimation(anim);
+	act->GetAnimator()->SetAnimation1("");
+	act->GetAnimator()->SetAnimation2("");
+
+	return nullptr;
+
+}
+
+VVar* CF_PlayAnim1Node(const std::vector<VVar*>& args)
+{
+
+	auto act = (NodeActor*)args[0]->ToC();
+	auto anim = args[1]->ToString();
+//	bool restart = args[2]->ToInt() == 1;
+	int b = 5;
+
+	act->GetAnimator()->SetAnimation1(anim);
+
+
+	return nullptr;
+
+}
+
+VVar* CF_PlayAnim2Node(const std::vector<VVar*>& args)
+{
+
+	auto act = (NodeActor*)args[0]->ToC();
+	auto anim = args[1]->ToString();
+//	bool restart = args[2]->ToInt() == 1;
+	int b = 5;
+
+	act->GetAnimator()->SetAnimation2(anim);
+
+
+	return nullptr;
+
+}
+
+VVar* CF_InputKeyDown(const std::vector<VVar*> args) {
+
+
+	auto key = args[0]->ToInt();
+
+
+	VVar* res = new VVar;
+
+	if (GameInput::This->GetKey(key))
+	{
+
+		res->SetInt(1);
+	}
+	else {
+		res->SetInt(0);
+	}
+	res->SetType(T_Int);
+	return res;
+}
+
+VVar* CF_GetBoneNode(const std::vector<VVar*> args) {
+
+	auto act = (NodeActor*)args[0]->ToC();
+	auto b_name = args[1]->ToString();
+
+	auto b1 = act->FindBone(b_name);
+
+	int b = 5;
+
+	VVar* r = new VVar;
+	r->SetType(T_CObject);
+	r->SetC(b1);
+
+	return r;
+}
+
+VVar* CF_SetRotateBone(const std::vector<VVar*> args)
+{
+
+	auto bone = (Bone*)args[0]->ToC();
+	auto p = args[1]->ToFloat();
+	auto y = args[2]->ToFloat();
+	auto r = args[3]->ToFloat();
+
+	bone->OffsetRotate(float3(p, y, r));
+
+	return nullptr;
+
+}
+
+VVar* CF_InputMouseMoveX(const std::vector<VVar*> args)
+{
+
+	VVar* r = new VVar;
+	r->SetType(T_Float);
+	r->SetFloat(GameInput::This->m_MouseDelta.x);
+
+	return r;
+
+}
+
+VVar* CF_InputMouseMoveY(const std::vector<VVar*> args)
+{
+
+	VVar* r = new VVar;
+	r->SetType(T_Float);
+	r->SetFloat(GameInput::This->m_MouseDelta.y);
+
+	return r;
+
+}
+
 
 Node::Node() {
 
@@ -160,6 +284,15 @@ Node::Node() {
 		Engine::m_ScriptHost->AddCFunction("Debug", CF_Debug);
 		Engine::m_ScriptHost->AddCFunction("GetPositionNode", CF_NodeGetPosition);
 		Engine::m_ScriptHost->AddCFunction("SetPositionNode", CF_NodeSetPosition);
+		Engine::m_ScriptHost->AddCFunction("PlayAnimNode", CF_PlayAnimNode);
+		Engine::m_ScriptHost->AddCFunction("InputKeyDown", CF_InputKeyDown);
+		Engine::m_ScriptHost->AddCFunction("PlayAnim1Node", CF_PlayAnim1Node);
+		Engine::m_ScriptHost->AddCFunction("PlayAnim2Node", CF_PlayAnim2Node);
+		Engine::m_ScriptHost->AddCFunction("GetBoneNode", CF_GetBoneNode);
+		Engine::m_ScriptHost->AddCFunction("SetRotateBone", CF_SetRotateBone);
+		Engine::m_ScriptHost->AddCFunction("InputMouseMoveX", CF_InputMouseMoveX);
+		Engine::m_ScriptHost->AddCFunction("InputMouseMoveY", CF_InputMouseMoveY);
+
 		first_node = false;
 	}
 	m_Rotation = float4x4::Identity();
@@ -341,10 +474,25 @@ void Node::Update(float delta) {
 	//Turn(0, 0.1f, 0, false);
 
 	if (m_IsPlaying) {
+		UpdateScripts(delta);
+	}
+
+
+	for (auto n : m_Nodes) {
+
+		n->Update(delta);
+
+	}
+
+}
+
+void Node::UpdateScripts(float delta) {
+
+	if (m_IsPlaying) {
 		for (auto gs : m_Scripts) {
 
 			auto up_func = gs->FindFunction("Update");
-			
+
 			VVar* nv = new VVar;
 
 			nv->SetType(T_Float);
@@ -358,13 +506,6 @@ void Node::Update(float delta) {
 
 
 		}
-	}
-
-
-	for (auto n : m_Nodes) {
-
-		n->Update(delta);
-
 	}
 
 }

@@ -1,33 +1,125 @@
-﻿  SolarisRenderer.cpp
+﻿  Animation.cpp
+  Importer.cpp
+  NitroRenderer.cpp
+  Node.cpp
+  NodeActor.cpp
+  RTMesh.cpp
+  SceneGraph.cpp
+  SolarisRenderer.cpp
 C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(180,65): warning C4267: 'argument': conversion from 'size_t' to 'T', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(180,65): warning C4267:         with
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(180,65): warning C4267:         [
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(180,65): warning C4267:             T=int32_t
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(180,65): warning C4267:         ]
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,95): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,95): warning C4244:         with
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,95): warning C4244:         [
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,95): warning C4244:             T=float
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,95): warning C4244:         ]
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,82): warning C4244: 'argument': conversion from 'Diligent::Uint32' to 'T', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,82): warning C4244:         with
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,82): warning C4244:         [
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,82): warning C4244:             T=float
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,82): warning C4244:         ]
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,54): warning C4244: 'argument': conversion from 'Diligent::Uint32' to 'T', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,54): warning C4244:         with
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,54): warning C4244:         [
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,54): warning C4244:             T=float
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(205,54): warning C4244:         ]
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(313,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(314,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(342,17): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(422,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(423,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(478,17): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(648,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(659,40): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Animation.h(47,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\dev\Vivid3D\VividEngine\RTMesh.cpp(21,53): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\RTMesh.cpp(24,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\Animation.h(47,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\dev\Vivid3D\VividEngine\RTMesh.cpp(152,53): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\RTMesh.cpp(155,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(43,20): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(63,20): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(89,20): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(128,23): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(128,23): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(128,23): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(128,23): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(128,23): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(134,22): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(134,22): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(134,22): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(134,22): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(134,22): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(140,23): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(140,23): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(140,23): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(140,23): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(140,23): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(146,23): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(146,23): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(146,23): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(146,23): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(146,23): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(242,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\NodeActor.cpp(285,27): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\MathsHelp.h(18,27): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\dev\Vivid3D\VividEngine\MathsHelp.h(18,27): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\dev\Vivid3D\VividEngine\Animation.cpp(14,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\dev\Vivid3D\VividEngine\Animation.cpp(15,25): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Animation.cpp(32,20): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\MathsHelp.h(18,27): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\dev\Vivid3D\VividEngine\MathsHelp.h(18,27): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\dev\Vivid3D\VividEngine\Animation.h(47,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(356,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\Node.cpp(76,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\dev\Vivid3D\VividEngine\Node.cpp(81,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(469,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+  opencl.hpp: CL_HPP_TARGET_OPENCL_VERSION is not defined. It will default to 300 (OpenCL 3.0)
+C:\dev\Vivid3D\VividEngine\Importer.cpp(122,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Node.cpp(271,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(914,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\Node.cpp(611,29): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Importer.cpp(272,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Importer.cpp(277,27): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(1426,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\Importer.cpp(297,27): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Importer.cpp(353,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(1688,71): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\Importer.cpp(399,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(1958,57): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\Importer.cpp(470,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Importer.cpp(488,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(2220,52): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\NitroRenderer.cpp(2453,54): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
+C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(181,65): warning C4267: 'argument': conversion from 'size_t' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(181,65): warning C4267:         with
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(181,65): warning C4267:         [
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(181,65): warning C4267:             T=int32_t
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(181,65): warning C4267:         ]
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(184,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(184,81): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(184,81): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(184,81): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(184,81): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(184,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(184,55): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(184,55): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(184,55): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(184,55): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(187,67): warning C4267: 'argument': conversion from 'size_t' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(187,67): warning C4267:         with
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(187,67): warning C4267:         [
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(187,67): warning C4267:             T=int32_t
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(187,67): warning C4267:         ]
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,95): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,95): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,95): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,95): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,95): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,82): warning C4244: 'argument': conversion from 'Diligent::Uint32' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,82): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,82): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,82): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,82): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,54): warning C4244: 'argument': conversion from 'Diligent::Uint32' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,54): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,54): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,54): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(213,54): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(324,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(325,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(353,17): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(433,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(434,11): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(489,17): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(681,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\SolarisRenderer.cpp(692,40): warning C4267: '=': conversion from 'size_t' to 'Diligent::Uint32', possible loss of data
   Replacing x64\Release\pch.obj
 cuda.lib(nvcuda.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
 cudart.lib(cudart64_12.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored

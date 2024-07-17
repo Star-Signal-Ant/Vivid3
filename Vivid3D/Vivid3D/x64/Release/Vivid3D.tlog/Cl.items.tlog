@@ -1,5 +1,7 @@
 C:\dev\Vivid3D\Vivid3D\EditHelp.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\EditHelp.obj
 C:\dev\Vivid3D\Vivid3D\Editor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\Editor.obj
+C:\dev\Vivid3D\Vivid3D\ImportSettings.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\ImportSettings.obj
+C:\dev\Vivid3D\Vivid3D\VAnimationList.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\VAnimationList.obj
 C:\dev\Vivid3D\Vivid3D\VCinemaEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\VCinemaEditor.obj
 C:\dev\Vivid3D\Vivid3D\VCinemaTimeLine.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\VCinemaTimeLine.obj
 C:\dev\Vivid3D\Vivid3D\VColorPreview.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\VColorPreview.obj
@@ -7,6 +9,7 @@ C:\dev\Vivid3D\Vivid3D\VContentBrowser.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Re
 C:\dev\Vivid3D\Vivid3D\VContentView.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\VContentView.obj
 C:\dev\Vivid3D\Vivid3D\VCreateAnimation.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\VCreateAnimation.obj
 C:\dev\Vivid3D\Vivid3D\VImagePreview.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\VImagePreview.obj
+C:\dev\Vivid3D\Vivid3D\VImportModel.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\VImportModel.obj
 C:\dev\Vivid3D\Vivid3D\VMainMenu.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\VMainMenu.obj
 C:\dev\Vivid3D\Vivid3D\VNodeFrame.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\VNodeFrame.obj
 C:\dev\Vivid3D\Vivid3D\VPropEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\VPropEditor.obj
@@ -26,6 +29,8 @@ C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc\moc_Vivid3D.cpp;C:\dev\Vivid3D\Vi
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc\moc_VOutput.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc_VOutput.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc\moc_VSceneGraph.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc_VSceneGraph.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc\moc_VTreeView.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc_VTreeView.obj
+C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc\moc_VAnimationList.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc_VAnimationList.obj
+C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc\moc_VImportModel.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc_VImportModel.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc\moc_VCreateAnimation.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc_VCreateAnimation.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc\moc_VTrackFrame.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc_VTrackFrame.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc\moc_VTrackTimeLine.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Release\moc_VTrackTimeLine.obj

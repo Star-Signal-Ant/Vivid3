@@ -85,6 +85,7 @@ public:
 		}
 		return 0;
 	}
+	void OffsetRotate(float3 ang);
 private:
 
 	std::vector<KeyPosition> m_Positions;
@@ -94,6 +95,7 @@ private:
 	int m_NumRotations = 0;
 	int m_NumScales = 0;
 	float4x4 m_LocalTransform = float4x4::Identity();
+	float4x4 m_LocalOffset = float4x4::Identity();
 	std::string m_Name = "";
 	int m_ID = 0;
 

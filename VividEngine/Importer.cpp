@@ -137,7 +137,7 @@ Node* Importer::ImportNode(std::string path) {
 
         if (VFile::Exists(check.c_str())) {
 
-            v_mat = (MaterialMeshPBR*)MaterialBase::LoadMaterial(check);
+       //     v_mat = (MaterialMeshPBR*)MaterialBase::LoadMaterial(check);
             materials.push_back(v_mat);
             Engine::m_ActiveMaterials.push_back(v_mat);
             continue;
@@ -358,7 +358,7 @@ Node* Importer::ImportAnims(NodeActor* load,std::string path) {
     }
     res->AddAnimFile(path);
 
-    res->GetAnimator()->ClearCopies();
+//    res->GetAnimator()->ClearCopies();
 
     //res->SetAnimator(animator);
     return res;
@@ -501,7 +501,10 @@ Node* Importer::ImportActor(std::string path) {
 
         result->LoadAnimList();
 
+
     }
+    result->LoadAnimNames();
+
 
 
     return result;

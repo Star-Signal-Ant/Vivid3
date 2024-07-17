@@ -146,6 +146,7 @@ private:
 	NodeEntity* m_Gizmo = nullptr;
 	NodeEntity* m_GizTranslate;
 	NodeEntity* m_GizRotate;
+	NodeEntity* m_GizCam;
 	bool m_LockX, m_LockY, m_LockZ;
 	MeshLines* m_SceneGrid;
 	Draw2D* m_Draw;
@@ -163,6 +164,8 @@ private:
 	PPEmissive* m_ppEmissive;
 	NitroRenderer* m_Nitro;
 	SolarisRenderer* m_Solaris;
+	QPoint m_MouseDelta;
+	QPoint m_MouseLast2;
 	//timing
 	int m_LastTick = 0;
 	float m_TimeDelta = 0.0;

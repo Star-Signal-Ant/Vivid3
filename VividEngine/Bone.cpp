@@ -51,6 +51,7 @@ void Bone::Update(float time) {
 	float4x4 scale = InterpolateScale(time);
 	//m_LocalTransform = translation * rotation * scale;
 	m_LocalTransform = scale * rotation * translation;
+	m_LocalTransform *= m_LocalOffset;
 
 
 	//m_LocalTransform = float4x4::Identity();
@@ -107,6 +108,24 @@ float4x4 Bone::InterpolateScale(float time) {
 	return float4x4::Scale(finalScale);
 
 
+
+
+}
+
+void Bone::OffsetRotate(float3 ang)
+{
+
+	float yaw = MathsHelp::Deg2Rad(ang.y);
+	float pitch = MathsHelp::Deg2Rad(ang.x);
+	float roll = MathsHelp::Deg2Rad(ang.z);
+	//BuildGeo();
+
+
+
+	//m_Rotation = CreateRotationMatrix(pitch, yaw, roll);
+
+//	if (edit) {
+	m_LocalOffset = float4x4::RotationY(yaw) * float4x4::RotationX(pitch);
 
 
 }

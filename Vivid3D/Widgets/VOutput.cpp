@@ -31,6 +31,7 @@
 #include "PPEmissive.h"
 #include "NitroRenderer.h"
 #include "SolarisRenderer.h"
+#include "GameInput.h"
 
 VOutput::VOutput(QWidget *parent)
 	: QWidget(parent)
@@ -96,6 +97,10 @@ VOutput::VOutput(QWidget *parent)
     Engine::m_ActiveGraph = m_Graph1;
 
    
+    m_GizCam = (NodeEntity*)m_Import->ImportNode("engine/gizmo/cam1.fbx");
+
+    auto m1 = m_GizCam->GetMesh(0);
+    m1->GetMaterial()->SetDiffuse(new Texture2D("engine/gizmo/green.png"));
 
     m_GizTranslate = (NodeEntity*)m_Import->ImportNode("engine/gizmo/translate1.fbx");
     auto blue_mat = new MaterialBase;
@@ -276,6 +281,8 @@ VOutput::VOutput(QWidget *parent)
   
     m_Nitro->AddLines(m_SceneGrid);
     
+    auto input = new GameInput;
+
     //m_Nitro->SetGizmo(m_Gizmo);
 
 }
@@ -349,6 +356,26 @@ void VOutput::mousePressEvent(QMouseEvent* event)
     {
 
 
+
+        for (auto l : m_Graph1->GetCameras()) {
+
+            auto sp = m_Graph1->ToScreenSpace(l->GetPosition());
+
+
+            //            m_Draw->Rect(m_LightIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
+            if (m_MousePosition.x() >= sp.x - 32 && m_MousePosition.x() <= sp.x + 32)
+            {
+                if (m_MousePosition.y() >= sp.y - 32 && m_MousePosition.y() <= sp.y + 32)
+                {
+                    Editor::m_CurrentNode = (Node*)l;// m_Entity;
+                    Editor::m_SceneGraph->SetNode((Node*)l);
+                    Editor::m_PropEditor->SetNode((Node*)l);
+                    
+                    return;
+                }
+            }
+
+        }
         for (auto l : m_Graph1->GetLights()) {
 
             auto sp = m_Graph1->ToScreenSpace(l->GetPosition());
@@ -543,6 +570,7 @@ void VOutput::mouseMoveEvent(QMouseEvent* event)
     QPoint delta = event->pos() - m_MouseLast;
     m_MouseLast = event->pos();
     m_MousePosition = event->pos();
+
     // Handle mouse move event
     // Use event->pos() or event->globalPos() to get the cursor position
     if (m_CamRotate) {
@@ -994,30 +1022,43 @@ void VOutput::mouseMoveEvent(QMouseEvent* event)
 
 void VOutput::keyPressEvent(QKeyEvent* event)
 {
-    if (event->key() == Qt::Key_Space)
-    {
-        m_Light1->SetPosition(m_EditCamera->GetPosition());
+
+    if (Editor::m_RunMode == RM_Playing) {
+
+        m_MoveW = m_MoveD = m_MoveA = m_MoveS = false;
+
+        GameInput::This->SetKey(event->key(), true);
+
+
+
     }
-    // Check which key was pressed
-    if (event->key() == Qt::Key_W) {
-        //qDebug() << "Key A is pressed";
-        m_MoveW = true;
-    }
-    else if (event->key() == Qt::Key_A) {
-        m_MoveA = true;
-    //    qDebug() << "Space bar is pressed";
-    }
-    else if (event->key() == Qt::Key_D)
-    {
-        m_MoveD = True;
-    }
-    else if (event->key() == Qt::Key_S)
-    {
-        m_MoveS = true;
-    }
-    if (event->key() == Qt::Key_Shift)
-    {
-        m_MoveFast = true;
+    else {
+
+        if (event->key() == Qt::Key_Space)
+        {
+            m_Light1->SetPosition(m_EditCamera->GetPosition());
+        }
+        // Check which key was pressed
+        if (event->key() == Qt::Key_W) {
+            //qDebug() << "Key A is pressed";
+            m_MoveW = true;
+        }
+        else if (event->key() == Qt::Key_A) {
+            m_MoveA = true;
+            //    qDebug() << "Space bar is pressed";
+        }
+        else if (event->key() == Qt::Key_D)
+        {
+            m_MoveD = True;
+        }
+        else if (event->key() == Qt::Key_S)
+        {
+            m_MoveS = true;
+        }
+        if (event->key() == Qt::Key_Shift)
+        {
+            m_MoveFast = true;
+        }
     }
     // Call base class implementation (if needed)
     QWidget::keyPressEvent(event);
@@ -1025,26 +1066,37 @@ void VOutput::keyPressEvent(QKeyEvent* event)
 
 void VOutput::keyReleaseEvent(QKeyEvent* event)
 {
-    // Check which key was released
-    if (event->key() == Qt::Key_W) {
-        //qDebug() << "Key A is pressed";
-        m_MoveW = false;
+    if (Editor::m_RunMode == RM_Playing) {
+
+        m_MoveW = m_MoveD = m_MoveA = m_MoveS = false;
+
+        GameInput::This->SetKey(event->key(), false);
+
+
+
     }
-    else if (event->key() == Qt::Key_A) {
-        m_MoveA = false;
-        //    qDebug() << "Space bar is pressed";
-    }
-    else if (event->key() == Qt::Key_D)
-    {
-        m_MoveD = false;
-    }
-    else if (event->key() == Qt::Key_S)
-    {
-        m_MoveS = false;
-    }
-    if (event->key() == Qt::Key_Shift)
-    {
-        m_MoveFast =false;
+    else {
+        // Check which key was released
+        if (event->key() == Qt::Key_W) {
+            //qDebug() << "Key A is pressed";
+            m_MoveW = false;
+        }
+        else if (event->key() == Qt::Key_A) {
+            m_MoveA = false;
+            //    qDebug() << "Space bar is pressed";
+        }
+        else if (event->key() == Qt::Key_D)
+        {
+            m_MoveD = false;
+        }
+        else if (event->key() == Qt::Key_S)
+        {
+            m_MoveS = false;
+        }
+        if (event->key() == Qt::Key_Shift)
+        {
+            m_MoveFast = false;
+        }
     }
     // Call base class implementation (if needed)
     QWidget::keyReleaseEvent(event);
@@ -1053,6 +1105,15 @@ void VOutput::keyReleaseEvent(QKeyEvent* event)
 void VOutput::onUpdate()
 {
 
+    QPoint globalPos = QCursor::pos();
+    QPoint localPos = mapFromGlobal(globalPos);
+
+    QPoint delta = localPos - m_MouseLast2;
+
+    m_MouseLast2 = localPos;
+//    m_MousePosition = event->pos();
+    GameInput::This->m_MousePos = float2(localPos.x(), localPos.y());
+    GameInput::This->m_MouseDelta = float2(delta.x(), delta.y());
     int tick = clock();
 
     if (m_LastTick == 0) {
@@ -1194,14 +1255,19 @@ void VOutput::paintEvent(QPaintEvent* event)
 
     if (Editor::m_CurrentNode!=nullptr &&  m_Gizmo != nullptr) {
 
-        m_Nitro->SetGizmo(m_Gizmo);
-
+        m_Nitro->ClearGizmo();
+        m_Nitro->AddGizmo(m_Gizmo);
+        if (dynamic_cast<NodeCamera*>(Editor::m_CurrentNode)) {
+            m_Nitro->AddGizmo(m_GizCam);
+            m_GizCam->SetPosition(Editor::m_CurrentNode->GetPosition());
+            m_GizCam->SetRotation(Editor::m_CurrentNode->GetRotation());
+        }
     }
     else {
         m_Nitro->SetGizmo(nullptr);
     }
 
-    Engine::ClearZ();
+  
 
     switch (Editor::m_GizmoMode) {
     case GM_Translate:

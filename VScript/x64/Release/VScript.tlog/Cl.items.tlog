@@ -1,6 +1,7 @@
 C:\dev\Vivid3D\VScript\pch.cpp;C:\dev\Vivid3D\VScript\x64\Release\pch.obj
 C:\dev\Vivid3D\VScript\VAction.cpp;C:\dev\Vivid3D\VScript\x64\Release\VAction.obj
 C:\dev\Vivid3D\VScript\VAssignArray.cpp;C:\dev\Vivid3D\VScript\x64\Release\VAssignArray.obj
+C:\dev\Vivid3D\VScript\VBreak.cpp;C:\dev\Vivid3D\VScript\x64\Release\VBreak.obj
 C:\dev\Vivid3D\VScript\VCallParameters.cpp;C:\dev\Vivid3D\VScript\x64\Release\VCallParameters.obj
 C:\dev\Vivid3D\VScript\VClass.cpp;C:\dev\Vivid3D\VScript\x64\Release\VClass.obj
 C:\dev\Vivid3D\VScript\VClassAssign.cpp;C:\dev\Vivid3D\VScript\x64\Release\VClassAssign.obj
@@ -10,6 +11,7 @@ C:\dev\Vivid3D\VScript\VContext.cpp;C:\dev\Vivid3D\VScript\x64\Release\VContext.
 C:\dev\Vivid3D\VScript\VDeclareArray.cpp;C:\dev\Vivid3D\VScript\x64\Release\VDeclareArray.obj
 C:\dev\Vivid3D\VScript\VDeclareObject.cpp;C:\dev\Vivid3D\VScript\x64\Release\VDeclareObject.obj
 C:\dev\Vivid3D\VScript\VDefineParams.cpp;C:\dev\Vivid3D\VScript\x64\Release\VDefineParams.obj
+C:\dev\Vivid3D\VScript\VEnum.cpp;C:\dev\Vivid3D\VScript\x64\Release\VEnum.obj
 C:\dev\Vivid3D\VScript\VExpression.cpp;C:\dev\Vivid3D\VScript\x64\Release\VExpression.obj
 C:\dev\Vivid3D\VScript\VFor.cpp;C:\dev\Vivid3D\VScript\x64\Release\VFor.obj
 C:\dev\Vivid3D\VScript\VForEach.cpp;C:\dev\Vivid3D\VScript\x64\Release\VForEach.obj
@@ -26,6 +28,7 @@ C:\dev\Vivid3D\VScript\VScope.cpp;C:\dev\Vivid3D\VScript\x64\Release\VScope.obj
 C:\dev\Vivid3D\VScript\VScript.cpp;C:\dev\Vivid3D\VScript\x64\Release\VScript.obj
 C:\dev\Vivid3D\VScript\VSource.cpp;C:\dev\Vivid3D\VScript\x64\Release\VSource.obj
 C:\dev\Vivid3D\VScript\VStatementCall.cpp;C:\dev\Vivid3D\VScript\x64\Release\VStatementCall.obj
+C:\dev\Vivid3D\VScript\VSwitch.cpp;C:\dev\Vivid3D\VScript\x64\Release\VSwitch.obj
 C:\dev\Vivid3D\VScript\VToken.cpp;C:\dev\Vivid3D\VScript\x64\Release\VToken.obj
 C:\dev\Vivid3D\VScript\VTokenizer.cpp;C:\dev\Vivid3D\VScript\x64\Release\VTokenizer.obj
 C:\dev\Vivid3D\VScript\VTokenStream.cpp;C:\dev\Vivid3D\VScript\x64\Release\VTokenStream.obj

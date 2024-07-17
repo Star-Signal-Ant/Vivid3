@@ -10,6 +10,7 @@
 
 class Mesh3D;
 class Animator;
+class Bone;
 
 class NodeActor : public NodeEntity
 {
@@ -64,6 +65,10 @@ public:
 	void AddAnimFile(std::string file) {
 		m_AnimFiles.push_back(file);
 	}
+	void SaveAnimNames();
+	void LoadAnimNames();
+	void UpdateAnim(float delta);
+	Bone* FindBone(std::string name);
 private:
 
 	Animator* m_Animator = nullptr;

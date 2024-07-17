@@ -111,11 +111,17 @@ VVar* VContext::FindVar(std::vector<std::string> names) {
 
 		auto check = FindVar(names[0]);
 
+		if (check == nullptr) {
+
+			check = m_StaticScope->FindVar(names[0]);
+
+		}
+
 		if (check->GetClassType() == "List"){
 			return check;
 		}
 
-		VVar* cur = FindVar(names[0]);
+		VVar* cur = check;
 		if (cur->GetClassValue() == nullptr) {
 			printf("Runtime error:");
 			printf(names[0].c_str());
