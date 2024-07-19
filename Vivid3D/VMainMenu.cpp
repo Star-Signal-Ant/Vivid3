@@ -7,6 +7,7 @@
 #include "Engine.h"
 #include "VSceneGraph.h"
 #include "RendererBase.h"
+#include "VTools.h"
 
 VMainMenu::VMainMenu(QWidget *parent)
 	: QMenuBar(parent)
@@ -90,6 +91,41 @@ VMainMenu::VMainMenu(QWidget *parent)
 		});
 
 
+	//edit
+
+	auto e_node = edit->addMenu("Node");
+
+	auto align_to_cam = e_node->addAction("Align to Camera");
+	auto cam_to_node = e_node->addAction("Align Camera to Node");
+
+
+	connect(align_to_cam, &QAction::triggered, [this]() {
+
+		if (Editor::m_CurrentNode != nullptr) {
+			
+			Editor::m_CurrentNode->SetPosition(Editor::m_Graph->GetCamera()->GetPosition());
+			Editor::m_CurrentNode->SetRotation(Editor::m_Graph->GetCamera()->GetRotation());
+
+		}
+
+		});
+
+	connect(cam_to_node, &QAction::triggered, [this]() {
+
+		if (Editor::m_CurrentNode != nullptr) {
+
+			Editor::m_Graph->GetCamera()->SetPosition(Editor::m_CurrentNode->GetPosition());
+			Editor::m_Graph->GetCamera()->SetRotation(Editor::m_CurrentNode->GetRotation());
+			float p, y;
+			p = Editor::m_Graph->GetCamera()->GetRotationEU().x;
+			y = Editor::m_Graph->GetCamera()->GetRotationEU().y;
+			VOutput::m_This->SetCam(360-p, 360-y);
+
+
+			}
+
+		});
+
 
 	//Create
 	auto create_terrain = create->addAction("Create Terrain");
@@ -113,6 +149,8 @@ VMainMenu::VMainMenu(QWidget *parent)
 		Editor::m_Graph->AddNode(cam);
 		Editor::m_Graph->Updated();
 		Editor::m_SceneGraph->UpdateGraph();
+		Editor::m_Cameras.push_back(cam);
+		VTools::m_This->Update();
 
 		});
 

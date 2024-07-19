@@ -2,6 +2,14 @@
 #include "NodeCamera.h"
 #include "Engine.h"
 
+int cam_index = 1;
+NodeCamera::NodeCamera() {
+
+    m_Name = "Camera" + std::to_string(cam_index);
+    cam_index++;
+
+}
+
 float4x4 NodeCamera::GetProjection() {
 
 

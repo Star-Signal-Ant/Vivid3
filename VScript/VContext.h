@@ -149,6 +149,7 @@ public:
     }
     void PushScope(VScope* scope) {
 
+    
         VScope* root = nullptr;
 
         if (m_ScopeStack.size() > 0) {
@@ -156,6 +157,7 @@ public:
         }
         scope->SetContext(this);
         m_ScopeStack.push(scope);
+        m_Scopes.push_back(scope);
         if (root != nullptr) {
             scope->SetRoot(root);
         }
@@ -163,7 +165,27 @@ public:
     }
 
     void PopScope() {
+        auto top = m_ScopeStack.top();
         m_ScopeStack.pop();
+        auto newEnd = std::remove(m_Scopes.begin(), m_Scopes.end(),top);
+
+        // Use the erase method to remove the unwanted elements
+        m_Scopes.erase(newEnd, m_Scopes.end());
+
+
+    }
+
+    bool HasScope(VScope* scope) {
+
+        for (auto s : m_Scopes) {
+
+            if (s == scope) {
+                return true;
+            }
+
+        }
+        return false;
+
     }
 
     VFunction* FindFunc(std::string name) {
@@ -193,7 +215,9 @@ private:
 	std::vector<VModule*> m_Modules;
     std::map < std::string, std::function<VVar* (const std::vector<VVar*>& args)>> m_CFuncMap;
     std::stack<VScope*> m_ScopeStack;
+    std::vector<VScope*> m_Scopes;
     VScope* m_StaticScope;
     std::vector<VEnum*> m_Enums;
+
 };
 

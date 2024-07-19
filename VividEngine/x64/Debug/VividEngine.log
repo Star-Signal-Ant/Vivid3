@@ -1,4 +1,20 @@
-﻿  Replacing x64\Debug\pch.obj
+﻿  Importer.cpp
+C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Animation.h(47,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\dev\Vivid3D\VividEngine\Importer.cpp(122,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Importer.cpp(272,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Importer.cpp(277,27): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:         with
+C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:         [
+C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:             T=float
+C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:         ]
+C:\dev\Vivid3D\VividEngine\Importer.cpp(297,27): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Importer.cpp(353,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Importer.cpp(399,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Importer.cpp(470,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\Vivid3D\VividEngine\Importer.cpp(488,23): warning C4018: '<': signed/unsigned mismatch
+  Replacing x64\Debug\pch.obj
 cuda.lib(nvcuda.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
 cudart.lib(cudart64_12.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
 OpenCL.lib(OpenCL.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored

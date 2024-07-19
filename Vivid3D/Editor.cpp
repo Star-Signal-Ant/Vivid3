@@ -22,19 +22,26 @@ Vivid3D* Editor::m_Main = nullptr;
 VTrackFrame* Editor::m_TrackPanel = nullptr;
 Cinematic* Editor::m_EditAnimation = nullptr;
 
-
+NodeCamera* m_EditCam = nullptr;
 
 void Editor::BeginPlay() {
 	if (m_RunMode == RM_Playing) return;
 	m_RunMode = RM_Playing;
 //	m_SceneGraph->BeginPlay();
+	m_EditCam = Engine::m_ActiveGraph->GetCamera();
+	if (Editor::m_GameCamera != nullptr) {
+		Engine::m_ActiveGraph->SetCamera(Editor::m_GameCamera);
+	}
 	Engine::m_ActiveGraph->BeginPlay();
+
+	
 }
 
 void Editor::Stop() {
 	if (m_RunMode == RM_Stopped) return;
 	m_RunMode = RM_Stopped;
 	Engine::m_ActiveGraph->Stop();
+	Engine::m_ActiveGraph->SetCamera(m_EditCam);
 }
 
 float Editor::TerrainX = 0;
@@ -61,3 +68,7 @@ void Editor::Notify(std::string title, std::string info, int display)
 	m_Tray->showMessage(title.c_str(), info.c_str(), QSystemTrayIcon::Information, display);
 
 }
+
+std::vector<NodeCamera*> Editor::m_Cameras;
+
+NodeCamera* Editor::m_GameCamera = nullptr;

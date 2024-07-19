@@ -32,6 +32,7 @@ class QFrame;
 class QVBoxLayout;
 class VTrackFrame;
 class Cinematic;
+class NodeCamera;
 
 class Editor
 {
@@ -55,8 +56,10 @@ public:
 	static float TerrainBrushSize;
 	static float TerrainBrushStrength;
 	static int TerrainEditLayer;
-	static void CreateAnimation(std::string anim,float length);
+	static void CreateAnimation(std::string anim, float length);
 	static double m_AnimEditTime;
 	static QSystemTrayIcon* m_Tray;
 	static void Notify(std::string title, std::string info, int display);
+	static std::vector<NodeCamera*> m_Cameras;
+	static NodeCamera* m_GameCamera;
 };

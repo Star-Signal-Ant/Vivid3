@@ -42,6 +42,7 @@ VOutput::VOutput(QWidget *parent)
  //   setAutoFillBackground(true);
     setPalette(pal);
     CreateDX12();
+    m_This = this;
     Engine::m_pDevice = m_pDevice;
     Engine::m_pSwapChain = m_pSwapChain;
     Engine::m_pImmediateContext = m_pImmediateContext;
@@ -1201,8 +1202,9 @@ void VOutput::paintEvent(QPaintEvent* event)
 //    m_Nitro->SetSceneGraph(m_Graph1);
 
 
-    cam->SetRotation(m_ViewPitch, m_ViewYaw, 0);
-
+    if (Editor::m_RunMode != RM_Playing) {
+        cam->SetRotation(m_ViewPitch, m_ViewYaw, 0);
+    }
 
   //  m_Graph1->RenderShadows();
    // m_CubeRen->RenderEnvironment(m_Node2->GetPosition());
@@ -1253,7 +1255,7 @@ void VOutput::paintEvent(QPaintEvent* event)
    // printf("RenderTime:%d\n", ts);
 
 
-    if (Editor::m_CurrentNode!=nullptr &&  m_Gizmo != nullptr) {
+    if (Editor::m_CurrentNode!=nullptr &&  m_Gizmo != nullptr && Editor::m_RunMode != RM_Playing) {
 
         m_Nitro->ClearGizmo();
         m_Nitro->AddGizmo(m_Gizmo);
@@ -1454,3 +1456,12 @@ void VOutput::TerrainSculpt() {
 //    ter.LookUpMesh = null;
 
 }
+
+void VOutput::SetCam(float p, float y) {
+
+    m_ViewPitch = p;
+    m_ViewYaw = y;
+
+}
+
+VOutput* VOutput::m_This = nullptr;

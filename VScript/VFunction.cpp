@@ -110,7 +110,12 @@ VVar* VFunction::Call(const std::vector<VVar*>& args)
 
 VVar* VFunction::Call(VCallParameters* params) {
 
-	m_Context->PushScope(m_ClassOwner->GetScope());
+	bool pushed = false;
+
+	if (!m_Context->HasScope(m_ClassOwner->GetScope())) {
+		m_Context->PushScope(m_ClassOwner->GetScope());
+		pushed = true;
+	}
 
 	if (params != nullptr) {
 		m_Context->PushScope(GetScope(), params);
@@ -134,8 +139,9 @@ VVar* VFunction::Call(VCallParameters* params) {
 
 	m_Context->PopScope();
 
-	m_Context->PopScope();
-
+	if (pushed) {
+		m_Context->PopScope();
+	}
 	return res;
 }
 

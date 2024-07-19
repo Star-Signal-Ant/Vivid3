@@ -1,6 +1,10 @@
 #include "VTools.h"
 #include "Editor.h"
-#include "qcombobox.h"
+#include "qlabel.h"
+#include "NodeCamera.h"
+#include "SceneGraph.h"
+
+
 
 VTools::VTools(QWidget* parent)
 	: QToolBar(parent)
@@ -47,9 +51,43 @@ VTools::VTools(QWidget* parent)
 		});
 
 		//&MainWindow::onComboBoxIndexChanged);
+
+
+
+	auto gamecam_lab = new QLabel("Game Camera");
+
+
+	m_GameCamera = new QComboBox(this);
+
+
+	m_GameCamera->addItem("None");
+
+	addSeparator();
+	addWidget(gamecam_lab);
+	addWidget(m_GameCamera);
+
+	m_GameCamera->setMinimumWidth(120);
+	m_GameCamera->setMaximumWidth(120);
+	m_This = this;
+
+	connect(m_GameCamera, QOverload<int>::of(&QComboBox::currentIndexChanged), [this](int index) {
+		// Handle the selection change
+	//	qDebug() << "Selected index:" << index;
+		// Perform any additional actions here
+		auto name = m_GameCamera->itemText(index);
+		auto cam = Editor::m_Graph->FindNode(std::string(name.toStdString()));
+		Editor::m_GameCamera = (NodeCamera*)cam;
+		int b = 5;
+
+		});
+
+
+	for (int i = 0; i < 15; i++) {
+		addSeparator();
+	}
+
 	QAction* run = addAction(QIcon("edit/icons/runicon.png"), "ActRun");
 	QAction* stop = addAction(QIcon("edit/icons/stopicon.png"), "ActStop");
-
 
 	connect(run, &QAction::triggered, [this]() {
 
@@ -62,7 +100,23 @@ VTools::VTools(QWidget* parent)
 		Editor::Stop();
 
 		});
+
+
 }
 
 VTools::~VTools()
 {}
+
+void VTools::Update() {
+
+	m_GameCamera->clear();
+	m_GameCamera->addItem("None");
+	for (auto cam : Editor::m_Cameras) {
+
+		m_GameCamera->addItem(cam->GetFullName().c_str());
+
+	}
+
+}
+
+VTools* VTools::m_This = nullptr;

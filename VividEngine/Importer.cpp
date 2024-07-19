@@ -137,7 +137,7 @@ Node* Importer::ImportNode(std::string path) {
 
         if (VFile::Exists(check.c_str())) {
 
-       //     v_mat = (MaterialMeshPBR*)MaterialBase::LoadMaterial(check);
+            v_mat = (MaterialMeshPBR*)MaterialBase::LoadMaterial(check);
             materials.push_back(v_mat);
             Engine::m_ActiveMaterials.push_back(v_mat);
             continue;
@@ -145,7 +145,7 @@ Node* Importer::ImportNode(std::string path) {
         }
 
 
-        //Engine::m_ActiveMaterials.push_back(v_mat);
+        Engine::m_ActiveMaterials.push_back(v_mat);
         materials.push_back(v_mat);
 
         for (unsigned int j = 0; j < mat->GetTextureCount(aiTextureType_DIFFUSE); ++j) {

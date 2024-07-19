@@ -106,6 +106,8 @@ public:
 	ISwapChain* GetSwapChain() { return m_pSwapChain; }
 	void TerrainPlot();
 	void TerrainSculpt();
+	static VOutput* m_This;
+	void SetCam(float pitch, float yaw);
 
 protected:
 	void resizeEvent(QResizeEvent* event) override;
