@@ -1,19 +1,11 @@
-﻿  Importer.cpp
-C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Vivid3D\VividEngine\Animation.h(47,10): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-C:\dev\Vivid3D\VividEngine\Importer.cpp(122,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\Vivid3D\VividEngine\Importer.cpp(272,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\Vivid3D\VividEngine\Importer.cpp(277,27): warning C4018: '<': signed/unsigned mismatch
-C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:         with
-C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:         [
-C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:             T=float
-C:\dev\Vivid3D\VividEngine\Importer.cpp(288,48): warning C4244:         ]
-C:\dev\Vivid3D\VividEngine\Importer.cpp(297,27): warning C4018: '<': signed/unsigned mismatch
-C:\dev\Vivid3D\VividEngine\Importer.cpp(353,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\Vivid3D\VividEngine\Importer.cpp(399,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\Vivid3D\VividEngine\Importer.cpp(470,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\Vivid3D\VividEngine\Importer.cpp(488,23): warning C4018: '<': signed/unsigned mismatch
+﻿  Node.cpp
+C:\dev\Vivid3D\VividEngine\MathsHelp.h(18,27): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\dev\Vivid3D\VividEngine\Node.cpp(79,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\dev\Vivid3D\VividEngine\Node.cpp(84,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\dev\Vivid3D\VividEngine\Node.cpp(320,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Node.cpp(662,29): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Node.cpp(745,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Node.cpp(798,31): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   Replacing x64\Debug\pch.obj
 cuda.lib(nvcuda.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
 cudart.lib(cudart64_12.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored

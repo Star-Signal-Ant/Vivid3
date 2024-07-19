@@ -113,6 +113,8 @@ public:
 		m_Updated = false;
 	}
 	void UpdateScripts(float delta);
+	void WriteScripts(VFile* file);
+	void ReadScripts(VFile* file);
 protected:
 
 	std::string m_Name;

@@ -127,6 +127,9 @@
     <ClCompile Include="VAnimationList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="VScriptClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Widgets\VOutput.h">
@@ -190,6 +193,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="VAnimationList.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="VScriptClass.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -258,6 +264,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="VAnimationList.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="VScriptClass.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

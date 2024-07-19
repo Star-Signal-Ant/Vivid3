@@ -5,8 +5,11 @@
 #include "VSource.h"
 #include "VTokenizer.h"
 #include "VParser.h"
+#include "VFile.h"
+
 ScriptHost::ScriptHost() {
 
+    m_This = this;
 	m_Context = new VContext;
 
     m_Vec3 = LoadModule("v/mods/maths/Vec3.v");
@@ -15,6 +18,8 @@ ScriptHost::ScriptHost() {
     m_Node = LoadModule("v/mods/scene/node.v");
     m_Input = LoadModule("v/mods/input/input.v");
     m_Maths = LoadModule("v/mods/maths/maths.v");
+    LoadModule("v/mods/scene/gamecamera.v");
+
     m_GS = LoadModule("v/Gamescript.v");
 
 	//import modules
@@ -24,6 +29,14 @@ ScriptHost::ScriptHost() {
 }
 
 VModule* ScriptHost::LoadModule(std::string path) {
+
+    for (auto p : m_ModPaths) {
+
+        if (p == path) return nullptr;
+
+    }
+
+    m_ModPaths.push_back(path);
 
     VSource* mod_src = new VSource(path);
       
@@ -72,3 +85,31 @@ VVar* ScriptHost::CRVec3(float x, float y, float z) {
 
     return res;
 }
+
+void ScriptHost::WriteContext(VFile* file) {
+
+    file->WriteInt(m_ModPaths.size());
+
+    for (auto mp : m_ModPaths) {
+
+        file->WriteString(mp.c_str());
+
+    }
+
+}
+
+void ScriptHost::ReadContext(VFile* file) {
+
+
+    int mc = file->ReadInt();
+    for (int i = 0; i < mc; i++) {
+
+        std::string p = file->ReadString();
+        LoadModule(p);
+
+    }
+
+}
+
+
+ScriptHost* ScriptHost::m_This = nullptr;

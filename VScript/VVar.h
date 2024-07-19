@@ -113,7 +113,12 @@ public:
 	std::vector<VVar*> GetList() {
 		return m_List;
 	}
-
+	void SetDataName(std::string name) {
+		m_DataName = name;
+	}
+	std::string GetDataName() {
+		return m_DataName;
+	}
 
 private:
 
@@ -129,7 +134,7 @@ private:
 	VLambda* m_Lambda;
 	void* m_CValue = nullptr;
 	std::vector<VVar*> m_List;
-	
+	std::string m_DataName;
 
 };
 

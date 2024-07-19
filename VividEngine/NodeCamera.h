@@ -39,6 +39,8 @@ public:
         m_FOV = fov;
     }
     int InView(float3 centre, float3 size);
+    void WriteNode(VFile* file);
+    void ReadNode(VFile* file);
 private:
 
     float m_NearZ = 0.1f;

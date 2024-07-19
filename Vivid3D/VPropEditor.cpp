@@ -24,6 +24,7 @@
 #include "TerrainLayer.h"
 #include <QFileDialog>
 #include "Importer.h"
+#include "VScriptClass.h"
 
 //#include <qcheckbox.h>
 
@@ -1366,6 +1367,31 @@ void VPropEditor::SetNode(Node* node) {
 
 
 			switch (var->GetType()) {
+			case T_Class:
+			{
+				int c = 5;
+				auto c_lab = new QLabel(var->GetClassType().c_str());
+				vbox->addWidget(c_lab);
+				auto c_node = new VScriptClass;
+				c_node->SetType(var->GetClassType());
+				vbox->addWidget(c_node);
+				c_node->setMinimumWidth(200);
+				c_node->setMaximumWidth(200);
+				c_node->SetEntry(var);
+				
+				auto cls = var->GetClassValue();
+
+				if (cls == nullptr) {
+					c_node->setText("null");
+				}
+				else {
+					c_node->setText(var->GetClassValue()->GetDataName().c_str());
+				}
+				c_lab->setMaximumWidth(60);
+
+
+			}
+				break;
 			case T_Number:
 			case T_Int:
 			{

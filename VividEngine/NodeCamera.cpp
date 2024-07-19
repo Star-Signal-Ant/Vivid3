@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "NodeCamera.h"
 #include "Engine.h"
+#include "VFile.h"
 
 int cam_index = 1;
 NodeCamera::NodeCamera() {
@@ -88,4 +89,45 @@ int NodeCamera::InView(float3 centre, float3 size) {
     }
 
     return fullyInside ? 2 : 1;
+}
+
+void NodeCamera::WriteNode(VFile* file) {
+
+    file->WriteInt(5);
+
+    file->WriteVec3(m_Position);
+    file->WriteMatrix(m_Rotation);
+    file->WriteVec3(m_Scale);
+    file->WriteString(m_Name.c_str());
+    file->WriteFloat(m_NearZ);
+    file->WriteFloat(m_FarZ);
+    file->WriteFloat(m_FOV);
+
+    WriteScripts(file);
+
+    file->WriteInt(m_Nodes.size());
+
+    for (auto node : m_Nodes) {
+
+        node->WriteNode(file);
+
+    }
+
+
+}
+
+void NodeCamera::ReadNode(VFile* file) {
+
+    m_Position = file->ReadVec3();
+    m_Rotation = file->ReadMatrix();
+    m_Scale = file->ReadVec3();
+    m_Name = file->ReadString();
+    m_NearZ = file->ReadFloat();
+    m_FarZ = file->ReadFloat();
+    m_FOV = file->ReadFloat();
+
+    
+
+
+
 }

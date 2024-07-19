@@ -63,8 +63,8 @@ void VTreeView::mouseReleaseEvent(QMouseEvent* event) {
 void VTreeView::mousePressEvent(QMouseEvent* event)
 {
 
-
-
+    m_LMB = true;
+    return;
     if (event->button() == Qt::LeftButton)
     {
         m_LMB = true;

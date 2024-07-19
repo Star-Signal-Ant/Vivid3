@@ -36,6 +36,13 @@ VVar* VClassCall::Exec() {
 
 	auto func = cv->GetClassValue()->FindFunction(m_Name.GetNames()[m_Name.GetNames().size() - 1]);
 	
+	if (func == nullptr) {
+		printf("Func:");
+		printf(m_Name.GetNames()[m_Name.GetNames().size() - 1].c_str());
+		printf(" not found.\n");
+		exit(-1);
+	}
+
 
 	func->SetContext(GetContext());
 

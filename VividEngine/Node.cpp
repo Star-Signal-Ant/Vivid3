@@ -20,6 +20,8 @@
 #include "NodeActor.h"
 #include "Animator.h"
 #include "Bone.h"
+#include "VScope.h"
+#include "VVar.h"
 bool first_node = true;
 using namespace Diligent;
 
@@ -655,6 +657,8 @@ void Node::WriteNode(VFile* file) {
 	file->WriteVec3(m_Scale);
 	file->WriteString(m_Name.c_str());
 
+	WriteScripts(file);
+
 	file->WriteInt(m_Nodes.size());
 
 	for (auto node : m_Nodes) {
@@ -684,4 +688,140 @@ void Node::RenderChildrenForcedMaterial(MaterialBase* material) {
 void Node::RenderForcedMaterial(MaterialBase* material)
 {
 	RenderChildrenForcedMaterial(material);
+}
+
+VClass* ReadClass(VFile* file) {
+
+	std::string type = file->ReadString();
+
+	auto ncls = ScriptHost::m_This->CreateInstance(type);
+
+	int vc = file->ReadInt();
+	for (int i = 0; i < vc; i++) {
+
+		auto v = ncls->GetScope()->GetVars()[i];
+		TokenType type = (TokenType)file->ReadInt();
+		switch (type) {
+		case T_Int:
+		case T_Number:
+			v->SetInt(file->ReadInt());
+
+			break;
+		case T_Float:
+		case T_FloatNumber:
+			v->SetFloat(file->ReadFloat());
+
+			break;
+		case T_Class:
+
+			auto type = file->ReadString();
+			int ctype = file->ReadInt();
+			if (ctype == 0)
+			{
+				continue;
+			}
+			if (ctype == 1) {
+				v->SetClassValue(ReadClass(file));
+			}
+			if (ctype == 2) {
+				std::string data = file->ReadString();
+				v->SetDataName(data);
+			}
+
+			break;
+		}
+
+	}
+	int b = 5;
+	
+	return ncls;
+}
+
+void WriteClass(VClass* s, VFile* file) {
+
+	file->WriteString(s->GetName().GetNames()[0].c_str());
+
+
+	file->WriteInt(s->GetScope()->GetVars().size());
+	for (auto v : s->GetScope()->GetVars()) {
+
+		file->WriteInt(v->GetType());
+
+		switch (v->GetType()) {
+		case T_Int:
+		case T_Number:
+
+
+			file->WriteInt(v->ToInt());
+
+			break;
+		case T_Float:
+		case T_FloatNumber:
+
+			file->WriteFloat(v->ToFloat());
+			break;
+		case T_String:
+
+			file->WriteString(v->ToString().c_str());
+			break;
+		case T_Class:
+
+			file->WriteString(v->GetClassType().c_str());
+
+			if (v->GetClassValue() == nullptr) {
+				file->WriteInt(0);
+			}
+			else {
+				auto cls = v->GetClassValue();
+				if (cls->GetDataName() == "")
+				{
+					file->WriteInt(1);
+					WriteClass(cls, file);
+				}
+				else {
+					file->WriteInt(2);
+					file->WriteString(cls->GetDataName().c_str());
+				}
+
+			}
+
+			break;
+		}
+
+	}
+
+}
+
+void Node::WriteScripts(VFile* file) {
+
+
+	file->WriteInt(m_Scripts.size());
+
+	for (auto s : m_Scripts) {
+
+
+		WriteClass(s, file);
+
+		//s->WriteClass(file);
+
+
+//
+// 		file->WriteString(s->GetName().GetNames()[0].c_str());
+
+	}
+
+}
+
+void Node::ReadScripts(VFile* file) {
+
+	int sc = file->ReadInt();
+
+	for (int i = 0; i < sc; i++) {
+
+		auto s = ReadClass(file);
+		m_Scripts.push_back(s);
+
+
+	}
+
 }

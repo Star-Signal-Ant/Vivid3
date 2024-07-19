@@ -42,6 +42,9 @@ void NodeLight::WriteNode(VFile* file) {
 	file->WriteVec3(m_Diffuse);
 	file->WriteVec3(m_Specular);
 
+	WriteScripts(file);
+
+
 	file->WriteInt(m_Nodes.size());
 
 	for (auto node : m_Nodes) {

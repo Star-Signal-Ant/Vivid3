@@ -7,6 +7,7 @@
 class VFunction;
 class VContext;
 class VScope;
+class VFile;
 
 class VClass
 {
@@ -43,7 +44,14 @@ public:
 	}
 	void SetSubClass(std::string name);
 	std::string GetSubClass();
-
+	void SetDataName(std::string name) {
+		m_DataName = name;
+	}
+	std::string GetDataName() {
+		return m_DataName;
+	}
+	void WriteClass(VFile* file);
+	void ReadClass(VFile* file);
 private:
 
 	bool m_Static = false;
@@ -55,5 +63,6 @@ private:
 	std::vector<VFunction*> m_Funcs;
 	VScope* m_InstanceScope = nullptr;
 	std::string m_SubClass = "";
+	std::string m_DataName = "";
 };
 

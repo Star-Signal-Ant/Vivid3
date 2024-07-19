@@ -181,6 +181,8 @@ void NodeEntity::WriteNode(VFile* file) {
 	file->WriteVec3(m_Scale);
 	file->WriteString(m_Name.c_str());
 
+	WriteScripts(file);
+
 
 	file->WriteInt(m_Nodes.size());
 

@@ -16,6 +16,8 @@
 #include "RTMesh.h"
 #include "NodeTerrain.h"
 #include "NodeActor.h"
+#include "ScriptHost.h"
+
 std::vector<TerrainMesh*> GetTerrainMeshes(Node* node, std::vector<TerrainMesh*> meshes)
 {
 
@@ -817,7 +819,10 @@ void SceneGraph::SaveScene(std::string path) {
 
     VFile* file = new VFile(path.c_str(), FileMode::Write);
 
+    ScriptHost::m_This->WriteContext(file);
     m_RootNode->WriteNode(file);
+
+    
 
     file->Close();
 
@@ -865,8 +870,18 @@ Node* SceneGraph::ReadNode(VFile* file) {
 
 
     }
+
     break;
+    case 5:
+    {
+        auto ce = new NodeCamera;
+        ce->ReadNode(file);
+        res = (Node*)ce;
     }
+    }
+
+
+    res->ReadScripts(file);
 
     int nc = file->ReadInt();
 
@@ -883,6 +898,8 @@ Node* SceneGraph::ReadNode(VFile* file) {
 void SceneGraph::LoadScene(std::string path) {
 
     VFile* file = new VFile(path.c_str(), FileMode::Read);
+
+    ScriptHost::m_This->ReadContext(file);
 
     m_RootNode = ReadNode(file);
 

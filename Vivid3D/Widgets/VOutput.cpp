@@ -1303,23 +1303,27 @@ void VOutput::paintEvent(QPaintEvent* event)
       //  m_Gizmo->Render(false);
     }
 
-    for (auto l : m_Graph1->GetLights()) {
 
-        auto sp = m_Graph1->ToScreenSpace(l->GetPosition());
+    if (Editor::m_RunMode != RM_Playing) {
+        for (auto l : m_Graph1->GetLights()) {
 
-
-        m_Draw->Rect(m_LightIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
-
-
-    }
-
-    for (auto c : m_Graph1->GetCameras()) {
-
-        auto sp = m_Graph1->ToScreenSpace(c->GetPosition());
+            auto sp = m_Graph1->ToScreenSpace(l->GetPosition());
 
 
-        m_Draw->Rect(m_CamIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
+            m_Draw->Rect(m_LightIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
 
+
+        }
+
+        for (auto c : m_Graph1->GetCameras()) {
+
+            auto sp = m_Graph1->ToScreenSpace(c->GetPosition());
+
+
+            m_Draw->Rect(m_CamIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
+
+
+        }
 
     }
 

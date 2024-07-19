@@ -10,6 +10,7 @@
 #include "VContext.h"
 #include "VScope.h"
 
+
 void VClass::SetName(VName name) {
 
 	m_Name = name;
@@ -312,5 +313,18 @@ std::string VClass::GetSubClass() {
 std::vector<VFunction*> VClass::GetFunctions() {
 
 	return m_Funcs;
+
+}
+
+void VClass::WriteClass(VFile* file) {
+
+
+//	file->WriteInt(m_InstanceScope->GetVars().size());
+
+	for (auto v : m_InstanceScope->GetVars()) {
+
+
+
+	}
 
 }
