@@ -305,6 +305,79 @@ VVar* CF_LookAtNode(const std::vector<VVar*> args)
 
 }
 
+VVar* CF_GetWorldNode(const std::vector<VVar*> args) {
+
+	auto node = (Node*)args[0]->ToC();
+	auto res = new VVar;
+	res->SetClassType("Matrix");
+	
+	auto mat = ScriptHost::m_This->CreateInstance("Matrix");
+
+	auto nm = node->GetWorldMatrix();
+
+	auto nm2 = new float4x4;
+
+	nm2->m00 = nm.m00;
+	nm2->m10 = nm.m10;
+	nm2->m20 = nm.m20;
+	nm2->m30 = nm.m30;
+
+	nm2->m01 = nm.m01;
+	nm2->m11 = nm.m11;
+	nm2->m21 = nm.m21;
+	nm2->m31 = nm.m31;
+
+	nm2->m02 = nm.m02;
+	nm2->m12 = nm.m12;
+	nm2->m22 = nm.m22;
+	nm2->m32 = nm.m32;
+
+	nm2->m03 = nm.m03;
+	nm2->m13 = nm.m13;
+	nm2->m23 = nm.m23;
+	nm2->m33 = nm.m33;
+
+
+
+	auto cc = mat->GetScope()->FindVar("C");
+
+	cc->SetC(nm2);
+	
+
+	res->SetClassValue(mat);
+
+
+	return res;
+
+
+
+}
+
+VVar* CF_VecTimesMatrix(const std::vector<VVar*> args)
+{
+
+	auto vec = args[0]->GetClassValue();
+	auto mat = args[1]->GetClassValue();
+
+	float3 v = CF_GetFloat3(vec);
+	float4x4 m = *(float4x4*)mat->GetScope()->FindVar("C")->ToC();
+
+
+
+	float3 res = v * m;
+
+	VVar* r = new VVar;
+	r->SetClassType("Vec3");
+	r->SetClassValue(ScriptHost::m_This->CreateInstance("Vec3"));
+	r->GetClassValue()->GetScope()->FindVar("X")->SetFloat(res.x);
+	r->GetClassValue()->GetScope()->FindVar("Y")->SetFloat(res.y);
+	r->GetClassValue()->GetScope()->FindVar("Z")->SetFloat(res.z);
+
+
+	return r;
+
+}
+
 Node::Node() {
 
 	if (first_node) {
@@ -322,7 +395,8 @@ Node::Node() {
 		Engine::m_ScriptHost->AddCFunction("InputMouseMoveX", CF_InputMouseMoveX);
 		Engine::m_ScriptHost->AddCFunction("InputMouseMoveY", CF_InputMouseMoveY);
 		Engine::m_ScriptHost->AddCFunction("LookAtNode", CF_LookAtNode);
-
+		Engine::m_ScriptHost->AddCFunction("GetWorldNode", CF_GetWorldNode);
+		Engine::m_ScriptHost->AddCFunction("VecTimesMatrix", CF_VecTimesMatrix);
 		first_node = false;
 	}
 	m_Rotation = float4x4::Identity();
@@ -969,6 +1043,7 @@ void Node::LookAt(float3 target) {
 
 void Node::Remove() {
 
+	if (m_Root == nullptr) return;
 	m_Root->RemoveNode(this);
 	m_Root = nullptr;
 

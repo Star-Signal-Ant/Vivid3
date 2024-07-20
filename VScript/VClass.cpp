@@ -253,6 +253,51 @@ VVar* VClass::FindVar(std::string name) {
 	return nullptr;
 }
 
+VFunction* VClass::FindFunctionBySig2(std::string name, std::vector<std::string> sig)
+{
+	for (auto func : m_Funcs) {
+
+		if (func->GetName().GetNames()[0] == name)
+		{
+
+			if (sig.size() == 0 && func->GetParams() == nullptr) {
+				return func;
+			}
+			auto params = func->GetParams();
+			auto pl = params->GetParams();
+
+			bool right = true;
+			int si = 0;
+			for (auto p : pl) {
+
+				if (p->GetClassType() == sig[si])
+				{
+				//	if (sig[si] == T_Number)
+					{
+
+					}
+					//else {
+					//	return nullptr;
+				//	}
+				}
+				else {
+					right = false;
+					break;
+				}
+
+			}
+
+			if (right) {
+				return func;
+			}
+			int b = 5;
+			//		return func;
+		}
+
+	}
+	return nullptr;
+}
+
 VFunction* VClass::FindFunctionBySig(std::string name,std::vector<TokenType> sig) {
 
 	

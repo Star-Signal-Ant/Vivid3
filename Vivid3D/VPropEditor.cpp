@@ -1369,26 +1369,85 @@ void VPropEditor::SetNode(Node* node) {
 			switch (var->GetType()) {
 			case T_Class:
 			{
-				int c = 5;
-//				auto c_lab = new QLabel(var->GetClassType().c_str());
-				//vbox->addWidget(c_lab);
-				auto c_node = new VScriptClass;
-				c_node->SetType(var->GetClassType());
-				vbox->addWidget(c_node);
-				c_node->setMinimumWidth(200);
-				c_node->setMaximumWidth(200);
-				c_node->SetEntry(var);
-				
-				auto cls = var->GetClassValue();
 
-				if (cls == nullptr) {
-					c_node->setText("null");
+
+				if (var->GetClassType() == "Vec3")
+				{
+
+					auto x_l = new QLabel("X");
+					auto y_l = new QLabel("Y");
+					auto z_l = new QLabel("Z");
+
+					auto x_v =new  QDoubleSpinBox(this);
+					auto y_v =new  QDoubleSpinBox(this);
+					auto z_v = new QDoubleSpinBox(this);
+					x_v->setRange(-10000, 10000);
+					y_v->setRange(-10000, 10000);
+					z_v->setRange(-10000, 10000);
+
+					x_v->setMinimumWidth(105);
+					y_v->setMinimumWidth(105);
+					z_v->setMinimumWidth(105);
+
+					auto cx = var->GetClassValue()->GetScope()->FindVar("X")->ToFloat();
+					auto cy = var->GetClassValue()->GetScope()->FindVar("Y")->ToFloat();
+					auto cz = var->GetClassValue()->GetScope()->FindVar("Z")->ToFloat();
+
+					auto var_x = var->GetClassValue()->GetScope()->FindVar("X");
+					auto var_y = var->GetClassValue()->GetScope()->FindVar("Y");
+					auto var_z = var->GetClassValue()->GetScope()->FindVar("Z");
+
+					x_v->setValue(cx);
+					y_v->setValue(cy);
+					z_v->setValue(cz);
+
+					vbox->addWidget(x_l);
+					vbox->addWidget(x_v);
+					vbox->addWidget(y_l);
+					vbox->addWidget(y_v);
+					vbox->addWidget(z_l);
+					vbox->addWidget(z_v);
+
+					QObject::connect(x_v, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
+						[x_v,var_x](double value) {
+
+							var_x->SetFloat(value);
+
+						});
+					QObject::connect(y_v, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
+						[y_v, var_y](double value) {
+
+							var_y->SetFloat(value);
+
+						});
+					QObject::connect(z_v, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
+						[z_v, var_z](double value) {
+
+							var_z->SetFloat(value);
+
+						});
 				}
 				else {
-					c_node->setText(var->GetClassValue()->GetDataName().c_str());
-				}
-				//c_lab->setMaximumWidth(60);
+					int c = 5;
+					//				auto c_lab = new QLabel(var->GetClassType().c_str());
+									//vbox->addWidget(c_lab);
+					auto c_node = new VScriptClass;
+					c_node->SetType(var->GetClassType());
+					vbox->addWidget(c_node);
+					c_node->setMinimumWidth(200);
+					c_node->setMaximumWidth(200);
+					c_node->SetEntry(var);
 
+					auto cls = var->GetClassValue();
+
+					if (cls == nullptr) {
+						c_node->setText("null");
+					}
+					else {
+						c_node->setText(var->GetClassValue()->GetDataName().c_str());
+					}
+					//c_lab->setMaximumWidth(60);
+				}
 
 			}
 				break;

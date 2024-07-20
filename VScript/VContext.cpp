@@ -124,7 +124,11 @@ VVar* VContext::FindVar(std::vector<std::string> names) {
 		VVar* cur = check;
 		if (cur->GetClassValue() == nullptr) {
 			printf("Runtime error:");
-			printf(names[0].c_str());
+			//printf(names[0].c_str());
+			for (int i = 0; i < names.size();i++) {
+				printf(names[i].c_str());
+				printf(".");
+			}
 			printf(" is null.\n");
 			
 			exit(1);

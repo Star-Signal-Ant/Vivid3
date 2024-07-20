@@ -27,6 +27,7 @@ public:
 	VName GetName();
 	VFunction* FindFunction(std::string name);
 	VFunction* FindFunctionBySig(std::string name,std::vector<TokenType> sig);
+	VFunction* FindFunctionBySig2(std::string name, std::vector<std::string> sig);
 	VVar* FindVar(std::string name);
 	VScope* GetScope() {
 		return m_InstanceScope;

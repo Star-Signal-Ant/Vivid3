@@ -1,4 +1,3 @@
-﻿  VParser.cpp
-C:\dev\Vivid3D\VScript\VParser.cpp(1042,37): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'TokenType' can equal the given constant
-C:\dev\Vivid3D\VScript\VParser.cpp(1390,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+﻿  VFunction.cpp
+C:\dev\Vivid3D\VScript\VContext.h(80,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   VScript.vcxproj -> C:\dev\Vivid3D\Vivid3D\x64\Debug\VScript.lib

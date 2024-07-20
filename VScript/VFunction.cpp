@@ -176,8 +176,11 @@ VScope* VFunction::GetScope() {
 				f_var->SetName(p->GetName().GetNames()[0]);
 				f_var->SetType(p->GetType());
 				f_var->SetClassType(p->GetClassType());
+				auto pv = m_Context->FindVar(p->GetName().GetNames()[0]);
 				f_var->SetClassValue(nullptr);
-		
+				if (pv != nullptr) {
+					f_var->SetClassValue(pv->GetClassValue());
+				}
 
 				r->RegisterVar(f_var);
 

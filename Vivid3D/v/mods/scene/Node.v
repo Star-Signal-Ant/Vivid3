@@ -17,6 +17,14 @@ class Node
 
     end 
 
+    func GetWorldMatrix()
+
+        Matrix res = GetWorldNode(C);
+
+        return res;
+
+    end 
+
     func LookAt(Vec3 position)
 
         LookAtNode(C,position);

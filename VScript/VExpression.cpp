@@ -87,7 +87,12 @@ VVar* performOperationOp(VVar* a, VVar* b, const std::string& op) {
 
 		params->AddParam(op_ex);
 
-		func = cls->FindFunction(_op);
+		
+		std::vector<std::string> sig;
+
+		sig.push_back(b->GetClassType());
+
+		func = cls->FindFunctionBySig2(_op,sig);
 		if (func == nullptr) {
 			printf("Function operator overload not found:");
 			printf(op.c_str());
@@ -545,7 +550,7 @@ VVar* VExpression::Express() {
 
 				int b = 5;
 			}
-			if (Elements[0].EleType == T_Ident) {
+			if (Elements[0].EleType == T_Ident || Elements[0].EleType == T_Class) {
 				return fv;
 			}
 		}
@@ -762,6 +767,9 @@ std::vector<std::string> VExpression::ToOpVector() {
 		if (e.EleType == T_Ident) {
 			stack.push_back(e.VarName.GetNames()[0]);
 		}
+		else if (e.EleType == T_Func) {
+
+		}
 		else if (e.EleType == T_Operator)
 		{
 			switch (e.OpType)
@@ -775,7 +783,7 @@ std::vector<std::string> VExpression::ToOpVector() {
 				break;
 			case T_Minus:
 				stack.push_back("-");
-
+				break;
 			case T_Plus:
 				
 				stack.push_back("+");

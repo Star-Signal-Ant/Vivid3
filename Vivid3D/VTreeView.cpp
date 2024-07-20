@@ -25,7 +25,7 @@ VTreeView::VTreeView(QWidget *parent)
     }
     m_Root->AddItem("Done");
 
-    
+    setFocusPolicy(Qt::FocusPolicy::StrongFocus);
    setAcceptDrops(true);
   
 
@@ -57,18 +57,7 @@ int VTreeView::CheckItem(TreeItem* item, int x, int y, int px, int py) {
 }
 
 void VTreeView::mouseReleaseEvent(QMouseEvent* event) {
-
-    m_LMB = false;
-
-}
-
-void VTreeView::mousePressEvent(QMouseEvent* event)
-{
-
-
-    if (event->button() == Qt::LeftButton)
-    {
-        m_LMB = true;
+    if (m_LMB) {
         if (m_OverItem != nullptr)
         {
             if (m_OverItem->m_Items.size() > 0) {
@@ -80,11 +69,24 @@ void VTreeView::mousePressEvent(QMouseEvent* event)
                 if (node != nullptr) {
                     Editor::m_CurrentNode = (Node*)node;
                     Editor::m_PropEditor->SetNode(node);
-                    
-                }   
+
+                }
                 m_ActiveItem = m_OverItem;
+                update();
             }
         }
+        m_LMB = false;
+    }
+}
+
+void VTreeView::mousePressEvent(QMouseEvent* event)
+{
+
+
+    if (event->button() == Qt::LeftButton)
+    {
+        m_LMB = true;
+       
         // Handle left mouse button press
 
     }
@@ -96,6 +98,8 @@ void VTreeView::mouseMoveEvent(QMouseEvent* event)
 
     if (m_LMB) {
         if (m_OverItem == nullptr) return;
+        if (m_OverItem == m_Root) return;
+        m_LMB = false;
         QMimeData* mimeData = new QMimeData;
         mimeData->setText(m_OverItem->m_Text.c_str());
 
@@ -296,6 +300,15 @@ void VTreeView::dropEvent(QDropEvent* event) {
         if (m_OverItem != nullptr) {
             auto pn = Editor::m_Graph->FindNode(event->mimeData()->text().toStdString());
             auto top_node = (Node*)m_OverItem->m_Data;
+            if (pn == top_node) {
+                return;
+            }
+            if (pn == Editor::m_Graph->GetRoot()) {
+                return;
+            }
+            if (pn->IsChildOf(top_node)) {
+                return;
+            }
             pn->Remove();
             top_node->AddNode(pn);
             Editor::m_SceneGraph->UpdateGraph();

@@ -135,6 +135,18 @@ public:
 
 		return m_Rotation * root;
 
+	
+	}
+	bool IsChildOf(Node* node) {
+
+		if (node == this) {
+			return true;
+		}
+		for (auto s : m_Nodes) {
+			bool r = s->IsChildOf(node);
+			if (r) return true;
+		}
+		return false;
 	}
 protected:
 

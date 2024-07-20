@@ -52,7 +52,7 @@ VVar* VVarGroup::Exec() {
 			nv->SetClassType(res->GetClassType());
 			nv->SetClassValue(res->GetClassValue());
 			nv->SetC(res->ToC());
-			nv->SetName(name.GetNames()[0]);
+			//nv->SetName(name.GetNames()[0]);
 			//nv->m_ClsValue = res->m_ClsValue;
 		//	nv->m_IntValue = res->m_IntValue;
 			//nv->m_FloatValue = res->m_FloatValue;
