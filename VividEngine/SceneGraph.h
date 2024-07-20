@@ -117,6 +117,8 @@ public:
 	std::vector<NodeEntity*> GetEntities();
 	std::vector<NodeActor*> GetActors();
 	std::vector<NodeCamera*> GetCameras();
+	void ConnectNodes(Node* node);
+
 private:
 
 	NodeCamera* m_Camera;

@@ -1,1 +1,63 @@
-﻿  Vivid3D.vcxproj -> C:\dev\Vivid3D\Vivid3D\x64\Debug\Vivid3D.exe
+﻿  VOutput.cpp
+C:\Dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(159,33): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(159,33): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(159,33): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(159,33): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(159,33): warning C4305:         ]
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(160,33): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(160,33): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(160,33): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(160,33): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(160,33): warning C4305:         ]
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(177,42): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(177,42): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(177,42): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(177,42): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(177,42): warning C4305:         ]
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(178,41): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(178,41): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(178,41): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(178,41): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(178,41): warning C4305:         ]
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(194,33): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(194,33): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(194,33): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(194,33): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(194,33): warning C4305:         ]
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(195,33): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(195,33): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(195,33): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(195,33): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(195,33): warning C4305:         ]
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(212,42): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(212,42): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(212,42): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(212,42): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(212,42): warning C4305:         ]
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(213,41): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(213,41): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(213,41): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(213,41): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(213,41): warning C4305:         ]
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(228,32): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(228,32): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(228,32): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(228,32): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(228,32): warning C4305:         ]
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(229,31): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(229,31): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(229,31): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(229,31): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(229,31): warning C4305:         ]
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(240,29): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(240,29): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(240,29): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(240,29): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(240,29): warning C4305:         ]
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(241,29): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(241,29): warning C4305:         with
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(241,29): warning C4305:         [
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(241,29): warning C4305:             T=float
+C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(241,29): warning C4305:         ]
+  Vivid3D.vcxproj -> C:\dev\Vivid3D\Vivid3D\x64\Debug\Vivid3D.exe

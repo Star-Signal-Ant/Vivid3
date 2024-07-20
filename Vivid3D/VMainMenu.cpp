@@ -81,7 +81,14 @@ VMainMenu::VMainMenu(QWidget *parent)
 			Editor::m_SceneGraph->UpdateGraph();
 			Editor::m_Graph->Updated();
 			Engine::m_ActiveRenderer->SetSceneGraph(Editor::m_Graph);
+			Editor::m_Cameras.clear();
+			Engine::m_ActiveGraph = Editor::m_Graph;
+			//Editor::m_Cameras.push_back(cam);
+			for (auto c : Editor::m_Graph->GetCameras()) {
+				Editor::m_Cameras.push_back(c);
+			}
 
+			VTools::m_This->Update();
 			
 			//Editor::m_Graph->SaveScene(filePath.toStdString());
 		}

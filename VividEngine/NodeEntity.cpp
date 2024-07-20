@@ -119,6 +119,9 @@ void NodeEntity::BuildGeo() {
 		m->NeedsRebuild();
 		
 	}
+	for (auto n : m_Nodes) {
+		n->BuildGeo();
+	}
 
 }
 

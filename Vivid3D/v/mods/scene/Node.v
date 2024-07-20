@@ -17,6 +17,12 @@ class Node
 
     end 
 
+    func LookAt(Vec3 position)
+
+        LookAtNode(C,position);
+
+    end 
+
     func GetPosition()
 
         Vec3 res = GetPositionNode(C);

@@ -108,6 +108,9 @@ public:
 	}
 	void Updated() {
 		m_Updated = true;
+		for (auto n : m_Nodes) {
+			n->Updated();
+		}
 	}
 	void UpdateComplete() {
 		m_Updated = false;
@@ -115,6 +118,24 @@ public:
 	void UpdateScripts(float delta);
 	void WriteScripts(VFile* file);
 	void ReadScripts(VFile* file);
+	VClass* FindClass(std::string name, int index = 0);
+	VClass* ReadClass(VFile* file);
+	void LookAt(float3 target);
+	void Remove();
+	void RemoveNode(Node* node);
+	Node* GetRoot() {
+		return m_Root;
+	}
+	float4x4 GetWorldRotation() {
+
+		float4x4 root = float4x4::Identity();
+		if (m_Root != nullptr) {
+			root = m_Root->GetWorldRotation();
+		}
+
+		return m_Rotation * root;
+
+	}
 protected:
 
 	std::string m_Name;

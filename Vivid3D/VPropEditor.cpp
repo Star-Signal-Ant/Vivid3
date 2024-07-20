@@ -1370,8 +1370,8 @@ void VPropEditor::SetNode(Node* node) {
 			case T_Class:
 			{
 				int c = 5;
-				auto c_lab = new QLabel(var->GetClassType().c_str());
-				vbox->addWidget(c_lab);
+//				auto c_lab = new QLabel(var->GetClassType().c_str());
+				//vbox->addWidget(c_lab);
 				auto c_node = new VScriptClass;
 				c_node->SetType(var->GetClassType());
 				vbox->addWidget(c_node);
@@ -1387,7 +1387,7 @@ void VPropEditor::SetNode(Node* node) {
 				else {
 					c_node->setText(var->GetClassValue()->GetDataName().c_str());
 				}
-				c_lab->setMaximumWidth(60);
+				//c_lab->setMaximumWidth(60);
 
 
 			}

@@ -358,19 +358,25 @@ void VOutput::mousePressEvent(QMouseEvent* event)
 
 
 
-        for (auto l : m_Graph1->GetCameras()) {
+        for (auto c : m_Graph1->GetCameras()) {
 
-            auto sp = m_Graph1->ToScreenSpace(l->GetPosition());
+            float2 sp;
 
+            if (c->GetRoot() != nullptr) {
+                sp = m_Graph1->ToScreenSpace(c->GetPosition() * c->GetRoot()->GetWorldMatrix());
+            }
+            else {
+                sp = m_Graph1->ToScreenSpace(c->GetPosition());
+            }
 
             //            m_Draw->Rect(m_LightIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
             if (m_MousePosition.x() >= sp.x - 32 && m_MousePosition.x() <= sp.x + 32)
             {
                 if (m_MousePosition.y() >= sp.y - 32 && m_MousePosition.y() <= sp.y + 32)
                 {
-                    Editor::m_CurrentNode = (Node*)l;// m_Entity;
-                    Editor::m_SceneGraph->SetNode((Node*)l);
-                    Editor::m_PropEditor->SetNode((Node*)l);
+                    Editor::m_CurrentNode = (Node*)c;// m_Entity;
+                    Editor::m_SceneGraph->SetNode((Node*)c);
+                    Editor::m_PropEditor->SetNode((Node*)c);
                     
                     return;
                 }
@@ -379,8 +385,14 @@ void VOutput::mousePressEvent(QMouseEvent* event)
         }
         for (auto l : m_Graph1->GetLights()) {
 
-            auto sp = m_Graph1->ToScreenSpace(l->GetPosition());
+            float2 sp;
 
+            if (l->GetRoot() != nullptr) {
+                sp = m_Graph1->ToScreenSpace(l->GetPosition() * l->GetRoot()->GetWorldMatrix());
+            }
+            else {
+                sp = m_Graph1->ToScreenSpace(l->GetPosition());
+            }
 
 //            m_Draw->Rect(m_LightIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
             if (m_MousePosition.x() >= sp.x - 32 && m_MousePosition.x() <= sp.x + 32)
@@ -401,6 +413,7 @@ void VOutput::mousePressEvent(QMouseEvent* event)
         // Handle left mouse button press
 
         if (Editor::m_CurrentNode != nullptr) {
+            m_Gizmo->BuildGeo();
             auto res = m_Graph1->MousePick(m_MousePosition.x(), m_MousePosition.y(), m_Gizmo);
 
             switch (Editor::m_GizmoMode) {
@@ -1261,8 +1274,13 @@ void VOutput::paintEvent(QPaintEvent* event)
         m_Nitro->AddGizmo(m_Gizmo);
         if (dynamic_cast<NodeCamera*>(Editor::m_CurrentNode)) {
             m_Nitro->AddGizmo(m_GizCam);
-            m_GizCam->SetPosition(Editor::m_CurrentNode->GetPosition());
-            m_GizCam->SetRotation(Editor::m_CurrentNode->GetRotation());
+            m_GizCam->SetPosition(Editor::m_CurrentNode->GetPosition() * Editor::m_CurrentNode->GetRoot()->GetWorldMatrix());
+            if (Editor::m_CurrentNode->GetRoot() != nullptr) {
+                m_GizCam->SetRotation(Editor::m_CurrentNode->GetRotation()*Editor::m_CurrentNode->GetRoot()->GetWorldRotation());
+            }
+            else {
+                m_GizCam->SetRotation(Editor::m_CurrentNode->GetRotation());
+            }
         }
     }
     else {
@@ -1281,7 +1299,7 @@ void VOutput::paintEvent(QPaintEvent* event)
     }
 
     if (Editor::m_CurrentNode != nullptr) {
-        m_Gizmo->SetPosition(Editor::m_CurrentNode->GetPosition());
+        m_Gizmo->SetPosition(Editor::m_CurrentNode->GetPosition()*Editor::m_CurrentNode->GetRoot()->GetWorldMatrix());
         if (Editor::m_SpaceMode == SM_Local) {
             m_Gizmo->SetRotation(Editor::m_CurrentNode->GetRotation());
         }
@@ -1307,8 +1325,14 @@ void VOutput::paintEvent(QPaintEvent* event)
     if (Editor::m_RunMode != RM_Playing) {
         for (auto l : m_Graph1->GetLights()) {
 
-            auto sp = m_Graph1->ToScreenSpace(l->GetPosition());
+            float2 sp;
 
+            if (l->GetRoot() != nullptr) {
+                sp = m_Graph1->ToScreenSpace(l->GetPosition() * l->GetRoot()->GetWorldMatrix());
+            }
+            else {
+                sp = m_Graph1->ToScreenSpace(l->GetPosition());
+            }
 
             m_Draw->Rect(m_LightIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
 
@@ -1317,8 +1341,14 @@ void VOutput::paintEvent(QPaintEvent* event)
 
         for (auto c : m_Graph1->GetCameras()) {
 
-            auto sp = m_Graph1->ToScreenSpace(c->GetPosition());
+            float2 sp;
 
+            if (c->GetRoot() != nullptr) {
+                sp = m_Graph1->ToScreenSpace(c->GetPosition() * c->GetRoot()->GetWorldMatrix());
+            }
+            else {
+                sp = m_Graph1->ToScreenSpace(c->GetPosition());
+            }
 
             m_Draw->Rect(m_CamIcon, float2(sp.x - 32, sp.y - 32), float2(64, 64), float4(1, 1, 1, 1));
 

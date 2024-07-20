@@ -109,6 +109,17 @@ VVar* CF_Debug(const std::vector<VVar*>& args)
 	return nullptr;
 }
 
+
+float3 CF_GetFloat3(VClass* vec)
+{
+
+	float x = vec->GetScope()->FindVar("X")->ToFloat();
+	float y = vec->GetScope()->FindVar("Y")->ToFloat();
+	float z = vec->GetScope()->FindVar("Z")->ToFloat();
+	return float3(x, y, z);
+
+}
+
 VVar* CF_NodeGetPosition(const std::vector<VVar*>& args)
 {
 	auto c = (Node*)args[0]->ToC();
@@ -278,6 +289,22 @@ VVar* CF_InputMouseMoveY(const std::vector<VVar*> args)
 }
 
 
+
+
+VVar* CF_LookAtNode(const std::vector<VVar*> args)
+{
+
+	auto node = (Node*)args[0]->ToC();
+	auto pos = args[1]->GetClassValue();
+	auto pf = CF_GetFloat3(pos);
+
+	node->LookAt(pf);
+
+
+	return nullptr;
+
+}
+
 Node::Node() {
 
 	if (first_node) {
@@ -294,6 +321,7 @@ Node::Node() {
 		Engine::m_ScriptHost->AddCFunction("SetRotateBone", CF_SetRotateBone);
 		Engine::m_ScriptHost->AddCFunction("InputMouseMoveX", CF_InputMouseMoveX);
 		Engine::m_ScriptHost->AddCFunction("InputMouseMoveY", CF_InputMouseMoveY);
+		Engine::m_ScriptHost->AddCFunction("LookAtNode", CF_LookAtNode);
 
 		first_node = false;
 	}
@@ -350,8 +378,12 @@ void Node::SetPosition(float3 position) {
 
 float3 Node::GetPosition() {
 
-	return m_Position;
 
+	//auto matrix = GetWorldMatrix();
+	//return float3(matrix.m30, matrix.m31, matrix.m32);
+
+
+	return m_Position;
 }
 
 void Node::SetRotation(float pitch, float yaw, float roll,bool edit) {
@@ -381,15 +413,27 @@ void Node::SetScale(float3 scale) {
 
 void Node::Move(float3 delta) {
 
-	m_Position = m_Position + (delta * m_Rotation);
+	if (m_Root != nullptr) {
+		m_Position = m_Position + ((delta*m_Rotation ) * m_Root->GetWorldMatrix().Inverse());
+	}
+	else {
+		m_Position = m_Position + (delta * m_Rotation);
+	}
 	BuildGeo();
+
 	Updated();
 }
 
 void Node::Translate(float3 delta) {
 
-	m_Position = m_Position + delta;
+	if (m_Root == nullptr) {
+		m_Position = m_Position + delta;
+	}
+	else {
+		m_Position = m_Position + (delta* m_Root->GetWorldMatrix().Inverse());
+	}
 	BuildGeo();
+
 	Updated();
 
 }
@@ -460,6 +504,13 @@ void Node::Turn(float pitch, float yaw, float roll,bool local) {
 
 float4x4 Node::GetWorldMatrix() {
 
+
+	float4x4 root = float4x4::Identity();
+
+	if (m_Root != nullptr) {
+		root = m_Root->GetWorldMatrix();
+	}
+
 	float4x4 translationMatrix = float4x4::Translation(m_Position);
 	float4x4 rotationMatrix = m_Rotation;
 	float4x4 scaleMatrix = float4x4::Scale(m_Scale);
@@ -467,7 +518,7 @@ float4x4 Node::GetWorldMatrix() {
 	// Combine the transformation matrices in the correct order (scale * rotation * translation)
 	float4x4 worldMatrix = scaleMatrix * rotationMatrix * translationMatrix;
 
-	return worldMatrix;
+	return worldMatrix * root;
 
 }
 
@@ -690,11 +741,49 @@ void Node::RenderForcedMaterial(MaterialBase* material)
 	RenderChildrenForcedMaterial(material);
 }
 
-VClass* ReadClass(VFile* file) {
+VClass* Node::ReadClass(VFile* file) {
 
 	std::string type = file->ReadString();
 
 	auto ncls = ScriptHost::m_This->CreateInstance(type);
+
+
+	VVar* node_v = ncls->FindVar("node");
+
+	if (node_v != nullptr) {
+		if (m_NodeClass == nullptr) {
+			m_NodeClass = node_v->GetClassValue();
+			auto obj = m_NodeClass->FindVar("C");
+			obj->SetC((void*)this);
+
+		}
+	}
+
+	if (type == "Node")
+	{
+		auto obj = ncls->FindVar("C");
+		obj->SetC((void*)this);
+	}
+
+
+	//auto f1 = m_NodeClass->FindFunction("Node");
+
+	//f1->Call(nullptr);
+
+
+	//auto obj = m_NodeClass->FindVar("C");
+//	auto pos = m_NodeClass->FindVar("Position");
+//	auto scale = m_NodeClass->FindVar("Scale");
+//	auto rot = m_NodeClass->FindVar("Rotation");
+//
+//	auto p_c = pos->GetClassValue()->FindVar("C");
+//	auto s_c = scale->GetClassValue()->FindVar("C");
+//	auto r_c = rot->GetClassValue()->FindVar("C");
+
+//	p_c->SetC(&m_Position);
+//	s_c->SetC(&m_Scale);
+//	rot->SetC(&m_Rotation);
+
 
 	int vc = file->ReadInt();
 	for (int i = 0; i < vc; i++) {
@@ -822,6 +911,80 @@ void Node::ReadScripts(VFile* file) {
 		m_Scripts.push_back(s);
 
 
+	}
+
+}
+
+VClass* Node::FindClass(std::string name, int index)
+{
+
+	for (auto s : m_Scripts) {
+
+		if (s->GetName().GetNames()[0] == name) {
+			return s;
+		}
+
+		for (auto c : s->GetScope()->GetVars()) {
+
+			if (c->GetClassType() == name)
+			{
+				return c->GetClassValue();
+			}
+
+		}
+
+	}
+
+	return nullptr;
+
+}
+
+float3 Cross(const float3& a, const float3& b)
+{
+	return float3(
+		a.y * b.z - a.z * b.y,
+		a.z * b.x - a.x * b.z,
+		a.x * b.y - a.y * b.x
+	);
+}
+void Node::LookAt(float3 target) {
+
+	float3 forward = normalize(target - m_Position);
+	float3 right = normalize(Cross(float3(0,1,0), forward));
+	float3 newUp = cross(forward, right);
+
+	float4x4 rotation = float4x4(
+		right.x, newUp.x, forward.x, 0.0f,
+		right.y, newUp.y, forward.y, 0.0f,
+		right.z, newUp.z, forward.z, 0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f
+	);
+
+	m_Rotation = rotation.Inverse();
+	//m_Position = 
+
+
+
+}
+
+void Node::Remove() {
+
+	m_Root->RemoveNode(this);
+	m_Root = nullptr;
+
+}
+
+void Node::RemoveNode(Node* node) {
+
+	auto it = std::find(m_Nodes.begin(), m_Nodes.end(), node);
+
+	// Check if the object was found and remove it
+	if (it != m_Nodes.end()) {
+		m_Nodes.erase(it);
+		std::cout << "Object removed.\n";
+	}
+	else {
+		std::cout << "Object not found.\n";
 	}
 
 }

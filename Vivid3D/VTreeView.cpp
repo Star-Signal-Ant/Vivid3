@@ -4,6 +4,8 @@
 #include "Editor.h"
 #include "VPropertyEditor.h"
 #include "qdrag.h"
+#include "SceneGraph.h"
+#include "VSceneGraph.h"
 
 VTreeView::VTreeView(QWidget *parent)
 	: QWidget(parent)
@@ -63,8 +65,7 @@ void VTreeView::mouseReleaseEvent(QMouseEvent* event) {
 void VTreeView::mousePressEvent(QMouseEvent* event)
 {
 
-    m_LMB = true;
-    return;
+
     if (event->button() == Qt::LeftButton)
     {
         m_LMB = true;
@@ -263,6 +264,12 @@ void VTreeView::dragEnterEvent(QDragEnterEvent* event) {
        
 
     }
+    if (event->mimeData()->hasText()) {
+
+        auto pn = Editor::m_Graph->FindNode(event->mimeData()->text().toStdString());
+        event->acceptProposedAction();
+
+    }
     
 }
 
@@ -283,6 +290,17 @@ void VTreeView::dropEvent(QDropEvent* event) {
             //emit dropped(filePath); // Emit the custom dropped sig
         }
         event->acceptProposedAction();
+    }
+    else if(event->mimeData()->hasText()){
+
+        if (m_OverItem != nullptr) {
+            auto pn = Editor::m_Graph->FindNode(event->mimeData()->text().toStdString());
+            auto top_node = (Node*)m_OverItem->m_Data;
+            pn->Remove();
+            top_node->AddNode(pn);
+            Editor::m_SceneGraph->UpdateGraph();
+        }
+
     }
 }
 

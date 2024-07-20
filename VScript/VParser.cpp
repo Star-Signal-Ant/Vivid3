@@ -1351,6 +1351,10 @@ VExpression* VParser::ParseExpression() {
 						m_Stream.Back();
 					}
 					m_Stream.Back();
+					if (m_Stream.Peek(0).GetLex() == ".")
+					{
+						m_Stream.Back();
+					}
 					var_ele.ClassCall = ParseClassCall();
 					var_ele.EleType = T_Func;
 					int bb = 5;

@@ -17,6 +17,11 @@
 #include "NodeTerrain.h"
 #include "NodeActor.h"
 #include "ScriptHost.h"
+#include "VClass.h"
+#include "VVar.h"
+#include "VScope.h"
+
+
 
 std::vector<TerrainMesh*> GetTerrainMeshes(Node* node, std::vector<TerrainMesh*> meshes)
 {
@@ -416,6 +421,7 @@ HitResult SceneGraph::MousePick(int x, int y, NodeEntity* entity) {
                 nres.m_Mesh = mesh;
                 nres.m_Node = mesh->GetOwner();
                 nres.m_Entity = (NodeEntity*)mesh->GetOwner();
+                cd = res.Distance;
                 close = nres;
 
             }
@@ -815,6 +821,37 @@ Node* SceneGraph::FindNode(std::string url) {
 
 }
 
+void SceneGraph::ConnectNodes(Node* node) {
+
+    for (auto s : node->GetScripts()) {
+
+        for (auto v : s->GetScope()->GetVars()) {
+
+            if (v->GetDataName() != "")
+            {
+
+                auto name = v->GetDataName();
+                auto onode = FindNode(name);
+                auto cls = onode->FindClass(v->GetClassType());
+                v->SetClassValue(cls);
+               // v->SetName(name);
+                cls->SetDataName(v->GetDataName());
+
+                int b = 5;
+            }
+
+        }
+
+    }
+
+    for (auto sub : node->GetNodes()) {
+
+        ConnectNodes(sub);
+
+    }
+
+}
+
 void SceneGraph::SaveScene(std::string path) {
 
     VFile* file = new VFile(path.c_str(), FileMode::Write);
@@ -822,7 +859,8 @@ void SceneGraph::SaveScene(std::string path) {
     ScriptHost::m_This->WriteContext(file);
     m_RootNode->WriteNode(file);
 
-    
+
+
 
     file->Close();
 
@@ -877,6 +915,7 @@ Node* SceneGraph::ReadNode(VFile* file) {
         auto ce = new NodeCamera;
         ce->ReadNode(file);
         res = (Node*)ce;
+
     }
     }
 
@@ -902,6 +941,8 @@ void SceneGraph::LoadScene(std::string path) {
     ScriptHost::m_This->ReadContext(file);
 
     m_RootNode = ReadNode(file);
+
+    ConnectNodes(m_RootNode);
 
     file->Close();
 
@@ -1117,3 +1158,4 @@ std::vector<NodeCamera*> SceneGraph::GetCameras() {
 
     return cams;
 }
+
