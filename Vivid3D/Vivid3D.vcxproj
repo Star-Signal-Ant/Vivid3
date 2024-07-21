@@ -136,6 +136,7 @@
     <ClCompile Include="VPropertyEditor.cpp" />
     <ClCompile Include="VSceneGraph.cpp" />
     <ClCompile Include="VScriptClass.cpp" />
+    <ClCompile Include="VSettings.cpp" />
     <ClCompile Include="VTimeTrack.cpp" />
     <ClCompile Include="VTools.cpp" />
     <ClCompile Include="VTrackFrame.cpp" />
@@ -165,6 +166,7 @@
     <QtUic Include="VPropertyEditor.ui" />
     <QtUic Include="VSceneGraph.ui" />
     <QtUic Include="VScriptClass.ui" />
+    <QtUic Include="VSettings.ui" />
     <QtUic Include="VTimeTrack.ui" />
     <QtUic Include="VTools.ui" />
     <QtUic Include="VTrackFrame.ui" />
@@ -188,6 +190,7 @@
     <ClInclude Include="Editor.h" />
     <ClInclude Include="GeneralInput.h" />
     <ClInclude Include="ImportSettings.h" />
+    <QtMoc Include="VSettings.h" />
     <QtMoc Include="VScriptClass.h" />
     <QtMoc Include="VAnimationList.h" />
     <QtMoc Include="VImportModel.h" />

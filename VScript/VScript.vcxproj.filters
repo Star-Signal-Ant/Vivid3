@@ -144,6 +144,9 @@
     <ClInclude Include="VBreak.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VarCreate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VScript.cpp">
@@ -258,6 +261,9 @@
       <Filter>Runtime</Filter>
     </ClCompile>
     <ClCompile Include="VBreak.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VarCreate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

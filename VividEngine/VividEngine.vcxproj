@@ -176,6 +176,7 @@
     <ClInclude Include="CubeRenderer.h" />
     <ClInclude Include="Draw2D.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="EngineSettings.h" />
     <ClInclude Include="FileHelp.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameInput.h" />
@@ -246,6 +247,7 @@
     <ClCompile Include="CubeRenderer.cpp" />
     <ClCompile Include="Draw2D.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="EngineSettings.cpp" />
     <ClCompile Include="FileHelp.cpp" />
     <ClCompile Include="GameInput.cpp" />
     <ClCompile Include="Importer.cpp" />

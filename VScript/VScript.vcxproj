@@ -142,6 +142,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="VAction.h" />
+    <ClInclude Include="VarCreate.h" />
     <ClInclude Include="VAssignArray.h" />
     <ClInclude Include="VBreak.h" />
     <ClInclude Include="VCallParameters.h" />
@@ -186,6 +187,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="VAction.cpp" />
+    <ClCompile Include="VarCreate.cpp" />
     <ClCompile Include="VAssignArray.cpp" />
     <ClCompile Include="VBreak.cpp" />
     <ClCompile Include="VCallParameters.cpp" />

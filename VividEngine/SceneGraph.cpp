@@ -20,6 +20,7 @@
 #include "VClass.h"
 #include "VVar.h"
 #include "VScope.h"
+#include "EngineSettings.h"
 
 
 
@@ -856,6 +857,8 @@ void SceneGraph::SaveScene(std::string path) {
 
     VFile* file = new VFile(path.c_str(), FileMode::Write);
 
+    file->WriteInt((int)EngineSettings::UsedRenderer);
+
     ScriptHost::m_This->WriteContext(file);
     m_RootNode->WriteNode(file);
 
@@ -937,6 +940,8 @@ Node* SceneGraph::ReadNode(VFile* file) {
 void SceneGraph::LoadScene(std::string path) {
 
     VFile* file = new VFile(path.c_str(), FileMode::Read);
+
+    EngineSettings::UsedRenderer = (RendererSetting)file->ReadInt();
 
     ScriptHost::m_This->ReadContext(file);
 

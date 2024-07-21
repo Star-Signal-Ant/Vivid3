@@ -3,6 +3,7 @@
 #include <windows.h>
 #endif
 #include "Editor.h"
+#include "EngineSettings.h"
 #include "Engine.h"
 #include "qtimer.h"
 #include "Texture2D.h"
@@ -48,6 +49,8 @@ VOutput::VOutput(QWidget *parent)
     Engine::m_pImmediateContext = m_pImmediateContext;
     Engine::m_pShaderFactory = m_pShaderFactory;
     
+    EngineSettings::LoadSettings();
+
     Engine::m_ScriptHost = new ScriptHost;
 
     Texture2D::WhiteTex = new Texture2D("engine/white.png");

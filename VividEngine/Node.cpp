@@ -378,6 +378,21 @@ VVar* CF_VecTimesMatrix(const std::vector<VVar*> args)
 
 }
 
+VVar* CF_TransformNode(const std::vector<VVar*> args)
+{
+
+	auto node = (Node*)args[0]->ToC();
+	auto vec = args[1]->GetClassValue();
+
+	auto v3 = ScriptHost::m_This->GetVec3(vec);
+
+	auto r = node->TransformVector(v3);
+
+
+	return ScriptHost::m_This->CRVec3(r.x, r.y, r.z);
+
+}
+
 Node::Node() {
 
 	if (first_node) {
@@ -397,6 +412,7 @@ Node::Node() {
 		Engine::m_ScriptHost->AddCFunction("LookAtNode", CF_LookAtNode);
 		Engine::m_ScriptHost->AddCFunction("GetWorldNode", CF_GetWorldNode);
 		Engine::m_ScriptHost->AddCFunction("VecTimesMatrix", CF_VecTimesMatrix);
+		Engine::m_ScriptHost->AddCFunction("TransformNode", CF_TransformNode);
 		first_node = false;
 	}
 	m_Rotation = float4x4::Identity();

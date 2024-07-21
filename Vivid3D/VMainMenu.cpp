@@ -8,6 +8,7 @@
 #include "VSceneGraph.h"
 #include "RendererBase.h"
 #include "VTools.h"
+#include "VSettings.h"
 
 VMainMenu::VMainMenu(QWidget *parent)
 	: QMenuBar(parent)
@@ -100,11 +101,23 @@ VMainMenu::VMainMenu(QWidget *parent)
 
 	//edit
 
+	auto e_projs = edit->addAction("Project Settings");
+	auto e_scenes = edit->addAction("Scene Settings");
+
+
+
 	auto e_node = edit->addMenu("Node");
 
 	auto align_to_cam = e_node->addAction("Align to Camera");
 	auto cam_to_node = e_node->addAction("Align Camera to Node");
 
+
+	connect(e_projs, &QAction::triggered, [this]() {
+
+		auto settings = new VSettings();
+		settings->show();
+
+		});
 
 	connect(align_to_cam, &QAction::triggered, [this]() {
 

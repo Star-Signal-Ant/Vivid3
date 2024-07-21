@@ -130,6 +130,9 @@
     <ClCompile Include="VScriptClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="VSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Widgets\VOutput.h">
@@ -196,6 +199,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="VScriptClass.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="VSettings.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -267,6 +273,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="VScriptClass.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="VSettings.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

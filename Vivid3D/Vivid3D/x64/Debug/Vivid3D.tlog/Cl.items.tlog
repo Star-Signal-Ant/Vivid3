@@ -16,6 +16,7 @@ C:\dev\Vivid3D\Vivid3D\VPropEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\
 C:\dev\Vivid3D\Vivid3D\VPropertyEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VPropertyEditor.obj
 C:\dev\Vivid3D\Vivid3D\VSceneGraph.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VSceneGraph.obj
 C:\dev\Vivid3D\Vivid3D\VScriptClass.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VScriptClass.obj
+C:\dev\Vivid3D\Vivid3D\VSettings.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VSettings.obj
 C:\dev\Vivid3D\Vivid3D\VTimeTrack.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VTimeTrack.obj
 C:\dev\Vivid3D\Vivid3D\VTools.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VTools.obj
 C:\dev\Vivid3D\Vivid3D\VTrackFrame.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VTrackFrame.obj
@@ -49,3 +50,4 @@ C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VPropertyEditor.cpp;C:\dev\Vivi
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VContentView.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VContentView.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VContentBrowser.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VContentBrowser.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VTools.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VTools.obj
+C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VSettings.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VSettings.obj

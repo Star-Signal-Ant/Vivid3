@@ -94,6 +94,9 @@
     <Filter Include="Renderer\RTX">
       <UniqueIdentifier>{dafe7549-fe5d-40ce-877c-b49ee5d4f341}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Settings">
+      <UniqueIdentifier>{1919c063-037c-4902-9d69-97d8f3ba5e9a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -300,6 +303,9 @@
     <ClInclude Include="GameInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EngineSettings.h">
+      <Filter>Settings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VividEngine.cpp">
@@ -502,6 +508,9 @@
     </ClCompile>
     <ClCompile Include="GameInput.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineSettings.cpp">
+      <Filter>Settings</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

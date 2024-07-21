@@ -86,6 +86,16 @@ VVar* ScriptHost::CRVec3(float x, float y, float z) {
     return res;
 }
 
+float3 ScriptHost::GetVec3(VClass* vec) {
+
+    float x = vec->GetScope()->FindVar("X")->ToFloat();
+    float y = vec->GetScope()->FindVar("Y")->ToFloat();
+    float z = vec->GetScope()->FindVar("Z")->ToFloat();
+
+    return float3(x, y, z);
+
+}
+
 void ScriptHost::WriteContext(VFile* file) {
 
     file->WriteInt(m_ModPaths.size());

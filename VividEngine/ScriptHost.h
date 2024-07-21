@@ -2,12 +2,16 @@
 #include <string>
 #include <vector>
 #include <functional>
+#include "BasicMath.hpp"
+
+using namespace Diligent;
 
 class VContext;
 class VClass;
 class VVar;
 class VModule;
 class VFile;
+
 
 class ScriptHost
 {
@@ -18,6 +22,7 @@ public:
 	VClass* CreateInstance(std::string name);
 	void AddCFunction(std::string name, std::function<VVar* (const std::vector<VVar*>& args)> func);
 	VVar* CRVec3(float x, float y, float z);
+	float3 GetVec3(VClass* cls);
 	void WriteContext(VFile* file);
 	void ReadContext(VFile* file);
 	static ScriptHost* m_This;

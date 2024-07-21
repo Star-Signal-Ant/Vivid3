@@ -31,6 +31,12 @@ class Node
 
     end 
 
+    func Transform(Vec3 offset)
+
+        return TransformNode(C,offset);
+
+    end 
+
     func GetPosition()
 
         Vec3 res = GetPositionNode(C);
