@@ -310,7 +310,7 @@ float4 ReadTex(Texture2D tex,SamplerState sampler,float2 uv,float3 worldPos)
 
     float dist = distance(g_ConstantsCB.CamPos,worldPos);
 
-    dist = dist / (g_ConstantsCB.CamExt.y/2);
+    dist = dist / (g_ConstantsCB.CamExt.y);
 
     if(dist>1) dist = 1;
 

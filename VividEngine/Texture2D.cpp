@@ -4,6 +4,9 @@
 #include "RenderTarget2D.h"
 #include "VFile.h"
 #include "Engine.h"
+#include <map>
+
+std::map<std::string, Texture2D*> m_cache;
 
 std::vector<uint8_t> GetTextureData(Diligent::ITexture* pTexture)
 {
@@ -93,14 +96,18 @@ Texture2D::Texture2D(std::string path,bool threaded) {
 
     if (true) {
         TextureLoadInfo loadInfo;
-      
-       // loadInfo.MipLevels = 5;
 
-      //  loadInfo.GenerateMips = true;// = ;// TEXTURE_VIEW_FLAG_ALLOW_MIP_MAP_GENERATION;
-        //loadInfo.MipFilter = TEXTURE_LOAD_MIP_FILTER_BOX_AVERAGE;
+        if (m_cache.count(path) > 0)
+        {
+            
+            auto tex = m_cache[path];
+            m_pTexture = tex->GetTex();
+            m_pTextureView = tex->GetView();
+            m_Path = tex->GetPath();
+            return;
+            
+        }
 
-
-        //loadInfo.CPUAccessFlags = CPU_ACCESS_WRITE;
 
         loadInfo.BindFlags = BIND_FLAGS::BIND_SHADER_RESOURCE;// | BIND_FLAGS::BIND_UNORDERED_ACCESS;
        // loadInfo.GenerateMips = true;
@@ -140,6 +147,7 @@ Texture2D::Texture2D(std::string path,bool threaded) {
         m_Height = m_pTexture->GetDesc().Height;
         m_Path = path;
         m_Loading = false;
+        m_cache[path] = this;
 
     }
     else {

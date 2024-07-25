@@ -1,7 +1,4 @@
-﻿  moc VSettings.h
-  VMainMenu.cpp
-  VSettings.cpp
-  VOutput.cpp
+﻿  VOutput.cpp
 C:\Dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
 C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(162,33): warning C4305: 'argument': truncation from 'double' to 'T'
 C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(162,33): warning C4305:         with
@@ -63,5 +60,4 @@ C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(244,29): warning C4305:         with
 C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(244,29): warning C4305:         [
 C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(244,29): warning C4305:             T=float
 C:\dev\Vivid3D\Vivid3D\Widgets\VOutput.cpp(244,29): warning C4305:         ]
-  moc_VSettings.cpp
   Vivid3D.vcxproj -> C:\dev\Vivid3D\Vivid3D\x64\Debug\Vivid3D.exe

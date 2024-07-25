@@ -163,8 +163,6 @@ void VPropEditor::SetMaterial(MaterialBase* material) {
 
 
 
-	if (dynamic_cast<MaterialMeshPBR*>(material) != nullptr) {
-
 		auto pbr = (MaterialMeshPBR*)material;
 
 		QLabel* mat_edit_lab = new QLabel(std::string("Material PBR:" + material->GetPath()).c_str());
@@ -444,8 +442,7 @@ void VPropEditor::SetMaterial(MaterialBase* material) {
 		m_LO->addLayout(mod_box);
 		m_LO->addWidget(save);
 
-	}
-	else {
+	/*
 		QLabel* mat_edit_lab = new QLabel(std::string("Material:" + material->GetPath()).c_str());
 
 		m_LO->addWidget(mat_edit_lab);
@@ -554,28 +551,6 @@ void VPropEditor::SetMaterial(MaterialBase* material) {
 		col_dif_lab->setMinimumWidth(55);
 
 
-
-		/*
-		auto diff_lab = new QLabel();
-		diff_lab->setAutoFillBackground(true);
-
-
-		QColor dif_col;
-
-
-		float4 col = m_Material->GetDiffuseColor();
-		dif_col.setRgb(col.x * 255.0f, col.y * 255.0f, col.z * 255.05, 255);
-		QPalette pal = diff_lab->palette();
-		pal.setColor(QPalette::Window, dif_col);
-		diff_lab->setPalette(pal);
-
-		col_diff_box->addWidget(col_dif_lab);
-		col_diff_box->addWidget(diff_lab);
-		col_dif_lab->setAlignment(Qt::AlignTop);
-
-		diff_lab->setMinimumWidth(16);
-		diff_lab->setMinimumHeight(12);
-		*/
 		m_DiffCol = new VColorPreview;
 
 		col_diff_box->addWidget(col_dif_lab);
@@ -649,7 +624,8 @@ void VPropEditor::SetMaterial(MaterialBase* material) {
 		m_LO->addLayout(col_spec_box);
 		m_LO->addWidget(save);
 
-	}
+	
+	*/
 
 }
 

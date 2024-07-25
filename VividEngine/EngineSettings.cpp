@@ -14,6 +14,7 @@ void EngineSettings::SaveSettings() {
 	file->WriteInt((int)TextureQuality);
 	file->WriteInt((int)ShaderQuality);
 	file->WriteInt((int)ShadowQuality);
+	file->WriteInt((int)UsedRenderer);
 
 	file->Close();
 }
@@ -30,6 +31,7 @@ void EngineSettings::LoadSettings() {
 	TextureQuality = (QualitySetting)file->ReadInt();
 	ShaderQuality = (QualitySetting)file->ReadInt();
 	ShadowQuality = (QualitySetting)file->ReadInt();
+	UsedRenderer = (RendererSetting)file->ReadInt();
 
 	file->Close();
 

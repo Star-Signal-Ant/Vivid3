@@ -504,7 +504,7 @@ void Node::SetScale(float3 scale) {
 void Node::Move(float3 delta) {
 
 	if (m_Root != nullptr) {
-		m_Position = m_Position + ((delta*m_Rotation ) * m_Root->GetWorldMatrix().Inverse());
+		m_Position = m_Position + ((delta*m_Rotation));
 	}
 	else {
 		m_Position = m_Position + (delta * m_Rotation);
@@ -520,7 +520,7 @@ void Node::Translate(float3 delta) {
 		m_Position = m_Position + delta;
 	}
 	else {
-		m_Position = m_Position + (delta* m_Root->GetWorldMatrix().Inverse());
+		m_Position = m_Position + (delta*m_Root->GetRotation().Inverse());
 	}
 	BuildGeo();
 

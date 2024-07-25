@@ -320,7 +320,7 @@ void main(in  PSInput  PSIn,
   float3 viewDir = normalize(PSIn.v_CameraPosition - PSIn.fragPos);
     float3 lightDir = normalize(PSIn.v_LightPosition -PSIn.fragPos);
 
-    float3 lightColor = CalculateLighting(PSIn, normal, viewDir, lightDir, PSIn.v_LightDiffuse, 1.0,roughness+PSIn.v_ExtraProp.z,metalness+PSIn.v_ExtraProp.w);
+    float3 lightColor = CalculateLighting(PSIn, normal, viewDir, lightDir, PSIn.v_LightDiffuse, 1.0,roughness,metalness);
     lightColor *= albedo;
     
     float4 fcol = float4(lightColor, 1.0) * shadowVal*light;

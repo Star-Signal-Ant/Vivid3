@@ -124,7 +124,7 @@ Node* Importer::ImportNode(std::string path) {
         auto mat = scene->mMaterials[i];
         auto name = std::string(mat->GetName().C_Str());
 
-        auto v_mat = new MaterialMeshPBR;
+        auto v_mat = new MaterialBase;
 
         std::string check = mat_path + name + ".material";
 
@@ -137,7 +137,7 @@ Node* Importer::ImportNode(std::string path) {
 
         if (VFile::Exists(check.c_str())) {
 
-            v_mat = (MaterialMeshPBR*)MaterialBase::LoadMaterial(check);
+            v_mat = MaterialBase::LoadMaterial(check);
             materials.push_back(v_mat);
             Engine::m_ActiveMaterials.push_back(v_mat);
             continue;
@@ -312,7 +312,7 @@ Node* Importer::ImportNode(std::string path) {
         
         mesh->SetMaterial(materials[aMesh->mMaterialIndex]);
         
-        mesh->SetDepthMaterial(new MaterialDepth);
+      //  mesh->SetDepthMaterial(new MaterialDepth);
 
 
         root->AddMesh(mesh);

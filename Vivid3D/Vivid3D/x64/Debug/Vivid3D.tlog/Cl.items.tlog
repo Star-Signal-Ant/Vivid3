@@ -31,6 +31,7 @@ C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_Vivid3D.cpp;C:\dev\Vivid3D\Vivi
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VOutput.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VOutput.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VSceneGraph.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VSceneGraph.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VTreeView.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VTreeView.obj
+C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VSettings.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VSettings.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VScriptClass.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VScriptClass.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VAnimationList.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VAnimationList.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VImportModel.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VImportModel.obj
@@ -50,4 +51,3 @@ C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VPropertyEditor.cpp;C:\dev\Vivi
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VContentView.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VContentView.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VContentBrowser.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VContentBrowser.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VTools.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VTools.obj
-C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VSettings.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VSettings.obj

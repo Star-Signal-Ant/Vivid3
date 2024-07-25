@@ -21,6 +21,10 @@ MaterialBase::MaterialBase() {
 
     m_Normal = new Texture2D("engine/normal.png");
     m_Diffuse = new Texture2D("engine/white.png");
+    m_Roughness = new Texture2D("engine/white.png");
+    m_Metal = new Texture2D("engine/white.png");
+    m_Specular = m_Diffuse;
+   
     return;
    // Create();
    // m_Diffuse = new Texture2D("test/test1.png");
@@ -359,15 +363,9 @@ void MaterialBase::SetEnvironment(RenderTargetCube* env) {
 void MaterialBase::SaveMaterial(std::string path) {
 
 
-
-    if (dynamic_cast<MaterialMeshPBR*>(this) != nullptr) {
-    
-        
-        auto pbr = (MaterialMeshPBR*)this;
-
         VFile* out = new VFile(path.c_str(), FileMode::Write);
 
-        out->WriteInt(1);
+      
         out->WriteString(m_Diffuse->GetPath().c_str());
         out->WriteString(m_Normal->GetPath().c_str());
         out->WriteString(m_Roughness->GetPath().c_str());
@@ -382,51 +380,19 @@ void MaterialBase::SaveMaterial(std::string path) {
         }
         out->WriteVec4(m_DiffuseColor);
         out->WriteVec4(m_SpecularColor);
-        out->WriteFloat(pbr->GetRoughOverdrive());
-        out->WriteFloat(pbr->GetMetalOverdrive());
-        out->Close();
-        m_FullPath = path;
-    }
-    else {
 
-        VFile* out = new VFile(path.c_str(), FileMode::Write);
-        out->WriteInt(0);
-        out->WriteString(m_Diffuse->GetPath().c_str());
-        out->WriteString(m_Specular->GetPath().c_str());
-        out->WriteString(m_Normal->GetPath().c_str());
-        out->WriteVec4(m_DiffuseColor);
-        out->WriteVec4(m_SpecularColor);
         out->Close();
         m_FullPath = path;
-    }
+  
 }
 
 MaterialBase* MaterialBase::LoadMaterial(std::string path) {
 
-    MaterialBase* res = nullptr;
+
     VFile* in = new VFile(path.c_str(), FileMode::Read);
 
-    int type = in->ReadInt();
 
-    if (type == 0) {
-
-        res = (MaterialMeshLight*)new MaterialMeshLight;
-
-        res->SetDiffuse(new Texture2D(in->ReadString()));
-        res->SetSpecular(new Texture2D(in->ReadString()));
-        res->SetNormals(new Texture2D(in->ReadString()));
-  
-
-        res->SetDiffuseColor(in->ReadVec4());
-        res->SetSpecularColor(in->ReadVec4());
-
-
-    }
-    else if (type == 1) {
-
-        auto res2 = (MaterialMeshPBR*)new MaterialMeshPBR;
-        res = res2;
-
+    auto res2 = (MaterialMeshPBR*)new MaterialBase;
 
         res2->SetDiffuse(new Texture2D(in->ReadString(),true));
         res2->SetNormals(new Texture2D(in->ReadString(),true));
@@ -434,24 +400,21 @@ MaterialBase* MaterialBase::LoadMaterial(std::string path) {
         res2->SetMetal(new Texture2D(in->ReadString(),true));
         if (in->ReadInt() == 1)
         {
-            res->SetEnvironmentTex(new TextureCube(in->ReadString()));
+            res2->SetEnvironmentTex(new TextureCube(in->ReadString()));
         }
 
 
         res2->SetDiffuseColor(in->ReadVec4());
         res2->SetSpecularColor(in->ReadVec4());
-        res2->SetRoughOverdrive(in->ReadFloat());
-        res2->SetMetalOverdrive(in->ReadFloat());
-        res = res2;
 
-    }
+    
 
     in->Close();
 
     
-    res->SetPath(path);
+    res2->SetPath(path);
 
-    return res;
+    return res2;
 
 }
 

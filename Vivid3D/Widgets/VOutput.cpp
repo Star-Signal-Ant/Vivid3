@@ -1247,9 +1247,28 @@ void VOutput::paintEvent(QPaintEvent* event)
     //m_RT2->Release();
 
     //m_PP->Process(new Texture2D(m_RT2));
-    m_Nitro->PreRender();
-   m_Nitro->Render(false);;
-    Engine::m_ActiveRenderer = m_Nitro;
+
+    if (Editor::m_RunMode == RM_Playing) {
+
+        switch (EngineSettings::UsedRenderer) {
+        case RendererSetting::R_Nitro:
+            Engine::m_ActiveRenderer = m_Nitro;
+            m_Nitro->PreRender();
+            m_Nitro->Render(false);
+            break;
+        case RendererSetting::R_Solaris:
+            Engine::m_ActiveRenderer =  m_Solaris;
+            m_Solaris->PreRender();
+            m_Solaris->Render(false);
+            break;
+        }
+
+    }
+    else {
+        m_Nitro->PreRender();
+        m_Nitro->Render(false);;
+        Engine::m_ActiveRenderer = m_Nitro;
+    }
 
 
     Engine::m_Camera = m_Graph1->GetCamera();
@@ -1304,7 +1323,7 @@ void VOutput::paintEvent(QPaintEvent* event)
     if (Editor::m_CurrentNode != nullptr) {
         m_Gizmo->SetPosition(Editor::m_CurrentNode->GetPosition()*Editor::m_CurrentNode->GetRoot()->GetWorldMatrix());
         if (Editor::m_SpaceMode == SM_Local) {
-            m_Gizmo->SetRotation(Editor::m_CurrentNode->GetRotation());
+            m_Gizmo->SetRotation(Editor::m_CurrentNode->GetRotation()*Editor::m_CurrentNode->GetRoot()->GetRotation());
         }
         else {
             m_Gizmo->SetRotation(0, 0, 0);
