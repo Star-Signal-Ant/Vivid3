@@ -13,6 +13,9 @@ void VTokenStream::AddToken(VToken token) {
 
 VToken VTokenStream::GetNext() {
 
+	if (m_Index >= m_Tokens.size()) {
+		return VToken(T_End, "end");
+	}
 	auto token = m_Tokens[m_Index++];
 	return token;
 

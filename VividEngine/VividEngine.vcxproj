@@ -44,6 +44,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <VCToolsVersion>14.40.33807</VCToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -110,7 +111,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;PLATFORM_WIN32;D3D12_SUPPORTED;_CRT_SECURE_NO_WARNINGS;VULKAN_SUPPORTED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.5\include;C:\dev\Vivid3D\VScript;C:\Dev\git\DE\DiligentEngine\DiligentCore\Graphics\GraphicsTools\interface;C:\Dev\git\DE\DiligentEngine\DiligentCore;C:\Dev\git\DE\DiligentEngine\DiligentTools\TextureLoader\interface;C:\Dev\git\DE\DiligentEngine\DiligentTools\TextureLoader\include;C:\Dev\Assimp\include;C:\Dev\git\DE\DiligentEngine\DiligentCore\Graphics\GraphicsEngine\interface;C:\Dev\git\DE\DiligentEngine\DiligentCore\Common\interface;C:\Dev\git\DE\DiligentEngine\DiligentCore\ThirdParty\SPIRV-Cross\include;C:\Dev\git\DE\DiligentEngine\DiligentCore\Platforms\Basic\include;C:\Dev\git\DE\DiligentEngine\DiligentCore\Graphics\ShaderTools\include;C:\Dev\git\DE\DiligentEngine\DiligentCore\Graphics\HLSL2GLSLConverterLib\include;C:\Dev\git\DE\DiligentEngine\DiligentCore\Graphics\GraphicsEngineD3D12\include;C:\Dev\git\DE\DiligentEngine\DiligentCore\Graphics\GraphicsEngine\include;C:\Dev\git\DE\DiligentEngine\DiligentCore\Common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>

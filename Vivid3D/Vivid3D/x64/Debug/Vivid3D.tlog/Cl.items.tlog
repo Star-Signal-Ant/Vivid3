@@ -1,13 +1,16 @@
 C:\dev\Vivid3D\Vivid3D\EditHelp.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\EditHelp.obj
 C:\dev\Vivid3D\Vivid3D\Editor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\Editor.obj
 C:\dev\Vivid3D\Vivid3D\ImportSettings.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\ImportSettings.obj
+C:\dev\Vivid3D\Vivid3D\TemplateManager.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\TemplateManager.obj
 C:\dev\Vivid3D\Vivid3D\VAnimationList.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VAnimationList.obj
 C:\dev\Vivid3D\Vivid3D\VCinemaEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VCinemaEditor.obj
 C:\dev\Vivid3D\Vivid3D\VCinemaTimeLine.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VCinemaTimeLine.obj
+C:\dev\Vivid3D\Vivid3D\VCodeComplete.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VCodeComplete.obj
 C:\dev\Vivid3D\Vivid3D\VColorPreview.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VColorPreview.obj
 C:\dev\Vivid3D\Vivid3D\VContentBrowser.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VContentBrowser.obj
 C:\dev\Vivid3D\Vivid3D\VContentView.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VContentView.obj
 C:\dev\Vivid3D\Vivid3D\VCreateAnimation.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VCreateAnimation.obj
+C:\dev\Vivid3D\Vivid3D\VCreateScript.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VCreateScript.obj
 C:\dev\Vivid3D\Vivid3D\VImagePreview.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VImagePreview.obj
 C:\dev\Vivid3D\Vivid3D\VImportModel.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VImportModel.obj
 C:\dev\Vivid3D\Vivid3D\VMainMenu.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VMainMenu.obj
@@ -16,7 +19,10 @@ C:\dev\Vivid3D\Vivid3D\VPropEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\
 C:\dev\Vivid3D\Vivid3D\VPropertyEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VPropertyEditor.obj
 C:\dev\Vivid3D\Vivid3D\VSceneGraph.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VSceneGraph.obj
 C:\dev\Vivid3D\Vivid3D\VScriptClass.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VScriptClass.obj
+C:\dev\Vivid3D\Vivid3D\VScriptEdit.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VScriptEdit.obj
+C:\dev\Vivid3D\Vivid3D\VScriptEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VScriptEditor.obj
 C:\dev\Vivid3D\Vivid3D\VSettings.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VSettings.obj
+C:\dev\Vivid3D\Vivid3D\VTextEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VTextEditor.obj
 C:\dev\Vivid3D\Vivid3D\VTimeTrack.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VTimeTrack.obj
 C:\dev\Vivid3D\Vivid3D\VTools.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VTools.obj
 C:\dev\Vivid3D\Vivid3D\VTrackFrame.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\VTrackFrame.obj
@@ -31,6 +37,9 @@ C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_Vivid3D.cpp;C:\dev\Vivid3D\Vivi
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VOutput.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VOutput.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VSceneGraph.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VSceneGraph.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VTreeView.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VTreeView.obj
+C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VScriptEdit.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VScriptEdit.obj
+C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VCodeComplete.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VCodeComplete.obj
+C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VCreateScript.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VCreateScript.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VSettings.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VSettings.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VScriptClass.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VScriptClass.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VAnimationList.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VAnimationList.obj
@@ -51,3 +60,4 @@ C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VPropertyEditor.cpp;C:\dev\Vivi
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VContentView.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VContentView.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VContentBrowser.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VContentBrowser.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VTools.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VTools.obj
+C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VTextEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VTextEditor.obj

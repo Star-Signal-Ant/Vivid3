@@ -26,6 +26,9 @@ public:
 	void WriteContext(VFile* file);
 	void ReadContext(VFile* file);
 	static ScriptHost* m_This;
+	VContext* GetContext() {
+		return m_Context;
+	}
 private:
 
 	VContext* m_Context;

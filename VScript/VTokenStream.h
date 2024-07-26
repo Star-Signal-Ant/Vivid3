@@ -55,6 +55,9 @@ public:
 		}
 
 	}
+	int GetIndex() {
+		return m_Index;
+	}
 
 private:
 	std::vector<VToken> m_Tokens;

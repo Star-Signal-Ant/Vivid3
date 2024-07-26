@@ -2,6 +2,7 @@
 #include "VToken.h"
 #include "VTokenStream.h"
 #include "VModule.h"
+#include <functional>
 
 
 enum PredictType {
@@ -38,8 +39,11 @@ class VParser
 public:
 
 	VParser();
+	
+	using FunctionType = std::function<void(const std::string&, const std::string&)>;
+	
 	VModule* ParseModule(VTokenStream stream);
-	void Err(std::string msg);
+	void Err(std::string type,std::string msg);
 	void Assert(bool value, std::string msg);
 	VName ParseName();
 	VClass* ParseClass();
@@ -66,10 +70,21 @@ public:
 	VForEach* ParseForEach();
 	VEnum* ParseEnum();
 	VSwitch* ParseSwitch();
+	void SetOutput(std::function<void(const std::string, const std::string)> out)
+	{
+		m_Output = out;
+	}
+	void Print(std::string type, std::string msg)
+	{
+		if (m_Output) {
+			m_Output(type, msg);
+		}
+	}
 
 private:
 
 	VTokenStream m_Stream;
+	std::function<void(const std::string, const std::string)> m_Output;
 
 };
 

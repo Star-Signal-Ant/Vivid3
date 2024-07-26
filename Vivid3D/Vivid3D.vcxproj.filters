@@ -133,6 +133,24 @@
     <ClCompile Include="VSettings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="VCreateScript.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TemplateManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VScriptEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VScriptEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VCodeComplete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VTextEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Widgets\VOutput.h">
@@ -202,6 +220,18 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="VSettings.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="VCreateScript.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="VScriptEdit.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="VCodeComplete.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="VTextEditor.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -278,6 +308,18 @@
     <QtUic Include="VSettings.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="VCreateScript.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="VScriptEdit.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="VCodeComplete.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="VTextEditor.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Editor.h">
@@ -291,6 +333,12 @@
     </ClInclude>
     <ClInclude Include="GeneralInput.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VScriptEditor.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

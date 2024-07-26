@@ -67,7 +67,8 @@ VModule* VParser::ParseModule(VTokenStream stream) {
 		}
 			break;
 		default:
-			Err("Unexpected token in module:" + token.GetLex());
+			Err("Error parsing module", "Unexpected token in module:" + token.GetLex());
+			return nullptr;
 			break;
 		}
 
@@ -102,6 +103,12 @@ VName VParser::ParseName() {
 			m_Stream.Back();
 			break;
 		}
+
+	}
+
+	if (names.size() == 0) {
+
+		Err("Parsing Name error", "Name produces empty result.");
 
 	}
 
@@ -174,17 +181,42 @@ VClass* VParser::ParseClass() {
 			break;
 		case T_Ident:
 		{
+
+			auto checkt = token.GetType();
+			switch (token.GetType()) {
+			case T_Int:
+			case T_Number:
+			case T_Float:
+			case T_FloatNumber:
+			case T_String:
+			case T_Ident:
+				break;
+			default:
+				Err("Parse class field error.", "Unknown type.");
+				return nullptr;
+			}
 			//auto t = m_Stream.GetNext();
 			VVarGroup* group = new VVarGroup(TokenType::T_Ident);
 			group->SetClassType(token.GetLex());
 
 			n_cls->AddVarGroup(group);
 
+			int pindex = m_Stream.GetIndex();
+			int same_c = 0;
 
 			while (!m_Stream.End()) {
 
 				auto peek = m_Stream.Peek(0);
-
+				if (m_Stream.GetIndex() == pindex) {
+					same_c++;
+					if (same_c >= 2)
+					{
+						Err("Parse class error", "Endless compile loop.");
+						return nullptr;
+					}
+				}
+				pindex = m_Stream.GetIndex();
+				
 				if (peek.GetLex() == ",")
 				{
 					m_Stream.GetNext();
@@ -635,6 +667,13 @@ VCodeBody* VParser::ParseCodeBody() {
 		PredictType pt = PredictNext(m_Stream);
 
 		switch (pt) {
+		case P_Unknown:
+
+			Err("Compile code body error.", "Unknown code.");
+			return nullptr;
+
+			break;
+
 		case P_Break:
 		{
 			auto br = new VBreak;
@@ -950,7 +989,7 @@ VAssignArray* VParser::ParseAssignArray() {
 
 	if (n.GetLex() != "[")
 	{
-		Err("Expecting '['");
+		Err("Parsing Assign Array","Expecting '['");
 	}
 
 	ass->SetTarget(name);
@@ -990,7 +1029,7 @@ VReturn* VParser::ParseReturn() {
 	auto tok = m_Stream.GetNext();
 	if (tok.GetType() != TokenType::T_Return)
 	{
-		Err("Expecting 'return'");
+		Err("Error parsing Return","Expecting 'return'");
 	}
 
 
@@ -1042,7 +1081,7 @@ VVarAssign* VParser::ParseAssign() {
 	if (!m_Stream.Peek(0).GetType() == T_Equal)
 	{
 
-		Err("Expecting '='\n");
+		Err("Error parsing Assign","Expecting '='\n");
 
 	}
 
@@ -1598,18 +1637,24 @@ VSwitch* VParser::ParseSwitch() {
 
 }
 
-void VParser::Err(std::string msg) {
+void VParser::Err(std::string type,std::string msg) {
 
 	printf("Error parsing.\n");
+	printf("Type:");
+	printf(type.c_str());
+	printf(" Error:");
 	printf(msg.c_str());
 	printf("\n");
+	Print(type, msg);
+
+
 
 }
 
 void VParser::Assert(bool value, std::string msg)
 {
 	if (!value) {
-		Err(msg);
+		Err("Error in assert",msg);
 		exit(0);
 	}
 }

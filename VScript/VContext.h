@@ -35,6 +35,9 @@ public:
         return nullptr;
 
     }
+    std::vector<VModule*> GetModules() {
+        return m_Modules;
+    }
     
     template <typename T, typename... Args>
     VModule* GetModule(T first, Args... args) {

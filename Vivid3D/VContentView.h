@@ -23,6 +23,8 @@ public:
 	~VContentView();
 	void Browse(std::string path);
 	void UpdateView();
+	static VContentView* m_This;
+
 
 protected:
 	void mousePressEvent(QMouseEvent* event) override;
@@ -30,6 +32,9 @@ protected:
 	void mouseMoveEvent(QMouseEvent* event) override;
 	void resizeEvent(QResizeEvent* event) override;
 	void mouseDoubleClickEvent(QMouseEvent* event) override;
+	void contextMenuEvent(QContextMenuEvent* event) override;
+	void CreateScript();
+
 private:
 	Ui::VContentViewClass ui;
 	ContentItem* m_OverItem = nullptr;
@@ -37,4 +42,6 @@ private:
 	std::vector<ContentItem*> m_Folders;
 	std::vector<ContentItem*> m_All;
 	std::stack<std::string> m_Paths;
+	QMenu* contextMenu;
+
 };

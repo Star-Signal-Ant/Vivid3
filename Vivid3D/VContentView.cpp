@@ -15,18 +15,43 @@
 #include "VImportModel.h"
 #include "VFile.h"
 #include "ImportSettings.h"
+#include "VCreateScript.h"
+#include "VScriptEdit.h"
 
-
-VContentView::VContentView(QWidget *parent)
-	: QWidget(parent)
+VContentView::VContentView(QWidget* parent)
+    : QWidget(parent)
 {
-	ui.setupUi(this);
+    ui.setupUi(this);
     setMouseTracking(true);
+
+    contextMenu = new QMenu(this);
+
+    auto create = contextMenu->addMenu("Create"); // new  QAction(tr("Action 1"), this);
+    auto cr_script = create->addAction("Create GameScript");
+
+
+
+    connect(cr_script, &QAction::triggered, this, [this]()
+    {
+            CreateScript();
+    });
+
+    m_This = this;
+
 }
+
+VContentView* VContentView::m_This = nullptr;
 
 VContentView::~VContentView()
 {}
 
+void VContentView::CreateScript() {
+
+    VCreateScript* cr_script = new VCreateScript();
+    cr_script->show();
+    cr_script->m_Path = m_Paths.top();
+
+}
 
 void VContentView::paintEvent(QPaintEvent* event)
 {
@@ -227,6 +252,10 @@ QString extractFileExtension(const QString& fileName)
 
 void VContentView::Browse(std::string path) {
 
+    m_Files.clear();
+    m_Folders.clear();
+    m_All.clear();
+
     m_Paths.push(path);
 
     QDir directory(path.c_str());
@@ -358,6 +387,15 @@ void VContentView::mouseDoubleClickEvent(QMouseEvent* event)
         else {
             if (event->button() == Qt::LeftButton) {
                 if (m_OverItem != nullptr) {
+                    if (m_OverItem->m_Ext == "v")
+                    {
+
+                        VScriptEdit* editor = new VScriptEdit;
+
+                        editor->show();
+                        editor->m_This->LoadScript(m_OverItem->m_FullPath);
+
+                    }
                     if (m_OverItem->m_Ext == "fbx")
                     {
 
@@ -419,4 +457,9 @@ void VContentView::mouseDoubleClickEvent(QMouseEvent* event)
             }
         }
     }
+}
+
+void VContentView::contextMenuEvent(QContextMenuEvent* event)
+{
+    contextMenu->exec(event->globalPos());
 }

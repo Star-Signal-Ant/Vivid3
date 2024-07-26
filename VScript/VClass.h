@@ -53,6 +53,11 @@ public:
 	}
 	void WriteClass(VFile* file);
 	void ReadClass(VFile* file);
+	std::vector<VVarGroup*> GetGroups() {
+
+		return m_Groups;
+
+	}
 private:
 
 	bool m_Static = false;
