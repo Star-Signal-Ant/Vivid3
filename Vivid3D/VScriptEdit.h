@@ -21,7 +21,10 @@
 #include <map>
 #include "VCodeComplete.h"
 #include "VTextEditor.h"
-
+#include <unordered_set>
+#include <algorithm>
+#include <thread>
+#include <chrono>
 struct KeyColor {
 	int R, G, B;
 	KeyColor(int r, int g, int b) {
@@ -44,7 +47,7 @@ public:
 	VScriptEdit(QWidget *parent = nullptr);
 	~VScriptEdit();
 	void LoadScript(std::string path);
-
+		
 	static VScriptEdit* m_This;
 	using c_out = std::function<void(const std::string&, const std::string&)>;
 
@@ -61,6 +64,7 @@ protected:
 
 private slots:
 	void on_Timer();
+
 	void onCodeChanged();
 private:
 	Ui::VScriptEditClass ui;

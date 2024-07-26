@@ -154,6 +154,7 @@ void VTokenizer::TokenizeString() {
 
 	while (true) {
 		auto ch = m_Source->GetNext();
+		if (ch == -1) return;
 
 		std::string test = "";
 		test += ch;

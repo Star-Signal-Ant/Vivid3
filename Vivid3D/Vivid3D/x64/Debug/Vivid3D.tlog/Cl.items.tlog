@@ -37,6 +37,7 @@ C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_Vivid3D.cpp;C:\dev\Vivid3D\Vivi
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VOutput.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VOutput.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VSceneGraph.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VSceneGraph.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VTreeView.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VTreeView.obj
+C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VTextEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VTextEditor.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VScriptEdit.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VScriptEdit.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VCodeComplete.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VCodeComplete.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VCreateScript.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VCreateScript.obj
@@ -60,4 +61,3 @@ C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VPropertyEditor.cpp;C:\dev\Vivi
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VContentView.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VContentView.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VContentBrowser.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VContentBrowser.obj
 C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VTools.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VTools.obj
-C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc\moc_VTextEditor.cpp;C:\dev\Vivid3D\Vivid3D\Vivid3D\x64\Debug\moc_VTextEditor.obj

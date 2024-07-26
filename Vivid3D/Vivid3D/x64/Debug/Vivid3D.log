@@ -1,10 +1,2 @@
-﻿  moc VTextEditor.h
-  VContentView.cpp
-  VScriptEdit.cpp
-  VTextEditor.cpp
-C:\dev\Vivid3D\VScript\VContext.h(83,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\dev\Vivid3D\VScript\VContext.h(83,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  moc_VScriptEdit.cpp
-  moc_VTextEditor.cpp
-C:\dev\Vivid3D\VScript\VContext.h(83,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+﻿  VTextEditor.cpp
   Vivid3D.vcxproj -> C:\dev\Vivid3D\Vivid3D\x64\Debug\Vivid3D.exe

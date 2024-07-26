@@ -21,7 +21,10 @@ VScriptEdit::VScriptEdit(QWidget *parent)
 {
 	ui.setupUi(this);
 
-    setBaseSize(700, 700);
+    //setBaseSize(700, 700);
+    resize(800, 700);
+
+
     QVBoxLayout* mainLayout = new QVBoxLayout(this);
 
     // Create menu bar
@@ -81,14 +84,30 @@ VScriptEdit::VScriptEdit(QWidget *parent)
     m_MainTimer->start();
 
 
+
+
     // Connect the textChanged signal of the QTextEdit to the onTextChanged slot
     connect(m_Edit, &QTextEdit::textChanged, this, &VScriptEdit::onCodeChanged);
     //Offer AI enabled responses to compile problems/errors.
 
-    m_Codes["class"] = KeyColor(255, 128, 0);
-    m_Codes["func"] = KeyColor(128, 255, 0);
-    m_Codes["end"] = KeyColor(128, 255, 0);
+    m_Codes["class"] = KeyColor(42, 104, 189);
+    m_Codes["func"] = KeyColor(209, 151, 187);
+    m_Codes["end"] = KeyColor(209, 151, 187);
     m_Codes["module"] = KeyColor(200, 0, 0);
+    m_Codes["if"] =  KeyColor(209, 151, 187);
+    m_Codes["else"] = KeyColor(209, 151, 187);
+    m_Codes["elseif"] = KeyColor(209, 151, 187);
+    m_Codes["switch"] = KeyColor(209, 151, 187);
+    m_Codes["break"] = KeyColor(209, 151, 187);
+    m_Codes["return"] = KeyColor(209, 151, 187);
+    m_Codes["for"] = KeyColor(209, 151, 187);
+    m_Codes["int"] = KeyColor(42, 104, 189);
+    m_Codes["float"] = KeyColor(42, 104, 189);
+    m_Codes["string"] = KeyColor(42, 104, 189);
+    m_Codes["enum"] = KeyColor(42, 104, 189);
+
+  
+    
 
     m_Edit->setTabStopDistance(10);
 
@@ -133,6 +152,7 @@ std::string VScriptEdit::getText()
 void VScriptEdit::on_Timer() {
 
     if (!m_CodeChanged) return;
+    m_CodeChanged = false;
 
     m_Console->clear();
     auto code = getText();
@@ -162,7 +182,7 @@ void VScriptEdit::on_Timer() {
     else {
         m_CodeModule = mod;
     }
-    m_CodeChanged = false;
+ //   m_CodeChanged = false;
 
     UpdateCodeComplete();
 
@@ -257,6 +277,21 @@ void VScriptEdit::UpdateCodeComplete() {
         }
     }
 
+    m_ComList.push_back("class");
+    m_ComList.push_back("if");
+    m_ComList.push_back("else");
+    m_ComList.push_back("end");
+    m_ComList.push_back("class");
+    m_ComList.push_back("elseif");
+    m_ComList.push_back("func");
+    m_ComList.push_back("return");
+    m_ComList.push_back("lambda");
+    m_ComList.push_back("switch");
+    m_ComList.push_back("break");
+    m_ComList.push_back("for");
+    m_ComList.push_back("static");
+
+
     m_ComList= removeDuplicates(m_ComList);
 
 
@@ -289,14 +324,19 @@ void VScriptEdit::UpdateCodeComplete() {
             completeWidget->AddItem(item);
 
         }
-        if (completeWidget->GetCount() == 0) {
+        if (completeWidget->HasWord(word)) {
 
         }
         else {
+            if (completeWidget->GetCount() == 0) {
 
-            completeWidget->SetWord(word);
-            // Show the widget
-            completeWidget->show();
+            }
+            else {
+
+                completeWidget->SetWord(word);
+                // Show the widget
+                completeWidget->show();
+            }
         }
     }
     else {

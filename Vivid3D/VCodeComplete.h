@@ -27,6 +27,20 @@ public:
 	int GetCount() {
 		return m_List->count();
 	}
+	bool HasWord(std::string ch) {
+
+		for (int i = 0; i < m_List->count(); ++i)
+		{
+			QListWidgetItem* item = m_List->item(i);
+			// Do something with the item
+			QString text = item->text();
+			if (ch == text.toStdString()) {
+				return true;
+			}
+			// Process the item as needed
+		}
+		return false;
+	}
 protected:
 
 	void keyPressEvent(QKeyEvent* event) override {

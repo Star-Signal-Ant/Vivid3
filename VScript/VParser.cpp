@@ -63,6 +63,10 @@ VModule* VParser::ParseModule(VTokenStream stream) {
 			auto p_class = ParseClass();
 			int aa = 1;
 			module->AddClass(p_class);
+			if (p_class == nullptr) {
+				Err("Failed to parse class.", "Class parser returned null.");
+				return nullptr;
+			}
 
 		}
 			break;
@@ -232,6 +236,13 @@ VClass* VParser::ParseClass() {
 				}
 				auto v_name = ParseName();
 
+				if (v_name.GetNames().size() == 0) {
+
+					Err("Parsing class failed dur to mal-formed name.", "Name error");
+					return nullptr;
+
+				}
+
 				auto next = m_Stream.Peek(0);
 
 				VExpression* expr = nullptr;
@@ -255,11 +266,11 @@ VClass* VParser::ParseClass() {
 		case T_String:
 		case T_Bool:
 		case T_CObject:
-
+		{
 			auto next = m_Stream.Peek(0);
 
 			bool is_array = false;
-			if (next.GetLex()=="[") {
+			if (next.GetLex() == "[") {
 
 				is_array = true;
 
@@ -271,7 +282,7 @@ VClass* VParser::ParseClass() {
 			}
 
 			VVarGroup* group = new VVarGroup(token.GetType());
-			
+
 			if (is_static) {
 				n_cls->AddStaticVarGroup(group);
 			}
@@ -292,7 +303,7 @@ VClass* VParser::ParseClass() {
 					auto v_name = ParseName();
 					group->AddName(v_name, nullptr);
 					group->SetArray(true);
-	
+
 					break;
 
 
@@ -312,7 +323,13 @@ VClass* VParser::ParseClass() {
 
 				}
 				auto v_name = ParseName();
-			
+
+				if (v_name.GetNames().size() == 0) {
+
+					return nullptr;
+
+				}
+
 				auto next = m_Stream.Peek(0);
 
 				VExpression* expr = nullptr;
@@ -324,11 +341,14 @@ VClass* VParser::ParseClass() {
 					auto tok = m_Stream.Peek(0);
 				}
 
-				group->AddName(v_name,expr);
+				group->AddName(v_name, expr);
 
 			}
-
+		}
 			break;
+		default:
+			Err("Unknown class compile state.", "Failed to parse class.");
+			return nullptr;
 		}
 
 		int a = 5;
