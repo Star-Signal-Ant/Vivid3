@@ -18,6 +18,9 @@ public:
 	std::string GetCode();
 	int GetNext();
 	void Back();
+	int Index() {
+		return m_Index;
+	}
 
 private:
 

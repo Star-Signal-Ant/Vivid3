@@ -58,8 +58,21 @@ public:
 		return m_Groups;
 
 	}
+	void SetStart(int s) {
+		m_Start = s;
+	}
+	void SetEnd(int e) {
+		m_End = e;
+	}
+	int GetStart() {
+		return m_Start;
+	}
+	int GetEnd() {
+		return m_End;
+	}
 private:
-
+	int m_Start = 0;
+	int m_End = 0;
 	bool m_Static = false;
 	VContext* m_Context;
 	VName m_Name;

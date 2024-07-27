@@ -16,7 +16,12 @@ public:
 	void SetPlace(int start, int end);
 	std::string GetLex();
 	TokenType GetType();
-
+	int GetPlace() {
+		return m_SourceStart;
+	}
+	int GetEnd() {
+		return m_SourceEnd;
+	}
 private:
 
 	TokenType m_TokenType = TokenType::T_None;

@@ -20,6 +20,28 @@ public:
 	std::vector<VEnum*> GetEnums() {
 		return m_Enums;
 	}
+	VClass* FindClassVar(std::string name) {
+
+		for (auto c : m_Classes) {
+
+			for (auto v : c->GetGroups()) {
+
+				for (auto i : v->GetNames()) {
+
+					if (i.GetNames()[0] == name) {
+
+						auto cls_type = v->GetClassType();
+						return FindClass(cls_type);
+
+					}
+
+				}
+
+			}
+
+		}
+		return nullptr;
+	}
 private:
 
 	VName m_Name;

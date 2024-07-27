@@ -1,4 +1,19 @@
-﻿  Replacing x64\Debug\pch.obj
+﻿  Node.cpp
+  SceneGraph.cpp
+  ScriptHost.cpp
+C:\dev\Vivid3D\VividEngine\Mesh3D.h(50,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VScript\VContext.h(83,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\MathsHelp.h(18,27): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\dev\Vivid3D\VividEngine\ScriptHost.cpp(101,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\MathsHelp.h(18,27): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  opencl.hpp: CL_HPP_TARGET_OPENCL_VERSION is not defined. It will default to 300 (OpenCL 3.0)
+C:\dev\Vivid3D\VividEngine\Node.cpp(79,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\dev\Vivid3D\VividEngine\Node.cpp(84,12): warning C4305: '=': truncation from 'double' to 'float'
+C:\dev\Vivid3D\VividEngine\Node.cpp(438,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Node.cpp(803,29): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Node.cpp(924,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\Vivid3D\VividEngine\Node.cpp(977,31): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Replacing x64\Debug\pch.obj
 cuda.lib(nvcuda.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
 cudart.lib(cudart64_12.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored
 OpenCL.lib(OpenCL.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in assimp-vc143-mt.lib(assimp-vc143-mt.dll); second definition ignored

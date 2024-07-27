@@ -85,6 +85,10 @@ bool VTokenStream::LineHas(std::string lex,std::string except) {
 		if (token.GetLex() == lex) {
 			return true;
 		}
+		if (token.GetType() == T_End)
+		{
+			return false;
+		}
 		idx++;
 
 	}

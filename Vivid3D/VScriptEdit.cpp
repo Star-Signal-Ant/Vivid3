@@ -188,30 +188,79 @@ void VScriptEdit::on_Timer() {
 
     auto word = GetCurrentWord();
 
+    auto words = GetCurrentWords();
+
     AppendConsole("Current Word:" + word);
+    if (word.size() > 0) {
+        AppendConsole("Words:" + words[0]);
+        if (words.size() > 1)
+        {
+            AppendConsole("Word 2:" + words[1]);
+        }
+    }
 
     Highlight();
 
 
 }
 
+std::vector< std::string > VScriptEdit::GetCurrentWords() {
+    std::vector<std::string> words;
+    std::string currentWord = GetCurrentWord();
+
+    // If the current word is empty, return an empty vector
+    if (currentWord.empty()) {
+        return words;
+    }
+
+    // Find the position of the dot
+    size_t dotPos = currentWord.find('.');
+
+    // If there's no dot, return a vector with just the current word
+    if (dotPos == std::string::npos) {
+        words.push_back(currentWord);
+        return words;
+    }
+
+    // If there's a dot, split the word into two parts
+    std::string firstPart = currentWord.substr(0, dotPos);
+    std::string secondPart = currentWord.substr(dotPos + 1);
+
+    // Add both parts to the vector
+    words.push_back(firstPart);
+    words.push_back(secondPart);
+
+    return words;
+}
+
 std::string VScriptEdit::GetCurrentWord() {
 
     QTextCursor cursor = m_Edit->textCursor();
-    if (!cursor.hasSelection()) {
-        cursor.select(QTextCursor::WordUnderCursor);
+
+    // Get the current line
+    cursor.select(QTextCursor::LineUnderCursor);
+    QString line = cursor.selectedText();
+
+    // Get the cursor position within the line
+    int cursorPosInLine = cursor.positionInBlock();
+
+    // Find the start of the word
+    int start = cursorPosInLine;
+    while (start > 0 && (line[start - 1].isLetterOrNumber() || line[start - 1] == '.' || line[start - 1] == '_')) {
+        start--;
     }
 
-    // Get the selected text (the word under the cursor)
-    QString selectedText = cursor.selectedText();
-
-    // If there's no text selected, return an empty string
-    if (selectedText.isEmpty()) {
-        return "";
+    // Find the end of the word
+    int end = cursorPosInLine;
+    while (end < line.length() && (line[end].isLetterOrNumber() || line[end] == '.' || line[end] == '_')) {
+        end++;
     }
 
-    // Convert the selected text to a std::string and return it
-    return selectedText.toStdString();
+    // Extract the word
+    QString word = line.mid(start, end - start);
+
+    // Convert to std::string and return
+    return word.toStdString();
 
 }
 
@@ -234,16 +283,24 @@ std::vector<std::string> removeDuplicates(std::vector<std::string>& vec) {
 void VScriptEdit::UpdateCodeComplete() {
 
     m_ComList.clear();
+    m_ClassList.clear();
 
     if (m_CodeModule == nullptr) return;
     if (m_CodeModule->GetClasses().size() == 0) return;
 
+
+    /*
     for (auto cls : m_CodeModule->GetClasses()) {
 
         if (cls == nullptr) continue;
         m_ComList.push_back(cls->GetName().GetNames()[0]);
+        m_ClassList.push_back(cls->GetName().GetNames()[0]);
         for (auto func : cls->GetFunctions()) {
+            if (func->GetName().GetNames().size() == 0) {
+                return;
+            }
             m_ComList.push_back(func->GetName().GetNames()[0].c_str());
+            m_FuncList.push_back(func->GetName().GetNames()[0].c_str());
         }
         for (auto v : cls->GetGroups()) {
             for (auto av : v->GetNames()) {
@@ -262,8 +319,10 @@ void VScriptEdit::UpdateCodeComplete() {
 
             if (cls == nullptr) continue;
             m_ComList.push_back(cls->GetName().GetNames()[0]);
+            m_ClassList.push_back(cls->GetName().GetNames()[0]);
             for (auto func : cls->GetFunctions()) {
                 m_ComList.push_back(func->GetName().GetNames()[0].c_str());
+                m_FuncList.push_back(func->GetName().GetNames()[0].c_str());
             }
             for (auto v : cls->GetGroups()) {
                 for (auto av : v->GetNames()) {
@@ -276,6 +335,119 @@ void VScriptEdit::UpdateCodeComplete() {
 
         }
     }
+
+    */
+
+    std::string search = "";
+
+    auto words = GetCurrentWords();
+
+    auto cp = getCharacterPosition(m_Edit);
+
+    AppendConsole("CP:" + std::to_string(cp));
+
+    if (words.size() > 1) {
+
+        auto cls = FindClass(words[0]);
+        if (cls != nullptr) {
+            AppendConsole("Class:" + cls->GetName().GetNames()[0]);
+
+            for (auto v : cls->GetGroups()) {
+                for (auto n : v->GetNames())
+                {
+
+                    m_ComList.push_back(n.GetNames()[0]);
+
+                }
+            }
+
+            for (auto f : cls->GetFunctions()) {
+                m_ComList.push_back(f->GetName().GetNames()[0]);
+            }
+
+        }
+        search = words[1];
+    }
+    else if (words.size() == 1)
+    {
+
+
+        for (auto c : m_CodeModule->GetClasses()) {
+
+            if (cp >= c->GetStart() && cp <= c->GetEnd()) {
+
+                AppendConsole("In Class:" + c->GetName().GetNames()[0]);
+
+                for (auto g : c->GetGroups()) {
+
+                    for (auto n : g->GetNames()) {
+
+                        m_ComList.push_back(n.GetNames()[0]);
+
+                    }
+
+                }
+
+                for (auto f : c->GetFunctions()) {
+
+                    m_ComList.push_back(f->GetName().GetNames()[0]);
+
+                }
+
+            }
+
+        }
+
+        search = words[0];
+        /*
+        for (auto cls : m_CodeModule->GetClasses()) {
+
+            if (cls == nullptr) continue;
+            m_ComList.push_back(cls->GetName().GetNames()[0]);
+            m_ClassList.push_back(cls->GetName().GetNames()[0]);
+            for (auto func : cls->GetFunctions()) {
+                if (func->GetName().GetNames().size() == 0) {
+                    return;
+                }
+                m_ComList.push_back(func->GetName().GetNames()[0].c_str());
+                m_FuncList.push_back(func->GetName().GetNames()[0].c_str());
+            }
+            for (auto v : cls->GetGroups()) {
+                for (auto av : v->GetNames()) {
+
+                    m_ComList.push_back(av.GetNames()[0].c_str());
+
+                }
+            }
+
+
+        }
+
+        for (auto m : ScriptHost::m_This->GetContext()->GetModules()) {
+
+            for (auto cls : m->GetClasses()) {
+
+                if (cls == nullptr) continue;
+                m_ComList.push_back(cls->GetName().GetNames()[0]);
+                m_ClassList.push_back(cls->GetName().GetNames()[0]);
+                for (auto func : cls->GetFunctions()) {
+                    m_ComList.push_back(func->GetName().GetNames()[0].c_str());
+                    m_FuncList.push_back(func->GetName().GetNames()[0].c_str());
+                }
+                for (auto v : cls->GetGroups()) {
+                    for (auto av : v->GetNames()) {
+
+                        m_ComList.push_back(av.GetNames()[0].c_str());
+
+                    }
+                }
+
+
+            }
+        }
+        */
+    }
+
 
     m_ComList.push_back("class");
     m_ComList.push_back("if");
@@ -318,7 +490,7 @@ void VScriptEdit::UpdateCodeComplete() {
         widgetPos.setX(widgetPos.x() + 32);
         widgetPos.setY(widgetPos.y() - 64);
         completeWidget->move(widgetPos);
-        completeWidget->SetWord(word);
+        completeWidget->SetWord(search);
         for (auto item : m_ComList) {
 
             completeWidget->AddItem(item);
@@ -333,7 +505,7 @@ void VScriptEdit::UpdateCodeComplete() {
             }
             else {
 
-                completeWidget->SetWord(word);
+                completeWidget->SetWord(search);
                 // Show the widget
                 completeWidget->show();
             }
@@ -351,6 +523,18 @@ void VScriptEdit::UpdateCodeComplete() {
 
 }
 
+VClass* VScriptEdit::FindClass(std::string name) {
+
+    auto cls = m_CodeModule->FindClassVar(name);
+    if (cls != nullptr) {
+        return cls;
+    }
+    return nullptr;
+
+
+
+}
+
 void VScriptEdit::Highlight() {
 
     QTextDocument* document = m_Edit->document();
@@ -360,6 +544,22 @@ void VScriptEdit::Highlight() {
     QTextCharFormat highlightFormat;
     //highlightFormat.setBackground(color);
 
+    for (auto c : m_ClassList) {
+
+
+        if (m_Codes.count(c) == 0) {
+            m_Codes[c] = KeyColor(10, 170, 10);
+        }
+    }
+
+    for (auto f : m_FuncList)
+    {
+
+        if (m_Codes.count(f) == 0) {
+            m_Codes[f] = KeyColor(220, 170, 0);
+        }
+
+    }
 
     for(const auto & pair : m_Codes) {
         const std::string& word = pair.first;
@@ -383,6 +583,7 @@ void VScriptEdit::Highlight() {
         }
     }
     m_CodeChanged = false;
+
 }
 
 void VScriptEdit::onCodeChanged()

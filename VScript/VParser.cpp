@@ -122,11 +122,18 @@ VName VParser::ParseName() {
 
 VClass* VParser::ParseClass() {
 
+
+	auto start = m_Stream.Peek(0).GetPlace();
+
+
 	auto name = ParseName();
 
 	auto n_cls = new VClass;
 
 	n_cls->SetName(name);
+
+	n_cls->SetStart(start);
+	
 
 	if (m_Stream.GetNext().GetType() == T_End) {
 
@@ -179,9 +186,16 @@ VClass* VParser::ParseClass() {
 		}
 			break;
 		case T_End:
-
+		{
+			int end = m_Stream.Peek(0).GetPlace();
+			if (end == 0) {
+				m_Stream.Back();
+				end = m_Stream.Peek(0).GetPlace();
+				m_Stream.GetNext();
+			}
+			n_cls->SetEnd(end);
 			return n_cls;
-
+		}
 			break;
 		case T_Ident:
 		{
@@ -582,6 +596,8 @@ PredictType VParser::PredictNext(VTokenStream stream)
 			{
 				return P_End;
 			}
+			Err("Could not predict code body element.", "Code body error.");
+			return P_Unknown;
 			break;
 		}
 
@@ -676,6 +692,7 @@ VCodeBody* VParser::ParseCodeBody() {
 	}
 	int ba = 5;
 	VCodeBody* body = new VCodeBody;
+	int pindex = m_Stream.GetIndex() - 1;
 
 	while (!m_Stream.End()) {
 
@@ -685,6 +702,18 @@ VCodeBody* VParser::ParseCodeBody() {
 		}
 
 		PredictType pt = PredictNext(m_Stream);
+
+		auto i2 = m_Stream.GetIndex();
+
+		if (i2 == pindex) {
+
+			Err("Parsing code body failed", "Endless parsing.");
+			return nullptr;
+
+		}
+		else {
+			pindex = i2;
+		}
 
 		switch (pt) {
 		case P_Unknown:

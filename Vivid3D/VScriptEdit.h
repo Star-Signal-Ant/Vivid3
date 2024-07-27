@@ -53,11 +53,18 @@ public:
 
 	std::string getText();
 	std::string GetCurrentWord();
+	std::vector<std::string> GetCurrentWords();
 	void AppendConsole(std::string text);
 
 	static void compile_Output(const std::string& t, const std::string& msg);
 	void Highlight();
 	void UpdateCodeComplete();
+	VClass* FindClass(std::string name);
+	int getCharacterPosition(QTextEdit* textEdit)
+	{
+		QTextCursor cursor = textEdit->textCursor();
+		return cursor.position();
+	}
 
 protected:
 	
@@ -76,6 +83,8 @@ private:
 	c_out mOut;
 	std::map<std::string, KeyColor> m_Codes;
 	std::vector<std::string> m_ComList;
+	std::vector<std::string> m_ClassList;
+	std::vector<std::string> m_FuncList;
 
 };
 

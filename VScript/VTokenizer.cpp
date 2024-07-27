@@ -113,6 +113,7 @@ VTokenStream VTokenizer::Tokenize(VSource* source) {
 
 			
 			VToken token(TokenType::T_Operator,op);
+			token.SetPlace(m_Source->Index(),0);
 			m_TokenStream.AddToken(token);
 			continue;
 		}
@@ -132,6 +133,7 @@ VTokenStream VTokenizer::Tokenize(VSource* source) {
 			// Key is present, access the value using the iterator
 			int value = (int)it->second;
 			VToken new_token((TokenType)value, toke.GetLex());
+			new_token.SetPlace(toke.GetPlace(), toke.GetEnd());
 			new_s.AddToken(new_token);
 			//			std::cout << "Key: " << key << ", Value: " << value << std::endl;
 		}
@@ -176,6 +178,7 @@ void VTokenizer::TokenizeString() {
 void VTokenizer::TokenizeWord() {
 
 	std::string word = "";
+	int start = m_Source->Index();
 
 	while (true) {
 
@@ -192,6 +195,7 @@ void VTokenizer::TokenizeWord() {
 
 		VToken token(TokenType::T_Ident, word);
 
+		token.SetPlace(start, m_Source->Index());
 		m_TokenStream.AddToken(token);
 
 		m_Source->Back();
@@ -206,6 +210,7 @@ void VTokenizer::TokenizeNumber() {
 
 	std::string number = "";
 	bool is_float = false;
+	int start = m_Source->Index();
 
 	while (true) {
 
@@ -236,7 +241,7 @@ void VTokenizer::TokenizeNumber() {
 		}
 
 		VToken token(n_type, number);
-
+		token.SetPlace(start, m_Source->Index());
 		m_TokenStream.AddToken(token);
 
 		m_Source->Back();
