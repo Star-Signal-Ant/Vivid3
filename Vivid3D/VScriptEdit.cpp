@@ -24,6 +24,7 @@ VScriptEdit::VScriptEdit(QWidget *parent)
     //setBaseSize(700, 700);
     resize(800, 700);
 
+    setWindowTitle("Vivid3D - V Script Editor");
 
     QVBoxLayout* mainLayout = new QVBoxLayout(this);
 
@@ -32,8 +33,6 @@ VScriptEdit::VScriptEdit(QWidget *parent)
 
     // Create file menu and add actions
     QMenu* fileMenu = menuBar->addMenu("File");
-    QAction* newAction = fileMenu->addAction("New");
-    QAction* openAction = fileMenu->addAction("Open");
     QAction* saveAction = fileMenu->addAction("Save");
     fileMenu->addSeparator();
     QAction* exitAction = fileMenu->addAction("Exit");
@@ -46,13 +45,27 @@ VScriptEdit::VScriptEdit(QWidget *parent)
 
     // Create toolbar
     QToolBar* toolBar = new QToolBar(this);
-    toolBar->addAction(newAction);
-    toolBar->addAction(openAction);
     toolBar->addAction(saveAction);
     toolBar->addSeparator();
-    toolBar->addAction(cutAction);
-    toolBar->addAction(copyAction);
-    toolBar->addAction(pasteAction);
+  //  toolBar->addAction(cutAction);
+  //  toolBar->addAction(copyAction);
+    //toolBar->addAction(pasteAction);
+    QObject::connect(exitAction, &QAction::triggered, [=]() {
+
+        close();
+
+        });
+
+    QObject::connect(saveAction, &QAction::triggered, [=]() {
+        SaveScript();
+        //        QMessageBox::information(mainWindow, "Action Triggered", "The action was triggered!");
+        // You can put any code you want here
+        // For example:
+        // mainWindow->someFunction();
+        // int result = someCalculation();
+        // updateUI(result);
+        });
+
 
     // Add menu bar and toolbar to the layout
     mainLayout->setMenuBar(menuBar);
@@ -121,6 +134,36 @@ VScriptEdit::VScriptEdit(QWidget *parent)
 
 }
 
+bool saveQTextEditToFile(QTextEdit* textEdit, const QString& filePath)
+{
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        QMessageBox::critical(nullptr, "Error", "Could not open file for writing: " + file.errorString());
+        return false;
+    }
+
+    QTextStream out(&file);
+    out << textEdit->toPlainText();
+
+    file.close();
+
+    if (file.error() != QFile::NoError)
+    {
+        QMessageBox::critical(nullptr, "Error", "Error writing to file: " + file.errorString());
+        return false;
+    }
+
+    return true;
+}
+
+std::string get_filename(const std::string& path) {
+    // Use std::filesystem::path to handle the file path
+    std::filesystem::path p(path);
+    // Return the filename with extension
+    return p.filename().string();
+}
+
 void VScriptEdit::LoadScript(std::string path) {
 
     QFile file(path.c_str());
@@ -129,6 +172,20 @@ void VScriptEdit::LoadScript(std::string path) {
         m_Edit->setPlainText(in.readAll());
         file.close();
     }
+    m_Path = path;
+
+    std::string filen = get_filename(path);
+
+    std::string title = "Vivid3D - Script Editor - " + filen;
+
+    setWindowTitle(title.c_str());
+}
+
+void VScriptEdit::SaveScript()
+{
+    
+    saveQTextEditToFile(m_Edit, m_Path.c_str());
+
 
 }
 
@@ -168,6 +225,48 @@ void VScriptEdit::on_Timer() {
     parser->SetOutput(VScriptEdit::compile_Output);
 
     auto mod = parser->ParseModule(tokes);
+      
+    if (mod != nullptr) {
+        for (auto c : mod->GetClasses()) {
+
+            auto sub_cls = c->GetSubClass();
+
+            if (sub_cls != "") {
+                //
+                for (auto sm : ScriptHost::m_This->GetContext()->GetModules()) {
+
+                    for (auto sc : sm->GetClasses()) {
+
+                        if (sc->GetName().GetNames()[0] == sub_cls) {
+
+                            for (auto v : sc->GetGroups()) {
+                                c->AddVarGroup(v);
+                            }
+                            for (auto vf : sc->GetFunctions()) {
+                                c->AddFunction(vf);
+                            }
+
+                        }
+
+                    }
+
+                }
+            }
+
+        }
+    }
+
+    int b = 5;
+
+    if (mod == nullptr) return;
+    auto mods = ScriptHost::m_This->GetContext()->GetModules();
+    for (auto m : mods) {
+
+        for (auto c : m->GetClasses())
+        {
+            mod->AddClass(c);
+        }
+    }
 
     if (mod == nullptr) {
 
@@ -491,6 +590,8 @@ void VScriptEdit::UpdateCodeComplete() {
         widgetPos.setY(widgetPos.y() - 64);
         completeWidget->move(widgetPos);
         completeWidget->SetWord(search);
+
+
         for (auto item : m_ComList) {
 
             completeWidget->AddItem(item);
@@ -529,6 +630,14 @@ VClass* VScriptEdit::FindClass(std::string name) {
     if (cls != nullptr) {
         return cls;
     }
+
+    
+    
+
+    int b = 5;
+
+  
+
     return nullptr;
 
 

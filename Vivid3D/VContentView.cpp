@@ -17,6 +17,8 @@
 #include "ImportSettings.h"
 #include "VCreateScript.h"
 #include "VScriptEdit.h"
+#include <cstdio>  // Include the header for standard I/O functions
+#include <iostream>  // Include the header for standard input/output stream objects
 
 VContentView::VContentView(QWidget* parent)
     : QWidget(parent)
@@ -27,7 +29,9 @@ VContentView::VContentView(QWidget* parent)
     contextMenu = new QMenu(this);
 
     auto create = contextMenu->addMenu("Create"); // new  QAction(tr("Action 1"), this);
-    auto cr_script = create->addAction("Create GameScript");
+    auto cr_script = create->addAction("Create Script");
+    auto del = contextMenu->addAction("Delete");
+
 
 
 
@@ -35,6 +39,17 @@ VContentView::VContentView(QWidget* parent)
     {
             CreateScript();
     });
+
+    connect(del, &QAction::triggered, this, [this]() {
+
+        if (m_OverItem) {
+
+            std::remove(m_OverItem->m_FullPath.c_str());
+            Browse(m_Paths.top());
+            update();
+        }
+
+        });
 
     m_This = this;
 
@@ -291,7 +306,7 @@ void VContentView::Browse(std::string path) {
     }
 
     UpdateView();
-
+    update();
 }
 
 void VContentView::UpdateView() {

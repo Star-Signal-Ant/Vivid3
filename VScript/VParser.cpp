@@ -39,6 +39,10 @@ VModule* VParser::ParseModule(VTokenStream stream) {
 
 	Assert(token.GetType() == T_Module, "Expected 'module' keyword.");
 
+	if (token.GetType() != T_Module) {
+		return nullptr;
+	}
+
 	auto name = ParseName();
 
 	module->SetName(name);
@@ -1704,6 +1708,6 @@ void VParser::Assert(bool value, std::string msg)
 {
 	if (!value) {
 		Err("Error in assert",msg);
-		exit(0);
+		return;
 	}
 }

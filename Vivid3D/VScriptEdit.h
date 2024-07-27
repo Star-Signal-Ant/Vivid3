@@ -65,7 +65,7 @@ public:
 		QTextCursor cursor = textEdit->textCursor();
 		return cursor.position();
 	}
-
+	void SaveScript();
 protected:
 	
 
@@ -85,6 +85,6 @@ private:
 	std::vector<std::string> m_ComList;
 	std::vector<std::string> m_ClassList;
 	std::vector<std::string> m_FuncList;
-
+	std::string m_Path;
 };
 
