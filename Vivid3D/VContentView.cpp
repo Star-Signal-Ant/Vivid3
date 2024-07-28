@@ -405,11 +405,16 @@ void VContentView::mouseDoubleClickEvent(QMouseEvent* event)
                     if (m_OverItem->m_Ext == "v")
                     {
 
-                        VScriptEdit* editor = new VScriptEdit;
 
-                        editor->show();
-                        editor->m_This->LoadScript(m_OverItem->m_FullPath);
+                        if (Editor::m_ScriptEdit == nullptr) {
+                            VScriptEdit* editor = new VScriptEdit;
 
+                            editor->show();
+                            editor->m_This->LoadScript(m_OverItem->m_FullPath);
+                        }
+                        else {
+                            Editor::m_ScriptEdit->LoadScript(m_OverItem->m_FullPath);
+                        }
                     }
                     if (m_OverItem->m_Ext == "fbx")
                     {

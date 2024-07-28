@@ -30,7 +30,9 @@ public:
 	void SetOwner(VClass* cls);
 	VScope* GetScope();
 	void SetGuard(VExpression* expression);
-
+	VCodeBody* GetCode() {
+		return m_Code;
+	}
 private:
 
 	VName m_Name;

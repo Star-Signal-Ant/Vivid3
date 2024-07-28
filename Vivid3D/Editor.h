@@ -33,6 +33,7 @@ class QVBoxLayout;
 class VTrackFrame;
 class Cinematic;
 class NodeCamera;
+class VScriptEdit;
 
 class Editor
 {
@@ -62,4 +63,5 @@ public:
 	static void Notify(std::string title, std::string info, int display);
 	static std::vector<NodeCamera*> m_Cameras;
 	static NodeCamera* m_GameCamera;
+	static VScriptEdit* m_ScriptEdit;
 };

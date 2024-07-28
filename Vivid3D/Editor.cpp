@@ -72,3 +72,4 @@ void Editor::Notify(std::string title, std::string info, int display)
 std::vector<NodeCamera*> Editor::m_Cameras;
 
 NodeCamera* Editor::m_GameCamera = nullptr;
+VScriptEdit* Editor::m_ScriptEdit = nullptr;

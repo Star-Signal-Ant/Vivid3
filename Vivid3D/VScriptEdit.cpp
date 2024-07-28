@@ -15,6 +15,9 @@
 #include "VVarGroup.h"
 #include "ScriptHost.h"
 #include <unordered_set>
+#include "Editor.h"
+#include "VCodeBody.h"
+
 #include <algorithm>
 VScriptEdit::VScriptEdit(QWidget *parent)
 	: QWidget(parent)
@@ -53,6 +56,7 @@ VScriptEdit::VScriptEdit(QWidget *parent)
     QObject::connect(exitAction, &QAction::triggered, [=]() {
 
         close();
+        Editor::m_ScriptEdit = nullptr;
 
         });
 
@@ -74,11 +78,15 @@ VScriptEdit::VScriptEdit(QWidget *parent)
     QSplitter* sp = new QSplitter(Qt::Orientation::Vertical);
 
     // Create a central widget (e.g., QTextEdit)
-    VTextEditor* textEdit = new VTextEditor(this);
+   // VTextEditor* textEdit = new VTextEditor(this);
    // mainLayout->addWidget(textEdit);
     m_Console = new QTextEdit(this);
     //mainLayout->addWidget(m_Console);
-    sp->addWidget(textEdit);
+
+    m_Docs = new QTabWidget(this);
+
+   
+    sp->addWidget(m_Docs);
     sp->addWidget(m_Console);
     mainLayout->addWidget(sp);
     QList<int> sizes;
@@ -88,7 +96,7 @@ VScriptEdit::VScriptEdit(QWidget *parent)
  //   m_Console->setMaximumHeight(250);
     setLayout(mainLayout);
     m_This = this;
-    m_Edit = textEdit;
+   // m_Edit = textEdit;
     m_MainTimer = new QTimer(this);
 
     connect(m_MainTimer, &QTimer::timeout, this, &VScriptEdit::on_Timer);
@@ -97,10 +105,6 @@ VScriptEdit::VScriptEdit(QWidget *parent)
     m_MainTimer->start();
 
 
-
-
-    // Connect the textChanged signal of the QTextEdit to the onTextChanged slot
-    connect(m_Edit, &QTextEdit::textChanged, this, &VScriptEdit::onCodeChanged);
     //Offer AI enabled responses to compile problems/errors.
 
     m_Codes["class"] = KeyColor(42, 104, 189);
@@ -120,16 +124,10 @@ VScriptEdit::VScriptEdit(QWidget *parent)
     m_Codes["enum"] = KeyColor(42, 104, 189);
 
   
-    
+    Editor::m_ScriptEdit = this;
 
-    m_Edit->setTabStopDistance(10);
-
-    QObject::connect(m_Edit, &QTextEdit::cursorPositionChanged, [this]() {
-    
-        UpdateCodeComplete();
-
-        });
-
+ 
+ 
 
 
 }
@@ -166,6 +164,16 @@ std::string get_filename(const std::string& path) {
 
 void VScriptEdit::LoadScript(std::string path) {
 
+    
+
+//    setWindowTitle(title.c_str());
+
+    m_Edit = new VTextEditor;
+
+    m_Edits.push_back(m_Edit);
+
+    m_Docs->addTab((QWidget*)m_Edit, get_filename(path).c_str());
+
     QFile file(path.c_str());
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
@@ -177,8 +185,22 @@ void VScriptEdit::LoadScript(std::string path) {
     std::string filen = get_filename(path);
 
     std::string title = "Vivid3D - Script Editor - " + filen;
+    m_Edit->setTabStopDistance(10);
 
-    setWindowTitle(title.c_str());
+
+
+    // Connect the textChanged signal of the QTextEdit to the onTextChanged slot
+    connect(m_Edit, &QTextEdit::textChanged, this, &VScriptEdit::onCodeChanged);
+    QObject::connect(m_Edit, &QTextEdit::cursorPositionChanged, [this]() {
+
+        UpdateCodeComplete();
+
+        });
+
+    m_Docs->setCurrentIndex(m_Docs->count() - 1);
+
+    m_CodeChanged = true;
+
 }
 
 void VScriptEdit::SaveScript()
@@ -213,6 +235,10 @@ void VScriptEdit::on_Timer() {
 
     m_Console->clear();
     auto code = getText();
+
+    int tab = m_Docs->currentIndex();
+
+    m_Edit = m_Edits[tab];
 
     VSource* src = new VSource();
     src->SetSource(code);
@@ -266,6 +292,40 @@ void VScriptEdit::on_Timer() {
         {
             mod->AddClass(c);
         }
+    }
+    m_ClassList.clear();
+    for (auto c : mod->GetClasses()) {
+
+        m_ClassList.push_back(c->GetName().GetNames()[0]);
+        for (auto v : c->GetGroups()) {
+
+            for (auto vv : v->GetNames()) {
+
+                m_VarList.push_back(vv.GetNames()[0]);
+
+            }
+
+        }
+        for (auto f : c->GetFunctions()) {
+            m_FuncList.push_back(f->GetName().GetNames()[0]);
+            if(f->GetCode()!=nullptr){
+                for (auto code : f->GetCode()->GetFor()) {
+
+                    if (dynamic_cast<VVarGroup*>(code)) {
+
+                        auto g = (VVarGroup*)code;
+                        for (auto gv : g->GetNames())
+                        {
+
+                            m_VarList.push_back(gv.GetNames()[0]);
+
+                        }
+
+                    }
+                }
+            }
+        }
+
     }
 
     if (mod == nullptr) {
@@ -382,7 +442,7 @@ std::vector<std::string> removeDuplicates(std::vector<std::string>& vec) {
 void VScriptEdit::UpdateCodeComplete() {
 
     m_ComList.clear();
-    m_ClassList.clear();
+  
 
     if (m_CodeModule == nullptr) return;
     if (m_CodeModule->GetClasses().size() == 0) return;
@@ -643,17 +703,31 @@ VClass* VScriptEdit::FindClass(std::string name) {
 
 
 }
+void resetHighlighting(QTextDocument* document) {
+    QTextCursor cursor(document);
 
+    // Select the entire document
+    cursor.select(QTextCursor::Document);
+
+    // Create a default text format (e.g., black color text)
+    QTextCharFormat defaultFormat;
+    defaultFormat.setForeground(QBrush(Qt::white)); // Set to default text color
+
+    // Apply the default format to the entire document
+    cursor.setCharFormat(defaultFormat);
+}
 void VScriptEdit::Highlight() {
 
     QTextDocument* document = m_Edit->document();
     QTextCursor cursor(document);
 
+    resetHighlighting(document);
+
     // Create a format for highlighting
     QTextCharFormat highlightFormat;
     //highlightFormat.setBackground(color);
 
-    for (auto c : m_ClassList) {
+       for (auto c : m_ClassList) {
 
 
         if (m_Codes.count(c) == 0) {
@@ -670,20 +744,33 @@ void VScriptEdit::Highlight() {
 
     }
 
-    for(const auto & pair : m_Codes) {
+    for (auto f : m_VarList)
+    {
+
+        if (m_Codes.count(f) == 0) {
+            m_Codes[f] = KeyColor(50, 170, 170);
+        }
+
+    }
+
+
+    for (const auto& pair : m_Codes) {
         const std::string& word = pair.first;
         const KeyColor& color = pair.second;
 
         // Create a format for highlighting
         QTextCharFormat textFormat;
-        textFormat.setForeground(QColor(color.R,color.G,color.B));
+        textFormat.setForeground(QColor(color.R, color.G, color.B));
+
+        // Create a regular expression with word boundaries
+        QRegularExpression regex(QString("\\b%1\\b").arg(QString::fromStdString(word)));
 
         // Start searching from the beginning of the document
         QTextCursor cursor(document);
         cursor.movePosition(QTextCursor::Start);
 
         while (!cursor.isNull() && !cursor.atEnd()) {
-            cursor = document->find(QString::fromStdString(word), cursor);
+            cursor = document->find(regex, cursor);
             if (!cursor.isNull()) {
                 // Apply the text color format
                 cursor.mergeCharFormat(textFormat);

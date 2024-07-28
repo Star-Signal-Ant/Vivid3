@@ -15,6 +15,9 @@ public:
     }
     VVar* Exec();
     void SetContext(VContext* context);
+    std::vector<VAction*> GetFor() {
+        return m_Code;
+    }
 private:
 
     std::vector<VAction*> m_Code;

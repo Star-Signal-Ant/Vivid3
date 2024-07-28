@@ -5,6 +5,7 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <qfile.h>
+#include <qtabwidget.h>
 #include <QAction>
 #include <QToolBar>
 #include <QVBoxLayout>
@@ -85,6 +86,9 @@ private:
 	std::vector<std::string> m_ComList;
 	std::vector<std::string> m_ClassList;
 	std::vector<std::string> m_FuncList;
+	std::vector<std::string> m_VarList;
 	std::string m_Path;
+	QTabWidget* m_Docs;
+	std::vector<VTextEditor*> m_Edits;
 };
 
