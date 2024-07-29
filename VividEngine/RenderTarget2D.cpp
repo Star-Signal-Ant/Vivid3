@@ -29,17 +29,33 @@ RenderTarget2D::RenderTarget2D(int width, int height) {
 	TextureDesc depth = desc;
 	depth.Name = "RenderTarget2D Depth Texture";
 	depth.Format = TEX_FORMAT_D32_FLOAT;
-	depth.BindFlags = BIND_FLAGS::BIND_DEPTH_STENCIL;
-	depth.ClearValue.Format = depth.Format;
+	depth.BindFlags = BIND_FLAGS::BIND_DEPTH_STENCIL | BIND_FLAGS::BIND_SHADER_RESOURCE;
+	depth.ClearValue.Format = TEX_FORMAT_D32_FLOAT;
 	depth.ClearValue.DepthStencil.Depth = 1.0;
 	depth.ClearValue.DepthStencil.Stencil = 0;
-
 	Engine::m_pDevice->CreateTexture(depth, nullptr, &m_DepthTexture);
-	m_DepthView = m_DepthTexture->GetDefaultView(TEXTURE_VIEW_DEPTH_STENCIL);
+
+	TextureViewDesc depthViewDesc;
+	depthViewDesc.ViewType = TEXTURE_VIEW_DEPTH_STENCIL;
+	depthViewDesc.Format = TEX_FORMAT_D32_FLOAT;
+	m_DepthTexture->CreateView(depthViewDesc,&m_DepthView);
+
+
+	TextureViewDesc depthShaderViewDesc;
+	depthShaderViewDesc.ViewType = TEXTURE_VIEW_SHADER_RESOURCE;
+	depthShaderViewDesc.Format = TEX_FORMAT_R32_FLOAT;
+	m_DepthTexture->CreateView(depthShaderViewDesc,&m_DepthShaderView);
+
 
 
 
 	
+
+}
+
+void RenderTarget2D::ClearZ() {
+
+	Engine::m_pImmediateContext->ClearDepthStencil(m_DepthView, CLEAR_DEPTH_FLAG, 1.0f, 0, RESOURCE_STATE_TRANSITION_MODE_TRANSITION);
 
 }
 

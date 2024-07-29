@@ -15,6 +15,11 @@ Vivid3D::Vivid3D(QWidget *parent)
     setWindowTitle("Vivid3D - (c)Star Signal Games");
   //  dockScene = new QDockWidget("Scene", this);
   //  SetDockWidget(dockScene);
+    QIcon icon("engine/v6.png");
+
+    // Set the window icon
+    setWindowIcon(icon);
+
 
     mSceneView = new VOutput;
 

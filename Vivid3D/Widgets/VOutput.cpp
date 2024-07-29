@@ -280,11 +280,7 @@ VOutput::VOutput(QWidget *parent)
     m_BrushMaterial->Create();
     m_BrushMaterial->SetDiffuse(new Texture2D("edit/brush1.png"));
    
-    m_Nitro = new NitroRenderer;
-    m_Nitro->SetSceneGraph(m_Graph1);
   
-    m_Nitro->AddLines(m_SceneGrid);
-    
     auto input = new GameInput;
 
     //m_Nitro->SetGizmo(m_Gizmo);
@@ -345,6 +341,10 @@ void VOutput::resizeEvent(QResizeEvent* event)
     m_Solaris->SetSceneGraph(m_Graph1);
     Engine::m_Solaris = m_Solaris;
     Engine::m_ActiveRenderer = m_Solaris;
+    m_Nitro = new NitroRenderer;
+    m_Nitro->SetSceneGraph(m_Graph1);
+
+    m_Nitro->AddLines(m_SceneGrid);
 
    // m_ppEmissive = new PPEmissive;
   //  m_PP->AddPostProcess(m_ppEmissive);

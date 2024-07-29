@@ -306,6 +306,15 @@
     <ClInclude Include="EngineSettings.h">
       <Filter>Settings</Filter>
     </ClInclude>
+    <ClInclude Include="PPSSR.h">
+      <Filter>PP\Processes</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialSSR.h">
+      <Filter>PP\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureDepth.h">
+      <Filter>Texture2D</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VividEngine.cpp">
@@ -511,6 +520,15 @@
     </ClCompile>
     <ClCompile Include="EngineSettings.cpp">
       <Filter>Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="PPSSR.cpp">
+      <Filter>PP\Processes</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialSSR.cpp">
+      <Filter>PP\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureDepth.cpp">
+      <Filter>Texture2D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

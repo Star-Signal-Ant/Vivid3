@@ -195,6 +195,7 @@
     <ClInclude Include="MaterialMeshLight.h" />
     <ClInclude Include="MaterialMeshLines.h" />
     <ClInclude Include="MaterialMeshPBR.h" />
+    <ClInclude Include="MaterialSSR.h" />
     <ClInclude Include="MaterialTerrain.h" />
     <ClInclude Include="MaterialTerrainDepth.h" />
     <ClInclude Include="MathsHelp.h" />
@@ -217,6 +218,7 @@
     <ClInclude Include="PostProcessing.h" />
     <ClInclude Include="PPBloom.h" />
     <ClInclude Include="PPEmissive.h" />
+    <ClInclude Include="PPSSR.h" />
     <ClInclude Include="Quat.h" />
     <ClInclude Include="RendererBase.h" />
     <ClInclude Include="RenderTarget2D.h" />
@@ -233,6 +235,7 @@
     <ClInclude Include="TerrainMeshBuffer.h" />
     <ClInclude Include="Texture2D.h" />
     <ClInclude Include="TextureCube.h" />
+    <ClInclude Include="TextureDepth.h" />
     <ClInclude Include="TrackKeyFrame.h" />
     <ClInclude Include="VFile.h" />
   </ItemGroup>
@@ -265,6 +268,7 @@
     <ClCompile Include="MaterialMeshLight.cpp" />
     <ClCompile Include="MaterialMeshLines.cpp" />
     <ClCompile Include="MaterialMeshPBR.cpp" />
+    <ClCompile Include="MaterialSSR.cpp" />
     <ClCompile Include="MaterialTerrain.cpp" />
     <ClCompile Include="MaterialTerrainDepth.cpp" />
     <ClCompile Include="MathsHelp.cpp" />
@@ -292,6 +296,7 @@
     <ClCompile Include="PostProcessing.cpp" />
     <ClCompile Include="PPBloom.cpp" />
     <ClCompile Include="PPEmissive.cpp" />
+    <ClCompile Include="PPSSR.cpp" />
     <ClCompile Include="Quat.cpp" />
     <ClCompile Include="RendererBase.cpp" />
     <ClCompile Include="RenderTarget2D.cpp" />
@@ -307,6 +312,7 @@
     <ClCompile Include="TerrainMeshBuffer.cpp" />
     <ClCompile Include="Texture2D.cpp" />
     <ClCompile Include="TextureCube.cpp" />
+    <ClCompile Include="TextureDepth.cpp" />
     <ClCompile Include="TrackKeyFrame.cpp" />
     <ClCompile Include="VFile.cpp" />
     <ClCompile Include="VividEngine.cpp" />

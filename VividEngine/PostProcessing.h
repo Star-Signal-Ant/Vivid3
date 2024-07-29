@@ -12,6 +12,9 @@ public:
 	PostProcessing();
 	void AddPostProcess(PostProcess* process);
 	void Process(Texture2D* frame);
+	void Clear() {
+		m_Processes.clear();
+	}
 
 private:
 

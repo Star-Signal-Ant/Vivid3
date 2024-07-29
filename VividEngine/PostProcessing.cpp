@@ -27,6 +27,6 @@ void PostProcessing::Process(Texture2D* frame) {
 
 	}
 
-	m_Draw->Rect(frame, float2(0, Engine::GetFrameHeight()), float2(Engine::GetFrameWidth(), -Engine::GetFrameHeight()),float4(1,1,1,1));
+	m_Draw->Rect(frame, float2(0,0), float2(Engine::GetFrameWidth(), Engine::GetFrameHeight()),float4(1,1,1,1));
 
 }

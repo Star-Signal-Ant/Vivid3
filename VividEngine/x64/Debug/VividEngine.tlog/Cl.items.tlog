@@ -26,6 +26,7 @@ C:\dev\Vivid3D\VividEngine\MaterialEmissive.cpp;C:\dev\Vivid3D\VividEngine\x64\D
 C:\dev\Vivid3D\VividEngine\MaterialMeshLight.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\MaterialMeshLight.obj
 C:\dev\Vivid3D\VividEngine\MaterialMeshLines.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\MaterialMeshLines.obj
 C:\dev\Vivid3D\VividEngine\MaterialMeshPBR.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\MaterialMeshPBR.obj
+C:\dev\Vivid3D\VividEngine\MaterialSSR.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\MaterialSSR.obj
 C:\dev\Vivid3D\VividEngine\MaterialTerrain.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\MaterialTerrain.obj
 C:\dev\Vivid3D\VividEngine\MaterialTerrainDepth.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\MaterialTerrainDepth.obj
 C:\dev\Vivid3D\VividEngine\MathsHelp.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\MathsHelp.obj
@@ -48,6 +49,7 @@ C:\dev\Vivid3D\VividEngine\PostProcess.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\
 C:\dev\Vivid3D\VividEngine\PostProcessing.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\PostProcessing.obj
 C:\dev\Vivid3D\VividEngine\PPBloom.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\PPBloom.obj
 C:\dev\Vivid3D\VividEngine\PPEmissive.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\PPEmissive.obj
+C:\dev\Vivid3D\VividEngine\PPSSR.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\PPSSR.obj
 C:\dev\Vivid3D\VividEngine\Quat.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\Quat.obj
 C:\dev\Vivid3D\VividEngine\RendererBase.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\RendererBase.obj
 C:\dev\Vivid3D\VividEngine\RenderTarget2D.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\RenderTarget2D.obj
@@ -63,6 +65,7 @@ C:\dev\Vivid3D\VividEngine\TerrainMesh.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\
 C:\dev\Vivid3D\VividEngine\TerrainMeshBuffer.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\TerrainMeshBuffer.obj
 C:\dev\Vivid3D\VividEngine\Texture2D.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\Texture2D.obj
 C:\dev\Vivid3D\VividEngine\TextureCube.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\TextureCube.obj
+C:\dev\Vivid3D\VividEngine\TextureDepth.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\TextureDepth.obj
 C:\dev\Vivid3D\VividEngine\TrackKeyFrame.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\TrackKeyFrame.obj
 C:\dev\Vivid3D\VividEngine\VFile.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\VFile.obj
 C:\dev\Vivid3D\VividEngine\VividEngine.cpp;C:\dev\Vivid3D\VividEngine\x64\Debug\VividEngine.obj

@@ -70,6 +70,10 @@ VScriptEdit::VScriptEdit(QWidget *parent)
         // updateUI(result);
         });
 
+    QIcon icon("engine/v6.png");
+
+    // Set the window icon
+    setWindowIcon(icon);
 
     // Add menu bar and toolbar to the layout
     mainLayout->setMenuBar(menuBar);
@@ -82,6 +86,9 @@ VScriptEdit::VScriptEdit(QWidget *parent)
    // mainLayout->addWidget(textEdit);
     m_Console = new QTextEdit(this);
     //mainLayout->addWidget(m_Console);
+    QPalette p = m_Console->palette();
+    p.setColor(QPalette::Base, QColor(40, 40, 40));
+    m_Console->setPalette(p);
 
     m_Docs = new QTabWidget(this);
 
@@ -169,6 +176,11 @@ void VScriptEdit::LoadScript(std::string path) {
 //    setWindowTitle(title.c_str());
 
     m_Edit = new VTextEditor;
+
+    QPalette p = m_Edit->palette();
+    p.setColor(QPalette::Base,QColor(30,30,30));
+    m_Edit->setPalette(p);
+
 
     m_Edits.push_back(m_Edit);
 
@@ -748,7 +760,7 @@ void VScriptEdit::Highlight() {
     {
 
         if (m_Codes.count(f) == 0) {
-            m_Codes[f] = KeyColor(50, 170, 170);
+            m_Codes[f] = KeyColor(120, 170, 170);
         }
 
     }
